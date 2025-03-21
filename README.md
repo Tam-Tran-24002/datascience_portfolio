@@ -58,10 +58,7 @@ Rexburg, Idaho
 • Extracted actionable insights from real-world datasets to influence data-driven decisions, enhance model performance, and streamline processes for future analyses
 
 # Key Skills
-Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R, Pivot Tables
-
-Machine Learning: Classification Models, Regression Models, Decision Trees, Random Forest, K-Nearest Neighbors (KNN)
-
-Business Intelligence Tools: Tableau
-
-Microsoft Office Suite: Word, Excel, PowerPoint, Outlook
+• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R, Pivot Tables
+• Machine Learning: Classification Models, Regression Models, Decision Trees, Random Forest, K-Nearest Neighbors (KNN)
+• Business Intelligence Tools: Tableau
+• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook
