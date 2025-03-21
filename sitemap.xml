@@ -2,74 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/resume.html</loc>
-    <lastmod>2025-03-21T18:26:50.778Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project0.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project2.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project5.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3a_Regression_Model/readme.html</loc>
-    <lastmod>2025-03-21T18:26:50.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/1_KNN_Model/readme.html</loc>
-    <lastmod>2025-03-21T18:26:50.763Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/ML_Bootcamp_Classification_XGBoost_Template.html</loc>
-    <lastmod>2025-03-21T18:26:50.765Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.html</loc>
-    <lastmod>2025-03-21T18:26:50.763Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/machine_learning.html</loc>
-    <lastmod>2025-03-21T18:26:50.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/index.html</loc>
-    <lastmod>2025-03-21T18:26:50.778Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/2_DecisionTree_RandomForests_Model/Bootcamp_DecisionTree_RandomForest_Template.html</loc>
-    <lastmod>2025-03-21T18:26:50.763Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/readme.html</loc>
-    <lastmod>2025-03-21T18:26:50.768Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/data/readme.html</loc>
-    <lastmod>2025-03-21T18:26:50.768Z</lastmod>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/exploration.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3a_Regression_Model/ML_Bootcamp_Regression_Template.html</loc>
-    <lastmod>2025-03-21T18:26:50.765Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/data/readme.html</loc>
+    <lastmod>2025-03-21T18:41:09.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/readme.html</loc>
+    <lastmod>2025-03-21T18:41:09.689Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/2_DecisionTree_RandomForests_Model/Bootcamp_DecisionTree_RandomForest_Template.html</loc>
+    <lastmod>2025-03-21T18:41:09.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/competition.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/cleansing.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/ml.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/story_telling.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/index.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/full_stack.html</loc>
+    <lastmod>2025-03-21T18:41:09.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.html</loc>
+    <lastmod>2025-03-21T18:41:09.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3b_Classification_Model/ML_Bootcamp_Classification_XGBoost_Template.html</loc>
+    <lastmod>2025-03-21T18:41:09.686Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/1_KNN_Model/readme.html</loc>
+    <lastmod>2025-03-21T18:41:09.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine Learning projects/3a_Regression_Model/readme.html</loc>
+    <lastmod>2025-03-21T18:41:09.686Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project3.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project1.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data Science Programming projects/project4.html</loc>
-    <lastmod>2025-03-21T18:26:50.762Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.683Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/250_projects.html</loc>
-    <lastmod>2025-03-21T18:26:50.485Z</lastmod>
+    <lastmod>2025-03-21T18:41:09.401Z</lastmod>
   </url>
 </urlset>
