@@ -1,0 +1,257 @@
+---
+title: "Client Report - Project 05"
+subtitle: "Course DS 250"
+author: "Tam Tran"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+execute: 
+  warning: false
+    
+---
+
+## Elevator pitch
+...
+```{python}
+#| label: libraries
+#| include: true
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from lets_plot import *
+import plotly.express as px
+LetsPlot.setup_html(isolated_frame=True)
+
+
+from types import GeneratorType
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import metrics
+```
+```{python}
+pd.set_option('display.max_columns', None)
+url = "https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv"
+
+col_names = pd.read_csv(url, encoding = "ISO-8859-1", header= None, skiprows= 2)
+columns = pd.read_csv(url, encoding = "ISO-8859-1", nrows= 1).melt()
+columns
+```
+__Shorten the column names and clean them up for easier use with pandas. Provide a table or list that exemplifies how you fixed the names.__
+```{python}
+#| label: Q1-data
+#| code-summary: Read and format project data
+#Create a new dataframe:
+(columns
+.replace('Unnamed: \d{1,2}', np.nan, regex=True)
+.replace('Response', "")
+.assign(clean_var = lambda x: x.variable.str.strip()
+         .replace('Which of the following Star Wars films have you seen? Please select all that apply.','seen'),
+         clean_value = lambda x: x.value.str.strip())
+.fillna(method="ffill")
+.assign(column_name = lambda x: x.clean_var.str.cat(x.clean_value, sep = "__")))
+ 
+#dictionary to replace variable names with
+variables_replace = {
+    'Which of the following Star Wars films have you seen\\? Please select all that apply\\.':'seen',
+    'Please rank the Star Wars films in order of preference with 1 being your favorite film in the franchise and 6 being your least favorite film.':'rank',
+    'Please state whether you view the following characters favorably, unfavorably, or are unfamiliar with him/her.':'view',
+    'Do you consider yourself to be a fan of the Star Trek franchise\\?':'star_trek_fan',
+    'Do you consider yourself to be a fan of the Expanded Universe\\?\x8cæ':'expanded_fan',
+    'Are you familiar with the Expanded Universe\\?':'know_expanded',
+    'Have you seen any of the 6 films in the Star Wars franchise\\?':'seen_any',
+    'Do you consider yourself to be a fan of the Star Wars film franchise\\?':'star_wars_fan',
+    'Which character shot first\\?':'shot_first',
+    'Unnamed: \d{1,2}':np.nan,
+    ' ':'_',
+}
+#dictionary to replace value names with
+values_replace = {
+    'Response':'',
+    'Star Wars: Episode ':'',
+    ' ':'_'}
+#finish creating the cleaned column names you will use with the data
+mycols = (columns.assign(
+    value_replace = lambda x: x.value.str.strip().replace(values_replace, regex=True),
+    variable_replace = lambda x: x.variable.str.strip().replace(variables_replace, regex=True)
+).fillna(method="ffill")
+.fillna(value = "")
+.assign(names = lambda x: x.variable_replace.str.cat(x.value_replace, sep = "__").str.strip('__').str.lower()))
+ 
+print(mycols["names"].to_list())
+#put clean column names back on the data
+col_names.columns = mycols["names"].to_list()
+col_names
+```
+__Clean and format the data so that it can be used in a machine learning model. As you format the data, you should complete each item listed below. In your final report provide example(s) of the reformatted data with a short description of the changes made.__
+__A.Filter the dataset to respondents that have seen at least one film__
+```{python}
+#| label: Q2A
+#| code-summary: Read and format project data
+#Create a new dataframe:
+watched_any_star_wars = col_names.iloc[:, 3:9].notnull().any(axis=1)
+ 
+col_names = col_names[watched_any_star_wars]
+col_names
+```
+__B.Create a new column that converts the age ranges to a single number. Drop the age range categorical column__
+```{python}
+#| label: Q2B
+#| code-summary: Read and format project data
+#Create a new dataframe:
+col_names.age.unique()
+age_number = (col_names.age
+              .str.replace("18-29", '25')
+              .str.replace("30-44", "35")
+              .str.replace("45-60", "55")
+              .str.replace("> 60", "65")
+              .astype("float")
+              .replace(np.nan, 40.5))
+age_number
+```
+```{python}
+#| label: Q2C
+#| code-summary: Read and format project data
+#Create a new dataframe:
+col_names.education.unique()
+#age and grade 7y, 16y, 18y, 23y,28y,
+edu_number = (col_names.education
+              .str.replace( 'Less than high school degree', "7")
+              .str.replace('High school degree', '16')
+              .str.replace('Some college or Associate degree', "18")
+              .str.replace('Bachelor degree', "23")
+              .str.replace('Graduate degree', "28")
+              .astype("float")
+              .replace(np.nan, 0))
+edu_number
+```
+```{python}
+#| label: Q2D
+#| code-summary: Read and format project data
+#Create a new dataframe:
+col_names.household_income.unique()
+ 
+income_number = (col_names.household_income
+              
+              .str.replace('$0 - $24,999', '30000')
+              .str.replace('$100,000 - $149,999', '70000')
+              .str.replace('$25,000 - $49,999', '120000')
+              .str.replace('$50,000 - $99,999', "70000")
+              .str.replace('$150,000+', "180000")
+              .astype("float")
+              .replace(np.nan, 80000))
+ 
+income_number
+```
+
+```{python}
+#| label: Q2E
+#| code-summary: Read and format project data
+#Create a new dataframe:
+combine = pd.concat([edu_number, income_number, age_number], axis= 1)
+ 
+combine["label"] = (combine["household_income"].apply(lambda x : 1 if x >= 50000 else 0))
+combine
+```
+
+```{python}
+#| label: Q2F
+#| code-summary: Read and format project data
+#Create a new dataframe:
+col_names = (col_names.replace("Star Wars: .+", 1, regex= True).replace(np.nan, 0))
+ 
+one_hot = col_names.drop (["education", "age", "household_income"], axis= 1)
+ 
+encode = pd.get_dummies(one_hot, drop_first= False, dtype= int)
+ 
+for_machine = pd.concat ([combine, encode], axis= 1)
+for_machine
+```
+__Validate that the data provided on GitHub lines up with the article by recreating 2 of the visuals from the article.__
+```{python}
+#| label: Q3
+#| code-summary: Read and format project data
+#Create a new dataframe:
+
+LetsPlot.setup_html()
+
+# Data preparation
+watched_any_star_wars = col_names.iloc[:, 3:9].dropna(how="all").notnull().any(axis=1)
+
+# Calculate mean and create the final DataFrame
+final = col_names.filter([
+    'seen__i__the_phantom_menace', 
+    'seen__ii__attack_of_the_clones',
+    'seen__iii__revenge_of_the_sith', 
+    'seen__iv__a_new_hope', 
+    'seen__v_the_empire_strikes_back', 
+    'seen__vi_return_of_the_jedi'
+]).mean()
+
+final_df = pd.DataFrame({'Column': final.index, 'Mean': final.values})
+
+# Replace column names for better readability
+final_df['Column'].replace({
+    'seen__i__the_phantom_menace': 'The Phantom Menace',
+    'seen__ii__attack_of_the_clones': 'Attack of the Clones',
+    'seen__iii__revenge_of_the_sith': 'Revenge of the Sith',
+    'seen__iv__a_new_hope': 'A New Hope',
+    'seen__v_the_empire_strikes_back': 'The Empire Strikes Back',
+    'seen__vi_return_of_the_jedi': 'Return of the Jedi'
+}, inplace=True)
+
+# Add a percentage column
+final_df['Percentage'] = final_df['Mean'] * 100
+
+# Create the bar plot
+bar_plot = ggplot(final_df, aes(x='Mean', y='Column')) + \
+    geom_bar(stat='identity', fill='#87CEEB') + \
+    geom_text(aes(label=final_df['Percentage'].round(0).astype(int)), nudge_y=0.1, size=10) + \
+    ggtitle("Which 'Star Wars Movie' Have You Seen") + \
+    xlab("Mean") + \
+    ylab("Movie") + \
+    theme(axis_text_y=element_text(size=10))
+
+# Show the plot
+bar_plot.show()
+```
+__Build a machine learning model that predicts whether a person makes more than $50k. Describe your model and report the accuracy.__
+```{python}
+#| label: Q4
+#| code-summary: Read and format project data
+#Create a new dataframe:
+x = for_machine.dropna().drop(for_machine.filter(regex="label|household_income").columns, axis=1)
+ 
+y = for_machine.dropna().filter(regex="label")
+ 
+x_train, x_test, y_train, y_test = train_test_split(x, y, train_size = .34, random_state = 76)
+ 
+pred = DecisionTreeClassifier()
+pred = pred.fit(x_train, y_train)
+y_pred = pred.predict(x_test)
+y_prods = pred.predict_proba(x_test)
+ 
+ 
+# y_predicted = forest_DT.predict(x_test)
+ 
+print(metrics.classification_report(y_pred, y_test))
+```
+

@@ -1,0 +1,178 @@
+---
+title: "Client Report - Project 1"
+subtitle: "Course DS 250"
+author: "Tam Tran"
+format:
+  html:
+    self-contained: true
+    page-layout: full
+    title-block-banner: true
+    toc: true
+    toc-depth: 3
+    toc-location: body
+    number-sections: false
+    html-math-method: katex
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    code-copy: hover
+    code-tools:
+        source: false
+        toggle: true
+        caption: See code
+execute: 
+  warning: false
+    
+---
+
+```{python}
+#| label: libraries
+#| include: false
+import pandas as pd
+import numpy as np
+from lets_plot import *
+
+LetsPlot.setup_html(isolated_frame=True)
+```
+
+
+## Elevator pitch
+
+_This project has some key insights. In the past, Marry and Brittany were the trendy name. Nevertheless, these days people prefer to use others. Besides, this project also shows that the famous movie does not affect the name usage._
+
+```{python}
+#| label: project-01
+#| code-summary: Read and format project 01 data
+#df = pd.read_csv("names_year.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv")
+
+```
+
+__Highlight the Questions and Tasks__
+
+## Question|Task 1
+
+__How does your name at your birth year compare to its use historically?__
+
+_In 2002, the name Marry was less popular than in the past, especially in 1950, reaching the height of popularity with 53,791 Marry's._
+
+```{python}
+#| Label: line-chart
+#| code-summary: Read, format data and visualize data as chart
+#| Mapping: x="year", y="Total"
+LetsPlot.setup_html()
+df_mary = df.loc[df["name"] == "Mary"]
+ggplot(data=df_mary, mapping=aes(x="year", y="Total")) + geom_line() + scale_x_continuous(format="d") + geom_vline(xintercept=2002, color="red", linetype="solid") + geom_text(x=2002, y=max(df_mary["Total"]), label="Birth Year", color="red", ha="center", va="bottom")
+
+```
+
+## Question|Task 2
+
+__If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?__
+
+_The chart shows that most Brittany's were born in 1990 so if we talked to someone named Brittany on the phone, she should be 34 years old. She might not be under 20 or over 40 because that age would be too far._
+
+```{python}
+#| Label: brittany-line-chart
+#| code-summary: Read, format data and visualize data as chart
+#| Mapping: x="year", y="Total"
+LetsPlot.setup_html()
+df_Brittany = df.loc[df["name"] == "Brittany"]
+ggplot(data=df_Brittany, mapping=aes(x="year", y="Total")) + geom_line() + scale_x_continuous(format="d") + geom_vline(xintercept=1990, color="red", linetype="solid") + geom_text(x=1990, y=max(df_Brittany["Total"]), label="Brittany's Birth Year Guess", color="red", ha="center", va="bottom")
+```
+
+## Question|Task 3
+
+__Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names in a single chart. What trends do you notice?__
+
+_In 1950, Mary was extremely trendy compared to Martha, Peter, and Paul (53,791). The second most popular Christian name is Paul with over 24,000 the name usage. Peter and Martha are not significant with 9,690 and 7,930 respectively._
+
+```{python}
+#| label: christian-names-chart
+#| code-summary: line chart of Christian names with colors using scale_color_manual
+LetsPlot.setup_html()
+df = df.query('year > 1919 and year < 2001')
+df_Christian_names = df.loc[df["name"].isin(["Mary", "Martha", "Peter", "Paul"])]
+ggplot(data=df_Christian_names, mapping=aes(x="year", y="Total", color="name")) + geom_line() + scale_color_manual(values={"Mary":"red", "Martha":"blue", "Peter":"green", "Paul":"yellow"}) + scale_x_continuous(format="d") 
+```
+
+## Question|Task 4
+
+__Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?__
+
+_In 1990, the Home Alone movie was released which was immensely popular. Nevertheless, Kevin, the name of the main character, was not affected by the use of the famous film. After 1990, there were fewer people named Kevin and it is predicted to be a downward trend for a long time.
+
+```{python}
+#| Label: kevin-line-chart
+#| code-summary: visualize Kevin's name by a line chart
+LetsPlot.setup_html()
+df_movie_name = df.loc[df["name"] == "Kevin"]
+ggplot(data=df_movie_name, mapping=aes(x="year", y="Total")) + geom_line() + scale_x_continuous(format="d") + geom_vline(xintercept=1990, color="red", linetype="solid") + geom_text(x=1990, y=max(df_movie_name["Total"]), label="Movie's Year Released", color="red", ha="center", va="bottom")
+```
+
+## Question|Stretch Task
+
+__Reproduce the chart Elliot using the data from the names_year.csv file.__
+
+```{python}
+#| label: elliot-line-chart
+#| code-summary: visualize Elliot's name by a line chart, addd a vertical line at 1982, 1985, and 2002, and change the x-axis scale to be every 10 years
+LetsPlot.setup_html()
+df_movie_name = df.loc[df["name"] == "Elliot"]
+(ggplot(data=df_movie_name, mapping=aes(x="year", y="Total", color="name"))
+ + geom_line()
+ + scale_color_manual(values={"Elliot":"blue"})
+ + scale_x_continuous(limits=[1950, 2020], breaks=[i for i in range(1950, 2021, 10)], format="d")
+ + geom_vline(xintercept=1982, color="red", linetype="dashed")
+ + geom_vline(xintercept=1985, color="red", linetype="dashed")
+ + geom_vline(xintercept=2002, color="red", linetype="dashed")
+ + geom_text(x=1982, y=max(df_movie_name["Total"]), label="E.T Released", color="black", ha="center", va="bottom", size= 5,hjust = 1, vjust = 0)
+  + geom_text(x=1985, y=max(df_movie_name["Total"]), label="Second Released", color="black", ha="center", va="bottom", size= 5, hjust = 0, vjust = 1)
+  + geom_text(x=2002, y=max(df_movie_name["Total"]), label="Third Released", color="black", ha="center", va="bottom", size= 5, hjust = 0, vjust = 1)
++ labs(
+        title="Elliot...What?",
+    )
++  theme(panel_background = element_rect(fill = "#e5ecf6"))
++ theme(legend_position=[1,1])
+#The first value (1) represents the x-coordinate (horizontal position).
+#The second value (1) represents the y-coordinate (vertical position).
+#Both values range from 0 to 1, where:
+#(0, 0) is the bottom-left corner.
+#(0, 1) is the top-left corner.
+#(1, 0) is the bottom-right corner.
+#(1, 1) is the top-right corner (which you are using).
+)
+```
+```{python}
+df_mary = df.loc[df["name"] == "Oliver"]
+utah_count = df_mary["UT"].sum()
+print(utah_count)
+```
+
+__Testing stretch question__
+```{python}
+df_movie_name = df.loc[df["name"] == "Elliot"]
+(
+  ggplot(data=df_movie_name, mapping=aes(x="year", y="Total"))
+  + geom_line(mapping=aes(color="name"), size=1)
+  + scale_color_manual(values={"Elliot": "blue"})
+  + geom_vline(xintercept=1982.5, linetype="dashed", color="red")
+  + scale_x_continuous(format = '{}')
+  + geom_vline(xintercept=1985, linetype="dashed", color="red")
+  + geom_vline(xintercept=2002, linetype="dashed", color="red")
+  + geom_text(label="E.T Released", x=1977, y=1265, size=5, color="black")
+  + geom_text(label="Second Release", x=1991.5, y=1265, size=5, color="black")
+  + geom_text(label="Third Release", x=2007.5, y=1265, size=5, color="black")
+  + labs(
+        title="Elliot... What?",
+        x="Year",
+        y="Total",
+        color="name"
+    )
+  + scale_x_continuous(limits=(1950, 2025),breaks=list(range(1950,2025, 10)), format = '{}', expand=[0])
+  + scale_y_continuous(limits=(0,1300), breaks=list(range(0, 1300, 200)),format='{}')
+  + ggsize(width=800,height=380)
+  + geom_rect(xmin = 1982, xmax = 1998, ymin = 0, ymax = 35000, 
+            fill = "#843540", alpha = 0.2, size = 0)  #to have shadow for task 2 (color the range of ages)
+)
+```
