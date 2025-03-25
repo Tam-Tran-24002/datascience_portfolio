@@ -48,15 +48,15 @@ Ton Duc Thang University
 • Directed and improved a 6-member team by analyzing performance metrics and implementing weekly workflow adjustments, resulting in a 20% increase in operational efficiency and streamlined processes  
 • Trained 5 team members on advanced Excel techniques, resulting in a 30% reduction in operational processing time and significantly boosting overall team performance   
 
-# Academic Projects
+# Relevant Projects
 ## Machine Learning – Bootcamp                                                     
-Rexburg, Idaho | February 2023 - February 2024     
-Brigham Young University - Idaho  
-• Deploy machine learning models (K-Nearest Neighbors, Decision Tree, Random Forest, Regression, Classification) on real-world datasets, achieving up to 90% model accuracy  
-• Extracted actionable insights from real-world datasets to influence data-driven decisions, enhance model performance, and streamline processes for future analyses    
+February 2023 - February 2024      
+• Deployed Random Forest, Decision Trees, K-Nearest Neighbors (KNN), and XGBoost on real-world datasets, achieving 90% accuracy
+• Optimized model performance through feature engineering, train-test split, and categorical encoding
+• Extracted actionable insights to support data-driven decisions and enhance model interpretability   
 
 # Key Skills
-• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R, Pivot Tables  
-• Machine Learning: Classification Models, Regression Models, Decision Trees, Random Forest, K-Nearest Neighbors (KNN)  
-• Business Intelligence Tools: Tableau  
-• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook  
+• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R, Pivot Tables
+• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data),Classification Models (Decision Trees, Random Forest, KNN, XGBoost), Regression Models
+• Business Intelligence Tools: Tableau
+• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook
