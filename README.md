@@ -52,7 +52,7 @@ Ton Duc Thang University
 ## Machine Learning – Bootcamp                                                     
 January 2024 - Present          
 • Deployed Random Forest, Decision Trees, K-Nearest Neighbors (KNN), and XGBoost on real-world datasets, achieving 90% accuracy  
-• Optimized model performance through feature engineering, train-test split, and categorical encoding
+• Optimized model performance through feature engineering, train-test split, and categorical encoding  
 • Extracted actionable insights to support data-driven decisions and enhance model interpretability     
 
 # Key Skills
