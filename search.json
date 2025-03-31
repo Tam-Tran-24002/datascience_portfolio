@@ -116,7 +116,17 @@
     "href": "machine_learning.html",
     "title": "Machine Learning - Bootcamp",
     "section": "",
-    "text": "Back to top",
+    "text": "KNN Model\nDecision Tree - Random Forests Model\nRegression Model\n\nMachine Learning projects/4_Classification_Model",
+    "crumbs": [
+      "Machine Learning projects"
+    ]
+  },
+  {
+    "objectID": "machine_learning.html#my-projects",
+    "href": "machine_learning.html#my-projects",
+    "title": "Machine Learning - Bootcamp",
+    "section": "",
+    "text": "KNN Model\nDecision Tree - Random Forests Model\nRegression Model\n\nMachine Learning projects/4_Classification_Model",
     "crumbs": [
       "Machine Learning projects"
     ]
