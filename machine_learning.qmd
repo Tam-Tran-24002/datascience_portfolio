@@ -4,7 +4,12 @@ title: "Machine Learning - Bootcamp"
 
 ## My projects
 
-- [1_KNN_Model](/ML_Bootcamp_KNN.ipynb)
-- [2_DecisionTree_RandomForests_Model](/ML_Bootcamp_DecisionTree_RandomForest.ipynb)
-- [3_Regression_Model](/ML_Bootcamp_Regression.ipynb)
-- [4_Classification_Model](/ML_Bootcamp_Classification_XGBoost.ipynb)
+/machine_learning_projects
+    /1_KNN_Model
+        ML_Bootcamp_KNN.ipynb
+    /2_DecisionTree_RandomForests_Model
+        ML_Bootcamp_DecisionTree_RandomForest.ipynb
+    /3_Regression_Model
+        ML_Bootcamp_Regression.ipynb
+    /4_Classification_Model
+        ML_Bootcamp_Classification_XGBoost.ipynb
