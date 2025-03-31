@@ -1,656 +1,265 @@
 [
   {
-    "objectID": "competition.html",
-    "href": "competition.html",
-    "title": "about me",
+    "objectID": "Machine Learning projects/4_Classification_Model/data/readme.html",
+    "href": "Machine Learning projects/4_Classification_Model/data/readme.html",
+    "title": "Tam Tran - Data Science Portfolio",
     "section": "",
-    "text": "MarkDown Basics",
+    "text": "– Data Overview –\nThe bank customer churn dataset is a commonly used dataset for predicting customer churn in the banking industry. It contains information on bank customers who either left the bank or continue to be a customer.\nThe data dictionary: - Customer ID: A unique identifier for each customer - Surname: The customer’s surname or last name - Credit Score: A numerical value representing the customer’s credit score - Geography: The country where the customer resides (France, Spain or Germany) - Gender: The customer’s gender (Male or Female) - Age: The customer’s age. - Tenure: The number of years the customer has been with the bank - Balance: The customer’s account balance - NumOfProducts: The number of bank products the customer uses (e.g., savings account, credit card) - HasCrCard: Whether the customer has a credit card (1 = yes, 0 = no) - IsActiveMember: Whether the customer is an active member (1 = yes, 0 = no) - EstimatedSalary: The estimated salary of the customer - Exited: Whether the customer has churned (1 = yes, 0 = no)\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Machine Learning projects/4_Classification_Model/readme.html",
+    "href": "Machine Learning projects/4_Classification_Model/readme.html",
+    "title": "Tam Tran - Data Science Portfolio",
+    "section": "",
+    "text": "XGBoost Classification is a supervised machine learning algorithm that builds an ensemble of decision trees to predict categorical outcomes. It is optimized for speed and performance using gradient boosting techniques.\n\nData For the foundation dataset we will be using the bank customer churn dataset. It is a commonly used dataset for predicting customer turnover in the banking industry. For more information go to the data folder’s readme file.\n\nDefinition\nXGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient boosting designed for efficiency and accuracy. It improves predictions by sequentially training trees while correcting previous errors. The key components include:\n\nBoosting Trees: A collection of decision trees built sequentially to reduce errors.\n\nGradient Descent Optimization: Adjusts model weights using the gradient of a loss function.\n\nRegularization: Controls model complexity to prevent overfitting.\n\nFor classification, XGBoost predicts categorical outcomes by minimizing a chosen loss function, such as logistic loss for binary classification or softmax (cross-entropy) loss for multi-class classification.\n\nKey Concepts\n1. Boosting Mechanism:\n- Unlike a single decision tree, XGBoost builds multiple trees in sequence.\n- Each new tree corrects the errors of the previous ones by focusing on misclassified examples.\n\nLoss Functions:\n\nDetermines how errors are measured and minimized.\n\nCommon choices for classification include:\n\nLogistic Loss – Used for binary classification tasks.\n\nSoftmax (Cross-Entropy Loss) – Used for multi-class classification tasks.\n\n\nRegularization Techniques:\n\nPrevents overfitting by adding penalties to complex models.\n\nL1 Regularization (Lasso) – Encourages sparsity by shrinking coefficients.\n\nL2 Regularization (Ridge) – Penalizes large coefficients to reduce variance.\n\nFeature Importance & Selection:\n\nXGBoost ranks features by importance, aiding in feature selection.\n\nHelps in eliminating redundant or irrelevant features for better performance.\n\n\n\nPros\n1. High Performance – Optimized for speed, scalability, and efficiency.\n2. Handles Missing Data – Automatically learns how to deal with missing values.\n3. Regularization Built-in – Reduces overfitting with L1 and L2 penalties.\n4. Probabilistic Predictions – Provides probability scores for classification, enabling threshold tuning.\n5. Works Well with Large Datasets – Efficient memory usage and parallel processing.\n\nCons\n1. Complexity – More difficult to tune compared to simpler models.\n2. Computationally Intensive – Training can be slow on very large datasets.\n3. Sensitive to Hyperparameters – Performance depends on careful tuning of learning rate, tree depth, and regularization.\n4. Less Interpretable – Decision boundaries may be challenging to interpret compared to simpler models.\n\nTips\n* Optimize Hyperparameters – Use grid search or Bayesian optimization for tuning.\n* Use Early Stopping – Stop training if performance ceases to improve on validation data.\n* Scale Features if Needed – Although XGBoost can handle unscaled data, standardization might improve performance.\n* Leverage Feature Importance – Identify and remove less relevant features to improve efficiency.\n* Adjust Decision Thresholds – Fine-tune the probability threshold to balance precision and recall for your specific task.\n\nUseful Articles and Videos\n* XGBoost Official Documentation\n* XGBoost for Classification – Machine Learning Mastery\n* Understanding XGBoost – Analytics Vidhya\n* XGBoost Explained for Classification – YouTube\n\n\n\n Back to top",
     "crumbs": [
-      "Competition"
+      "Machine Learning projects/4_Classification_Model"
     ]
   },
   {
-    "objectID": "competition.html#title-2-header",
-    "href": "competition.html#title-2-header",
-    "title": "about me",
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#overview",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#overview",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Overview",
+    "text": "Overview\nDecision Tree (DT) is a supervised machine learning algorithm used for both classification and regression tasks. It splits data into branches based on feature values to make predictions.\n\n\n\nDefinition\nA Decision Tree is a flowchart-like model where data is split into smaller subsets based on feature conditions. The structure consists of:\n\nRoot Node: The starting point that represents the entire dataset.\n\nDecision Nodes: Points where the data is split based on a feature.\n\nLeaves: Terminal nodes that provide the final prediction.\n\nFor classification, a Decision Tree assigns class labels based on feature splits.\nFor regression, it predicts continuous values using the average or mean of data points in each leaf.\n\n\n\nKey Concepts 1. Splitting Criteria:\n- Determines how the dataset is divided at each step.\n- Common methods: * Gini Impurity (Classification) – Measures the likelihood of incorrect classification.\n* Entropy (Classification) – Uses information gain to decide splits.\n* Mean Squared Error (MSE) (Regression) – Measures variance within nodes.\n\nTree Depth & Overfitting:\n\nDeeper trees fit training data better but may overfit.\n\nPruning (removing unnecessary branches) improves generalization.\n\nFeature Importance:\n\nDecision Trees rank features by their impact on predictions.\n\nHelps in feature selection for other models.\n\nHandling Missing Data:\n\nSome implementations allow surrogate splits to handle missing values.\n\n\n\n\n\nPros 1. Easy to Understand & Interpret – Can be visualized as a simple flowchart.\n2. No Need for Feature Scaling – Works with both categorical and numerical features.\n3. Handles Non-Linearity – Can model complex relationships without requiring transformation.\n4. Fast for Small Datasets – Training and inference are relatively quick.\n\n\n\nCons 1. Prone to Overfitting – Deep trees can memorize training data, reducing generalization.\n2. Unstable to Small Changes – Small variations in data can change the tree structure significantly.\n3. Less Efficient on Large Datasets – Computationally expensive for large datasets.\n\n\n\nTips * Limit Tree Depth – Use max_depth to prevent overfitting.\n* Pruning Techniques – Use pre-pruning (max_leaf_nodes) or post-pruning to remove unnecessary branches.\n* Use Feature Importance – Identify the most influential features and remove irrelevant ones.\n* Consider Ensemble Methods – Random Forest or Gradient Boosting improve Decision Trees by reducing variance.\n\n\n\nUseful Articles and Videos * https://www.datacamp.com/tutorial/decision-tree-classification-python * https://www.ibm.com/think/topics/decision-trees * https://www.youtube.com/watch?v=6DlWndLbk90 * https://www.youtube.com/watch?v=ZOiBe-nrmc4"
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#import-datalibraries",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#import-datalibraries",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Import Data/Libraries",
+    "text": "Import Data/Libraries\n\n!pip install lets_plot\n\nCollecting lets_plot\n  Downloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)\nCollecting pypng (from lets_plot)\n  Downloading pypng-0.20220715.0-py3-none-any.whl.metadata (13 kB)\nCollecting palettable (from lets_plot)\n  Downloading palettable-3.3.3-py2.py3-none-any.whl.metadata (3.3 kB)\nDownloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 19.2 MB/s eta 0:00:00\nDownloading palettable-3.3.3-py2.py3-none-any.whl (332 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 332.3/332.3 kB 7.5 MB/s eta 0:00:00\nDownloading pypng-0.20220715.0-py3-none-any.whl (58 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.1/58.1 kB 3.3 MB/s eta 0:00:00\nInstalling collected packages: pypng, palettable, lets_plot\nSuccessfully installed lets_plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0\n\n\n\n# needed libraries for Decision Tree models\nimport pandas as pd\nfrom sklearn import tree\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.metrics import confusion_matrix, accuracy_score, f1_score, recall_score, precision_score\nfrom sklearn.model_selection import cross_val_score,  train_test_split , KFold\nfrom sklearn.preprocessing import StandardScaler, Normalizer\nimport lets_plot as lp\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport seaborn as sns\n\n# foundation dataset\ntitanic_df = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')\n\n# stretch dataset\ncleveland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data', header=None)\nhungarian_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data', header=None)\nswitzerland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.switzerland.data', header=None)"
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#explore-visualize-and-understand-the-data",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#explore-visualize-and-understand-the-data",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Explore, Visualize and Understand the Data",
+    "text": "Explore, Visualize and Understand the Data\n\nsns.countplot(data=titanic_df, x=\"Pclass\", hue=\"Survived\", palette=\"Set2\")\nplt.title(\"Survival Count by Passenger Class\")\nplt.xlabel(\"Passenger Class\")\nplt.ylabel(\"Count\")\nplt.legend(title=\"Survived\", labels=[\"No\", \"Yes\"])\nplt.show()\n\n\n\n\n\n\n\n\n\ntitanic_df.head()\n\n\n  \n    \n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nName\nSex\nAge\nSibSp\nParch\nTicket\nFare\nCabin\nEmbarked\n\n\n\n\n0\n1\n0\n3\nBraund, Mr. Owen Harris\nmale\n22.0\n1\n0\nA/5 21171\n7.2500\nNaN\nS\n\n\n1\n2\n1\n1\nCumings, Mrs. John Bradley (Florence Briggs Th...\nfemale\n38.0\n1\n0\nPC 17599\n71.2833\nC85\nC\n\n\n2\n3\n1\n3\nHeikkinen, Miss. Laina\nfemale\n26.0\n0\n0\nSTON/O2. 3101282\n7.9250\nNaN\nS\n\n\n3\n4\n1\n1\nFutrelle, Mrs. Jacques Heath (Lily May Peel)\nfemale\n35.0\n1\n0\n113803\n53.1000\nC123\nS\n\n\n4\n5\n0\n3\nAllen, Mr. William Henry\nmale\n35.0\n0\n0\n373450\n8.0500\nNaN\nS\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nimport numpy as np\nfrom lets_plot import *\nLetsPlot.setup_html()\nggplot(mapping=aes(x='Pclass', fill='Survived'), data=titanic_df) + geom_bar()"
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#feature-enginnering-and-data-augmentation",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#feature-enginnering-and-data-augmentation",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Feature Enginnering and Data Augmentation",
+    "text": "Feature Enginnering and Data Augmentation\n\nData Augmentation\nDefinition: Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.\n\n\nFeature Engineering\nDefinition: Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.\n\nconditions = [\n    titanic_df[\"Name\"].str.contains(r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)', na=False),  # Condition 1: If \"Name\" contains \"Mr\"\n    titanic_df[\"Name\"].str.contains(r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)', na=False), # Condition 2: If \"Name\" contains \"Mrs\"\n    titanic_df[\"Name\"].str.contains(r'(?i)(Master)|(Countess)|(Jonkheer)|(Don)', na=False) # Condition 3: If \"Name\" contains \"Miss\"\n]\n\noutputs = [\n    1,\n    2,\n    3\n]\n\ntitanic_df[\"Name_group\"] = np.select(conditions, outputs, default=5)\n\nUserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  titanic_df[\"Name\"].str.contains(r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)', na=False),  # Condition 1: If \"Name\" contains \"Mr\"\n&lt;ipython-input-6-1b68d7e0032b&gt;:3: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  titanic_df[\"Name\"].str.contains(r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)', na=False), # Condition 2: If \"Name\" contains \"Mrs\"\n&lt;ipython-input-6-1b68d7e0032b&gt;:4: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n  titanic_df[\"Name\"].str.contains(r'(?i)(Master)|(Countess)|(Jonkheer)|(Don)', na=False) # Condition 3: If \"Name\" contains \"Miss\""
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#machine-learning-model-decision-tree",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#machine-learning-model-decision-tree",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Machine Learning Model: Decision Tree",
+    "text": "Machine Learning Model: Decision Tree\n\nSplit the data\n\n# Fitting the model\ntitanic_df2 = pd.get_dummies(titanic_df, columns=['Sex', 'Embarked', 'Name', 'Fare', 'Ticket', 'Cabin'], drop_first=True)\n\n\nX = titanic_df2.drop('Survived', axis=1)\ny = titanic_df2['Survived']\n\n\n\nCreate the model\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n\ny.head()\n\n\n\n\n\n\n\n\nSurvived\n\n\n\n\n0\n0\n\n\n1\n1\n\n\n2\n1\n\n\n3\n1\n\n\n4\n0\n\n\n\n\ndtype: int64\n\n\n\n\nTrain the model\n\n\nMake predictions\n\ntitanic_df2.head()\n\n\n  \n    \n\n\n\n\n\n\nPassengerId\nSurvived\nPclass\nAge\nSibSp\nParch\nName_group\nSex_male\nEmbarked_Q\nEmbarked_S\n...\nCabin_E8\nCabin_F E69\nCabin_F G63\nCabin_F G73\nCabin_F2\nCabin_F33\nCabin_F38\nCabin_F4\nCabin_G6\nCabin_T\n\n\n\n\n0\n1\n0\n3\n22.0\n1\n0\n1\nTrue\nFalse\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n1\n2\n1\n1\n38.0\n1\n0\n1\nFalse\nFalse\nFalse\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n2\n3\n1\n3\n26.0\n0\n0\n1\nFalse\nFalse\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n3\n4\n1\n1\n35.0\n1\n0\n1\nFalse\nFalse\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n4\n5\n0\n3\n35.0\n0\n0\n1\nTrue\nFalse\nTrue\n...\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\nFalse\n\n\n\n\n5 rows × 1973 columns\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\n# Predicting the Test set results\nDT = DecisionTreeClassifier()\nDT.fit(X_train, y_train)\n\nDecisionTreeClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.DecisionTreeClassifier?Documentation for DecisionTreeClassifieriFittedDecisionTreeClassifier() \n\n\n\ny_pred = DT.predict(X_test)\n\n\n\nEvaluate the Model\nAccuracy – The percentage of total predictions that are correct.\nExample: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.\nF1 Score – Out of all the positive predictions, how many were actually correct.\nExample: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.\nRecall Score – Out of all the actual positive cases, how many did the model correctly identify.\nExample: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.\nPrecision Score – A balance between precision and recall (harmonic mean).\nExample: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.\nAccuracy: 82.68 %. F1 Score: 0.82 %. Recall Score: 0.83 %. Precision Score: 0.83 %.\n\n# Accuracy, F1 Score, Recall score, Precision score\naccuracy = accuracy_score(y_test, y_pred)*100\nf1_score = f1_score(y_test, y_pred, average='weighted')\nrecall_score = recall_score(y_test, y_pred, average='weighted')\nprecision_score = precision_score(y_test, y_pred, average='weighted')\n\nprint('Accuracy: ' + str(round(accuracy, 2)) + ' %.')\nprint('F1 Score: ' + str(round(f1_score, 2)) + ' %.')\nprint('Recall Score: ' + str(round(recall_score, 2)) + ' %.')\nprint('Precision Score: ' + str(round(precision_score, 2)) + ' %.')\n\nAccuracy: 82.12 %.\nF1 Score: 0.82 %.\nRecall Score: 0.82 %.\nPrecision Score: 0.82 %."
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#overview-of-random-forests",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html#overview-of-random-forests",
+    "title": "Decision Tree Machine Learning Model 💻 🧠",
+    "section": "Overview of Random Forests",
+    "text": "Overview of Random Forests\nRandom Forest (RF) is a supervised machine learning algorithm used for both classification and regression tasks. It builds multiple decision trees and combines their outputs for better accuracy and stability.\n\nDefinition\nA Random Forest is an ensemble learning method that creates a “forest” of decision trees during training. Instead of relying on a single tree, Random Forest combines the predictions of multiple trees to improve performance. The structure consists of:\n\nDecision Trees: Individual trees that make predictions based on subsets of data and features.\nBagging (Bootstrap Aggregating): Each tree is trained on a randomly sampled subset of the data.\nVoting/Averaging: Combines the predictions from all trees:\nFor classification, the majority vote decides the class.\nFor regression, the average of all tree predictions is used.\nRandom Forest reduces the risk of overfitting compared to individual decision trees and works well for both categorical and numerical data.\n\n\nKey Concepts\n\nBagging:\n\n\nRandom Forest uses bootstrapping to train each tree on a different sample of the data.\nThis creates diversity among trees, making the model more robust.\n\n\nFeature Randomness:\n\n\nAt each split, Random Forest considers a random subset of features rather than all features.\nThis reduces correlation between trees and improves generalization.\n\n\nOut-of-Bag (OOB) Error:\n\n\nTrees not trained on certain data points (left out during bootstrapping) can be used to validate the model.\nOOB error gives an unbiased estimate of model performance.\n\n\nFeature Importance:\n\n\nRandom Forest provides a ranking of feature importance based on how often features are used for splitting across trees.\nUseful for identifying key predictors in your data. \n\nPros\nImproved Accuracy – Combines multiple trees, reducing overfitting. Robust to Noise – Handles outliers and noisy data better than individual trees. Handles Large Datasets – Can scale well with more data. Feature Selection – Provides insights into the importance of features. No Need for Feature Scaling – Works with unscaled data, both numerical and categorical. \nCons\nLess Interpretable – Harder to visualize compared to a single decision tree. Computationally Intensive – Training many trees can take time and memory for large datasets. Overfitting Risk with Too Many Trees – Although rare, excessive trees might still overfit without tuning. Slower Inference – Predictions may take longer because they aggregate results from multiple trees. \nTips\n\nTune n_estimators – Adjust the number of trees to balance accuracy and computational cost.\nLimit Tree Depth – Use max_depth to avoid overfitting while maintaining performance.\nOptimize Feature Subset Size – Use max_features to control how many features each tree considers at a split.\nUse Feature Importance – Rank and prioritize the most important features in your dataset.\nCombine with Other Methods – Random Forest pairs well with techniques like PCA for dimensionality reduction. \n\nUseful Articles and Videos\nhttps://www.datacamp.com/tutorial/random-forests-classifier-python\nhttps://www.ibm.com/topics/random-forest\nhttps://www.youtube.com/watch?v=J4Wdy0Wc_xQ\nhttps://www.youtube.com/watch?v=QHOazyP-YlM\n\n\nfrom sklearn import preprocessing\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import GridSearchCV\n\n\nCreate Model\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n\n\nTrain Model\n\ny.head()\n\n\n\n\n\n\n\n\nSurvived\n\n\n\n\n0\n0\n\n\n1\n1\n\n\n2\n1\n\n\n3\n1\n\n\n4\n0\n\n\n\n\ndtype: int64\n\n\n\n\nMake Predictions\n\n# Predicting the Test set results\nRF = RandomForestClassifier()\nRF.fit(X_train, y_train)\n\nRandomForestClassifier()In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.RandomForestClassifier?Documentation for RandomForestClassifieriFittedRandomForestClassifier() \n\n\n\n\nHyperparameter Search\n\ny_pred = RF.predict(X_test)\n\n\n\nEvaluate the Model\n\nfrom sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score\n\n# Assuming y_test and y_pred are defined somewhere in your code\naccuracy = accuracy_score(y_test, y_pred) * 100\nf1_value = f1_score(y_test, y_pred, average='weighted') * 100\nrecall_value = recall_score(y_test, y_pred, average='weighted') * 100\nprecision_value = precision_score(y_test, y_pred, average='weighted') * 100\n\nprint('Accuracy: ' + str(round(accuracy, 2)) + ' %.')\nprint('F1 Score: ' + str(round(f1_value, 2)) + ' %.')\nprint('Recall Score: ' + str(round(recall_value, 2)) + ' %.')\nprint('Precision Score: ' + str(round(precision_value, 2)) + ' %.')\n\nAccuracy: 81.56 %.\nF1 Score: 80.97 %.\nRecall Score: 81.56 %.\nPrecision Score: 82.44 %."
+  },
+  {
+    "objectID": "Machine Learning projects/1_KNN_Model/readme.html",
+    "href": "Machine Learning projects/1_KNN_Model/readme.html",
+    "title": "Tam Tran - Data Science Portfolio",
     "section": "",
-    "text": "MarkDown Basics",
+    "text": "This folder’s purpose is to give an example of using KNN machine learning model.\nFoundation datset: iris dataset Stretch dataset: the Heart diseases - UCI (https://archive.ics.uci.edu/dataset/45/heart+disease).\nK-Nearest Neighbors (KNN) is a supervised machine learning algorithm commonly used for classification and regression tasks. It’s one of the simplest and most intuitive models in machine learning.\n\nDefinition: KNN works by finding the ‘k’ closest data points (neighbors) to a given input based on some distance metric (e.g., Euclidean distance). The predicted value or class is determined by these neighbors:\n\nFor classification, the input is assigned the class most common among its neighbors (majority vote).\nFor regression, the predicted value is the average (or sometimes weighted average) of the neighbors’ values.\n\n\nKey Concepts:\n\nK (Number of Neighbors): The algorithm uses ‘k’ neighbors to make predictions. Choosing the right ‘k’ is crucial:\n\n\nSmall ‘k’ (e.g., 1 or 3) makes the model sensitive to noise.\nLarge ‘k’ smooths out predictions but may overlook local patterns.\n\n\nDistance Metrics: Determines how “close” neighbors are. Common metrics include:\n\n\nEuclidean Distance: Straight-line distance between points.\nManhattan Distance: Distance measured along axes at right angles.\nCosine Similarity: Measures the cosine of the angle between two vectors (useful for text or high-dimensional data).\n\n\nLaziness: KNN is a lazy learner, meaning it doesn’t learn a model during training. Instead, it stores the data and makes predictions when queried. This is why it’s called a “memory-based” approach.\n\nUseful Articles and Videos: * https://www.w3schools.com/python/python_ml_knn.asp * https://realpython.com/knn-python/ * https://www.geeksforgeeks.org/k-nearest-neighbor-algorithm-in-python/ * https://www.youtube.com/watch?v=CQveSaMyEwM * https://www.youtube.com/watch?v=b6uHw7QW_n4 * https://www.youtube.com/watch?v=w6bOBZX-1kY\n\n\n\n Back to top",
     "crumbs": [
-      "Competition"
+      "Machine Learning projects/1_KNN_Model"
     ]
   },
   {
-    "objectID": "Cleansing_Projects/project3.html",
-    "href": "Cleansing_Projects/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data Cleansing",
-      "Project 3"
-    ]
+    "objectID": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#overview",
+    "href": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#overview",
+    "title": "Regression Machine Learning Model 🧠 📈",
+    "section": "Overview",
+    "text": "Overview\nXGBoost Regression is a supervised machine learning algorithm that builds an ensemble of decision trees to predict continuous values. It is optimized for speed and performance using gradient boosting techniques.\n\n\n\nDefinition\nXGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient boosting designed for efficiency and accuracy. It improves predictions by sequentially training trees while correcting previous errors. The key components include:\n\nBoosting Trees: A collection of decision trees built sequentially to reduce errors.\n\nGradient Descent Optimization: Adjusts model weights using the gradient of a loss function.\n\nRegularization: Controls model complexity to prevent overfitting.\n\nFor regression, XGBoost predicts continuous values by minimizing a chosen loss function, commonly Mean Squared Error (MSE) or Mean Absolute Error (MAE).\n\n\n\nKey Concepts\n1. Boosting Mechanism:\n- Unlike a single decision tree, XGBoost builds multiple trees in sequence.\n- Each new tree corrects the errors of the previous ones by focusing on residuals.\n\nLoss Functions:\n\nDetermines how errors are measured and minimized.\n\nCommon choices:\n\nMean Squared Error (MSE) – Penalizes larger errors more heavily.\n\nMean Absolute Error (MAE) – Treats all errors equally.\n\nHuber Loss – A mix of MSE and MAE to handle outliers.\n\n\nRegularization Techniques:\n\nPrevents overfitting by adding penalties to complex models.\n\nL1 Regularization (Lasso) – Shrinks coefficients, promoting sparsity.\n\nL2 Regularization (Ridge) – Penalizes large coefficients to reduce variance.\n\nFeature Importance & Selection:\n\nXGBoost ranks features by importance, aiding feature selection.\n\nCan be used to eliminate redundant or irrelevant features.\n\n\n\n\n\nPros\n1. High Performance – Optimized for speed, scalability, and efficiency.\n2. Handles Missing Data – Automatically learns how to deal with missing values.\n3. Regularization Built-in – Reduces overfitting with L1 and L2 penalties.\n4. Works Well with Large Datasets – Efficient memory usage and parallel processing.\n\n\n\nCons\n1. Complexity – More difficult to tune compared to simpler models.\n2. Computationally Intensive – Training can be slow on very large datasets.\n3. Sensitive to Hyperparameters – Performance depends on careful tuning of learning rate, tree depth, and regularization.\n\n\n\nTips\n* Optimize Hyperparameters – Use grid search or Bayesian optimization for tuning.\n* Use Early Stopping – Stops training if performance stops improving on validation data.\n* Scale Features if Needed – Although XGBoost can handle unscaled data, standardization may help in some cases.\n* Leverage Feature Importance – Identify and remove less relevant features to improve efficiency.\n\n\n\nUseful Articles and Videos\n* XGBoost Official Documentation\n* XGBoost for Regression – Machine Learning Mastery\n* Understanding XGBoost – Analytics Vidhya\n* XGBoost Explained – YouTube"
   },
   {
-    "objectID": "Cleansing_Projects/project1.html",
-    "href": "Cleansing_Projects/project1.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data Cleansing",
-      "Project 1"
-    ]
+    "objectID": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#import-datalibraries",
+    "href": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#import-datalibraries",
+    "title": "Regression Machine Learning Model 🧠 📈",
+    "section": "Import Data/Libraries",
+    "text": "Import Data/Libraries\n\n!pip install lets_plot\n\nRequirement already satisfied: lets_plot in /usr/local/lib/python3.11/dist-packages (4.6.2)\nRequirement already satisfied: pypng in /usr/local/lib/python3.11/dist-packages (from lets_plot) (0.20220715.0)\nRequirement already satisfied: palettable in /usr/local/lib/python3.11/dist-packages (from lets_plot) (3.3.3)\n\n\n\n# needed libraries for Regression models\nimport pandas as pd\nfrom sklearn import tree\nimport xgboost as xgb\nfrom sklearn.metrics import confusion_matrix, accuracy_score, f1_score, recall_score, precision_score, mean_squared_error\nfrom sklearn.model_selection import cross_val_score,  train_test_split , KFold\nfrom sklearn.preprocessing import StandardScaler, Normalizer\nimport lets_plot as lp\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport seaborn as sns\nimport kagglehub\n\n# foundation dataset\ndata_raw_url = \"https://raw.githubusercontent.com/BYUIDSS/DSS-ML-Bootcamp/refs/heads/main/3a_Regression_Model/Data/nyc-east-river-bicycle-counts.csv?token=GHSAT0AAAAAAC7UQH3WXY3OI4SLVS6O3K6SZ7KFJNQ\"\nbicycle_df = pd.read_csv(data_raw_url)"
   },
   {
-    "objectID": "Cleansing_Projects/project4.html",
-    "href": "Cleansing_Projects/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data Cleansing",
-      "Project 4"
-    ]
+    "objectID": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#explore-visualize-and-understand-the-data",
+    "href": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#explore-visualize-and-understand-the-data",
+    "title": "Regression Machine Learning Model 🧠 📈",
+    "section": "Explore, Visualize and Understand the Data",
+    "text": "Explore, Visualize and Understand the Data\n\nbicycle_df.head(10)\n\n\n  \n    \n\n\n\n\n\n\nUnnamed: 0\nDate\nDay\nHigh Temp (°F)\nLow Temp (°F)\nPrecipitation\nBrooklyn Bridge\nManhattan Bridge\nWilliamsburg Bridge\nQueensboro Bridge\nTotal\n\n\n\n\n0\n0\n2016-04-01 00:00:00\n2016-04-01 00:00:00\n78.1\n66.0\n0.01\n1704.0\n3126\n4115.0\n2552.0\n11497\n\n\n1\n1\n2016-04-02 00:00:00\n2016-04-02 00:00:00\n55.0\n48.9\n0.15\n827.0\n1646\n2565.0\n1884.0\n6922\n\n\n2\n2\n2016-04-03 00:00:00\n2016-04-03 00:00:00\n39.9\n34.0\n0.09\n526.0\n1232\n1695.0\n1306.0\n4759\n\n\n3\n3\n2016-04-04 00:00:00\n2016-04-04 00:00:00\n44.1\n33.1\n0.47 (S)\n521.0\n1067\n1440.0\n1307.0\n4335\n\n\n4\n4\n2016-04-05 00:00:00\n2016-04-05 00:00:00\n42.1\n26.1\n0\n1416.0\n2617\n3081.0\n2357.0\n9471\n\n\n5\n5\n2016-04-06 00:00:00\n2016-04-06 00:00:00\n45.0\n30.0\n0\n1885.0\n3329\n3856.0\n2849.0\n11919\n\n\n6\n6\n2016-04-07 00:00:00\n2016-04-07 00:00:00\n57.0\n53.1\n0.09\n1276.0\n2581\n3282.0\n2457.0\n9596\n\n\n7\n7\n2016-04-08 00:00:00\n2016-04-08 00:00:00\n46.9\n44.1\n0.01\n1982.0\n3455\n4113.0\n3194.0\n12744\n\n\n8\n8\n2016-04-09 00:00:00\n2016-04-09 00:00:00\n43.0\n37.9\n0.09\n504.0\n997\n1507.0\n1502.0\n4510\n\n\n9\n9\n2016-04-10 00:00:00\n2016-04-10 00:00:00\n48.9\n30.9\n0\n1447.0\n2387\n3132.0\n2160.0\n9126\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nbicycle_df.describe()\n\n\n  \n    \n\n\n\n\n\n\nUnnamed: 0\nHigh Temp (°F)\nLow Temp (°F)\nBrooklyn Bridge\nManhattan Bridge\nWilliamsburg Bridge\nQueensboro Bridge\nTotal\n\n\n\n\ncount\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n\n\nmean\n104.500000\n60.580000\n46.413333\n2269.633333\n4049.533333\n4862.466667\n3352.866667\n14534.500000\n\n\nstd\n60.765944\n11.183223\n9.522796\n981.237786\n1704.731356\n1814.039499\n1099.254419\n5569.173496\n\n\nmin\n0.000000\n39.900000\n26.100000\n504.000000\n997.000000\n1440.000000\n1306.000000\n4335.000000\n\n\n25%\n52.250000\n55.000000\n44.100000\n1447.000000\n2617.000000\n3282.000000\n2457.000000\n9596.000000\n\n\n50%\n104.500000\n62.100000\n46.900000\n2379.500000\n4165.000000\n5194.000000\n3477.000000\n15292.500000\n\n\n75%\n156.750000\n68.000000\n50.000000\n3147.000000\n5309.000000\n6030.000000\n4192.000000\n18315.000000\n\n\nmax\n209.000000\n81.000000\n66.000000\n3871.000000\n6951.000000\n7834.000000\n5032.000000\n23318.000000\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nbicycle_df.dtypes\n\n\n\n\n\n\n\n\n0\n\n\n\n\nUnnamed: 0\nint64\n\n\nDate\nobject\n\n\nDay\nobject\n\n\nHigh Temp (°F)\nfloat64\n\n\nLow Temp (°F)\nfloat64\n\n\nPrecipitation\nobject\n\n\nBrooklyn Bridge\nfloat64\n\n\nManhattan Bridge\nint64\n\n\nWilliamsburg Bridge\nfloat64\n\n\nQueensboro Bridge\nfloat64\n\n\nTotal\nint64\n\n\n\n\ndtype: object\n\n\n\nsns.barplot(data=bicycle_df, x=\"Brooklyn Bridge\", y =\"Total\", color=\"blue\")\nplt.title(\"Plot\")\nplt.legend(loc='upper right')\nplt.show()\n\nUserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n  plt.legend(loc='upper right')\n\n\n\n\n\n\n\n\n\n\nsns.barplot(data=bicycle_df, x=\"Manhattan Bridge\", y =\"Total\", hue=\"Total\", palette=\"Set2\")\nplt.title(\"Plot\")\nplt.show()"
   },
   {
-    "objectID": "Full_Stack/project2.html",
-    "href": "Full_Stack/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Full Stack",
-      "Project 2"
-    ]
+    "objectID": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#feature-enginnering-and-data-augmentation",
+    "href": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#feature-enginnering-and-data-augmentation",
+    "title": "Regression Machine Learning Model 🧠 📈",
+    "section": "Feature Enginnering and Data Augmentation",
+    "text": "Feature Enginnering and Data Augmentation\n\nData Augmentation\nDefinition: Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.\n\n\nFeature Engineering\nDefinition: Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.\n\nbicycle_df1 = pd.get_dummies(bicycle_df, columns=[\"Date\", \"Day\",\"Precipitation\"])\n\n\nX = bicycle_df1.drop(columns=[\"Brooklyn Bridge\",    \"Manhattan Bridge\", \"Williamsburg Bridge\",  \"Queensboro Bridge\", \"Total\"])\ny = bicycle_df1[\"Total\"]\n\n\nbicycle_df1.describe()\n\n\n  \n    \n\n\n\n\n\n\nUnnamed: 0\nHigh Temp (°F)\nLow Temp (°F)\nBrooklyn Bridge\nManhattan Bridge\nWilliamsburg Bridge\nQueensboro Bridge\nTotal\n\n\n\n\ncount\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n210.000000\n\n\nmean\n104.500000\n60.580000\n46.413333\n2269.633333\n4049.533333\n4862.466667\n3352.866667\n14534.500000\n\n\nstd\n60.765944\n11.183223\n9.522796\n981.237786\n1704.731356\n1814.039499\n1099.254419\n5569.173496\n\n\nmin\n0.000000\n39.900000\n26.100000\n504.000000\n997.000000\n1440.000000\n1306.000000\n4335.000000\n\n\n25%\n52.250000\n55.000000\n44.100000\n1447.000000\n2617.000000\n3282.000000\n2457.000000\n9596.000000\n\n\n50%\n104.500000\n62.100000\n46.900000\n2379.500000\n4165.000000\n5194.000000\n3477.000000\n15292.500000\n\n\n75%\n156.750000\n68.000000\n50.000000\n3147.000000\n5309.000000\n6030.000000\n4192.000000\n18315.000000\n\n\nmax\n209.000000\n81.000000\n66.000000\n3871.000000\n6951.000000\n7834.000000\n5032.000000\n23318.000000"
   },
   {
-    "objectID": "Full_Stack/project5.html",
-    "href": "Full_Stack/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Full Stack",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "Competition/project3.html",
-    "href": "Competition/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Competition",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Competition/project1.html",
-    "href": "Competition/project1.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Competition",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Competition/project4.html",
-    "href": "Competition/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Competition",
-      "Project 4"
-    ]
-  },
-  {
-    "objectID": "Cleansing_Exploration/project2.html",
-    "href": "Cleansing_Exploration/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "Cleansing_Exploration/project5.html",
-    "href": "Cleansing_Exploration/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "story_telling.html",
-    "href": "story_telling.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Story Telling"
-    ]
-  },
-  {
-    "objectID": "story_telling.html#title-2-header",
-    "href": "story_telling.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Story Telling"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "index.html#title-2-header",
-    "href": "index.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics"
-  },
-  {
-    "objectID": "Machine_Learning/project2.html",
-    "href": "Machine_Learning/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Machine Learning",
-      "Project 2"
-    ]
-  },
-  {
-    "objectID": "Machine_Learning/project5.html",
-    "href": "Machine_Learning/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Machine Learning",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "cleansing.html",
-    "href": "cleansing.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Data Cleansing"
-    ]
-  },
-  {
-    "objectID": "cleansing.html#title-2-header",
-    "href": "cleansing.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Data Cleansing"
-    ]
-  },
-  {
-    "objectID": "exploration.html",
-    "href": "exploration.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Data Exploration"
-    ]
-  },
-  {
-    "objectID": "exploration.html#title-2-header",
-    "href": "exploration.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Data Exploration"
-    ]
-  },
-  {
-    "objectID": "Story_Telling/project2.html",
-    "href": "Story_Telling/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Story Telling",
-      "Project 2"
-    ]
-  },
-  {
-    "objectID": "Story_Telling/project5.html",
-    "href": "Story_Telling/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Story Telling",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "Story_Telling/project4.html",
-    "href": "Story_Telling/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Story Telling",
-      "Project 4"
-    ]
-  },
-  {
-    "objectID": "Story_Telling/project1.html",
-    "href": "Story_Telling/project1.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Story Telling",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Story_Telling/project3.html",
-    "href": "Story_Telling/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Story Telling",
-      "Project 3"
-    ]
+    "objectID": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#machine-learning-model",
+    "href": "Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.html#machine-learning-model",
+    "title": "Regression Machine Learning Model 🧠 📈",
+    "section": "Machine Learning Model",
+    "text": "Machine Learning Model\n\nSplit the data to train and test\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n\ndtrain = xgb.DMatrix(X_train, label=y_train)\ndtest = xgb.DMatrix(X_test, label=y_test)\n\n\n\nCreate the model\n\nparams = {\n    'objective': 'reg:squarederror',  # Regression task\n    'max_depth': 6,                   # Maximum depth of trees\n    'learning_rate': 0.1,             # Learning rate\n    'n_estimators': 100,              # Number of boosting rounds\n}\n\n\n\nTrain the model\n\nmodel = xgb.train(params, dtrain, num_boost_round=100)\n\n/usr/local/lib/python3.11/dist-packages/xgboost/core.py:158: UserWarning: [04:53:09] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"n_estimators\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n\n\n\n\nMake predictions\n\n# Predicting the Test set results\ny_pred = model.predict(dtest)\n\n\nHyperparameter Search\n\nfrom sklearn.model_selection import GridSearchCV\n\n# Define the parameter grid to search\nparam_grid = {\n    'max_depth': [3, 4, 5, 6, 7],\n    'learning_rate': [0.01, 0.1, 0.2],\n    'n_estimators': [50, 100, 200],\n    'subsample': [0.8, 0.9, 1.0],\n    'colsample_bytree': [0.8, 0.9, 1.0]\n}\n\n# Create the XGBoost model\nxgb_model = xgb.XGBRegressor(objective='reg:squarederror', seed=42)\n\n# Create and Configure GridSearchCV\ngrid_search = GridSearchCV(\n    estimator=xgb_model,\n    param_grid=param_grid,\n    scoring='neg_mean_squared_error',  # Since MSE should be minimized, we use its negative (because GridSearchCV maximizes the score)\n    cv=5,  # Uses 5-fold cross-validation to evaluate each parameter set\n    verbose=1, # Prints progress updates\n    n_jobs=-1 # Uses all available CPU cores for parallel computation, making it faster\n)\n# Fit the Grid Search to Training Data\ngrid_search.fit(X_train, y_train)\n\n# Get the Best Model & Hyperparameters\nprint(\"Best hyperparameters:\", grid_search.best_params_) # The optimal hyperparameter combination\nprint(\"Best score:\", grid_search.best_score_) # The highest cross-validation score (negative MSE)\nbest_model = grid_search.best_estimator_ # The trained XGBoost model with the best hyperparameters\nprint(f\"Grid Search: {best_model}\")\n\nFitting 5 folds for each of 405 candidates, totalling 2025 fits\n\n\n\n\n\nEvaluate the Model\nAccuracy – The percentage of total predictions that are correct.\nExample: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.\nF1 Score – Out of all the positive predictions, how many were actually correct.\nExample: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.\nRecall Score – Out of all the actual positive cases, how many did the model correctly identify.\nExample: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.\nPrecision Score – A balance between precision and recall (harmonic mean).\nExample: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.\n\n# Evaluate the model using regression metrics\nfrom sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error\n\n# Calculate Mean Squared Error (MSE)\nmse = mean_squared_error(y_test, y_pred)\n\n# Calculate Root Mean Squared Error (RMSE)\nrmse = np.sqrt(mse)\n\n# Calculate Mean Absolute Error (MAE)\nmae = mean_absolute_error(y_test, y_pred)\n\n# Calculate R-squared (R2)\nr2 = r2_score(y_test, y_pred)\n\n# Print the evaluation metrics\nprint('Mean Squared Error (MSE):', mse)\nprint('Root Mean Squared Error (RMSE):', rmse)\nprint('Mean Absolute Error (MAE):', mae)\nprint('R-squared (R2):', r2)"
   },
   {
     "objectID": "resume.html",
     "href": "resume.html",
-    "title": "Isaac Newtons’s CV",
+    "title": "Tam Tran’s Resume",
     "section": "",
-    "text": "Physicist, Mathematician, Cambridge professor.\n\nisaac@applesdofall.org | My wikipedia page\n\n\n\nStanding on the shoulders of giants\n\n\nLaws of motion, gravitation, minting coins, disliking Robert Hooke\n\n\n\nCooling, power series, optics, alchemy, planetary motions, apples.\n\n\n\n\n1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow\n\n\n\n\n2012 President, Royal Society, London, UK\nAssociate, French Academy of Science, Paris, France\n\n\n\n\n\n\n1669 Newton Sir I, De analysi per æquationes numero terminorum infinitas.\n1669 Lectiones opticæ.\netc. etc. etc.\n\n\n\n2012 Infinitesimal calculus for solutions to physics problems, SMBC patent 001\n\n\n\n\n1600 Royal Mint, London\n\nWarden\nMinted coins\n\n1600 Lucasian professor of Mathematics, Cambridge University"
+    "text": "minhtamtran.work@gmail.com | 208-671-3212 | https://www.linkedin.com/in/tam-tran-b37a9123b/ |\nhttps://github.com/Tam-Tran-24002\nTam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment."
   },
   {
-    "objectID": "resume.html#currently",
-    "href": "resume.html#currently",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "Standing on the shoulders of giants\n\n\nLaws of motion, gravitation, minting coins, disliking Robert Hooke\n\n\n\nCooling, power series, optics, alchemy, planetary motions, apples."
+    "objectID": "resume.html#tutor-data-science-lab-tutoring-center",
+    "href": "resume.html#tutor-data-science-lab-tutoring-center",
+    "title": "Tam Tran’s Resume",
+    "section": "Tutor | Data Science Lab & Tutoring Center",
+    "text": "Tutor | Data Science Lab & Tutoring Center\nRexburg, Idaho | January 2025 - Present\nBrigham Young University - Idaho\n• Tutor 200+ students in Data Intuition and Insights (Tableau), Data Science Programming (Python, SQL, Machine Learning), and Programming with Functions\n• Break down complex data science concepts for both technical and non-technical students, using clear explanations and practical examples, leading to increased comprehension and engagement"
   },
   {
-    "objectID": "resume.html#education",
-    "href": "resume.html#education",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1654-1660 The King’s School, Grantham.\nJune 1661 - now Trinity College, Cambridge\n\nSizar\n\n1667 - death Trinity College, Cambridge\n\nFellow"
+    "objectID": "resume.html#teaching-assistant",
+    "href": "resume.html#teaching-assistant",
+    "title": "Tam Tran’s Resume",
+    "section": "Teaching Assistant",
+    "text": "Teaching Assistant\nRexburg, Idaho | September 2024 - Present\nBrigham Young University - Idaho\n• Provide academic support to 250+ students in Introduction to Database, Intro to Programming, and Data Science Programming courses through tutoring, grading, and constructive feedback\n• Collaborate with professors to refine course materials, enhancing student engagement and improving learning outcomes\n• Facilitate lab sessions and office hours to reinforce key concepts and assist with coding assignments"
   },
   {
-    "objectID": "resume.html#awards",
-    "href": "resume.html#awards",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "2012 President, Royal Society, London, UK\nAssociate, French Academy of Science, Paris, France"
+    "objectID": "resume.html#new-student-mentor",
+    "href": "resume.html#new-student-mentor",
+    "title": "Tam Tran’s Resume",
+    "section": "New Student Mentor",
+    "text": "New Student Mentor\nRexburg, Idaho | September 2024 - December 2024\nBrigham Young University - Idaho\n• Guided weekly gatherings for 40+ new students, providing support for academic and personal challenges\n• Boosted student engagement by 30% through 150+ one-on-one and group consultancy meetings\n• Managed attendance for 40+ students and coordinate 5+ resources to enhance learning outcomes and student success\n• Strengthened course organization and lesson planning to ensure students achieve academic success"
   },
   {
-    "objectID": "resume.html#publications",
-    "href": "resume.html#publications",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1669 Newton Sir I, De analysi per æquationes numero terminorum infinitas.\n1669 Lectiones opticæ.\netc. etc. etc.\n\n\n\n2012 Infinitesimal calculus for solutions to physics problems, SMBC patent 001"
+    "objectID": "resume.html#product-manager",
+    "href": "resume.html#product-manager",
+    "title": "Tam Tran’s Resume",
+    "section": "Product Manager",
+    "text": "Product Manager\nHo Chi Minh, Vietnam | February 2023 - February 2024\nAIESEC in Vietnam\n• Led a team of 8 members, delivering top-tier customer service for Global Volunteer projects and generating over $1550 in revenue\n• Analyzed 500+ lead and customer data points to generate actionable insights, improve customer experience, and optimize business strategy\n• Collaborated with cross-functional teams across 10+ countries to enhance the customer journey and drive seamless service delivery\n• Achieved an 87.5% retention rate of members through weekly performance data analysis and the implementation of data-driven strategies\n• Awarded Function Excellence with a 90% goal achievement rate"
   },
   {
-    "objectID": "resume.html#occupation",
-    "href": "resume.html#occupation",
-    "title": "Isaac Newtons’s CV",
-    "section": "",
-    "text": "1600 Royal Mint, London\n\nWarden\nMinted coins\n\n1600 Lucasian professor of Mathematics, Cambridge University"
+    "objectID": "resume.html#marketing-team-leader-bac---international-business-club",
+    "href": "resume.html#marketing-team-leader-bac---international-business-club",
+    "title": "Tam Tran’s Resume",
+    "section": "Marketing Team Leader | BAC - International Business Club",
+    "text": "Marketing Team Leader | BAC - International Business Club\nHo Chi Minh, Vietnam | December 2021 - December 2022\nTon Duc Thang University\n• Directed and improved a 6-member team by analyzing performance metrics and implementing weekly workflow adjustments, resulting in a 20% increase in operational efficiency and streamlined processes\n• Trained 5 team members on advanced Excel techniques, resulting in a 30% reduction in operational processing time and significantly boosting overall team performance"
   },
   {
-    "objectID": "Machine_Learning/project4.html",
-    "href": "Machine_Learning/project4.html",
-    "title": "Client Report - [Insert Project Title]",
+    "objectID": "resume.html#machine-learning-bootcamp",
+    "href": "resume.html#machine-learning-bootcamp",
+    "title": "Tam Tran’s Resume",
+    "section": "Machine Learning – Bootcamp",
+    "text": "Machine Learning – Bootcamp\nJanuary 2024 - Present\n• Deployed Random Forest, Decision Trees, K-Nearest Neighbors (KNN), and XGBoost on real-world datasets, achieving 90% accuracy\n• Optimized model performance through feature engineering, train-test split, and categorical encoding\n• Extracted actionable insights to support data-driven decisions and enhance model interpretability"
+  },
+  {
+    "objectID": "machine_learning.html",
+    "href": "machine_learning.html",
+    "title": "Machine Learning - Bootcamp",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "/Machine Learning projects /1_KNN_Model ML_Bootcamp_KNN.ipynb /2_DecisionTree_RandomForests_Model ML_Bootcamp_DecisionTree_RandomForest.ipynb /3_Regression_Model ML_Bootcamp_Regression.ipynb /4_Classification_Model ML_Bootcamp_Classification_XGBoost.ipynb",
     "crumbs": [
-      "Machine Learning",
-      "Project 4"
+      "Machine Learning projects"
     ]
   },
   {
-    "objectID": "Machine_Learning/project1.html",
-    "href": "Machine_Learning/project1.html",
-    "title": "Client Report - [Insert Project Title]",
+    "objectID": "machine_learning.html#my-projects",
+    "href": "machine_learning.html#my-projects",
+    "title": "Machine Learning - Bootcamp",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "/Machine Learning projects /1_KNN_Model ML_Bootcamp_KNN.ipynb /2_DecisionTree_RandomForests_Model ML_Bootcamp_DecisionTree_RandomForest.ipynb /3_Regression_Model ML_Bootcamp_Regression.ipynb /4_Classification_Model ML_Bootcamp_Classification_XGBoost.ipynb",
     "crumbs": [
-      "Machine Learning",
-      "Project 1"
+      "Machine Learning projects"
     ]
   },
   {
-    "objectID": "Machine_Learning/project3.html",
-    "href": "Machine_Learning/project3.html",
-    "title": "Client Report - [Insert Project Title]",
+    "objectID": "Machine Learning projects/3_Regression_Model/readme.html",
+    "href": "Machine Learning projects/3_Regression_Model/readme.html",
+    "title": "Tam Tran - Data Science Portfolio",
     "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
+    "text": "There are two datasets in the Data folder that will be used to learn regression. 1. New York City bicycle routes through bridges 2. Idaho Falls Chukars (Pioneer League Baseball) data to find the optimal amount of pitches to throw out a batter based on the teamID (player is a trench goal).\nOverview: XGBoost Regression is a supervised machine learning algorithm that builds an ensemble of decision trees to predict continuous values. It is optimized for speed and performance using gradient boosting techniques.\n\nDefinition XGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient boosting designed for efficiency and accuracy. It improves predictions by sequentially training trees while correcting previous errors. The key components include:\n\nBoosting Trees: A collection of decision trees built sequentially to reduce errors.\n\nGradient Descent Optimization: Adjusts model weights using the gradient of a loss function.\n\nRegularization: Controls model complexity to prevent overfitting.\n\nFor regression, XGBoost predicts continuous values by minimizing a chosen loss function, commonly Mean Squared Error (MSE) or Mean Absolute Error (MAE).\n\nKey Concepts 1. Boosting Mechanism:\n- Unlike a single decision tree, XGBoost builds multiple trees in sequence.\n- Each new tree corrects the errors of the previous ones by focusing on residuals.\n\nLoss Functions:\n\nDetermines how errors are measured and minimized.\n\nCommon choices:\n\nMean Squared Error (MSE) – Penalizes larger errors more heavily.\n\nMean Absolute Error (MAE) – Treats all errors equally.\n\nHuber Loss – A mix of MSE and MAE to handle outliers.\n\n\nRegularization Techniques:\n\nPrevents overfitting by adding penalties to complex models.\n\nL1 Regularization (Lasso) – Shrinks coefficients, promoting sparsity.\n\nL2 Regularization (Ridge) – Penalizes large coefficients to reduce variance.\n\nFeature Importance & Selection:\n\nXGBoost ranks features by importance, aiding feature selection.\n\nCan be used to eliminate redundant or irrelevant features.\n\n\n\nPros 1. High Performance – Optimized for speed, scalability, and efficiency.\n2. Handles Missing Data – Automatically learns how to deal with missing values.\n3. Regularization Built-in – Reduces overfitting with L1 and L2 penalties.\n4. Works Well with Large Datasets – Efficient memory usage and parallel processing.\n\nCons 1. Complexity – More difficult to tune compared to simpler models.\n2. Computationally Intensive – Training can be slow on very large datasets.\n3. Sensitive to Hyperparameters – Performance depends on careful tuning of learning rate, tree depth, and regularization.\n\nTips * Optimize Hyperparameters – Use grid search or Bayesian optimization for tuning.\n* Use Early Stopping – Stops training if performance stops improving on validation data.\n* Scale Features if Needed – Although XGBoost can handle unscaled data, standardization may help in some cases.\n* Leverage Feature Importance – Identify and remove less relevant features to improve efficiency.\n\nUseful Articles and Videos\n* XGBoost Official Documentation\n* XGBoost for Regression – Machine Learning Mastery\n* Understanding XGBoost – Analytics Vidhya\n* XGBoost Explained – YouTube\n\n\n\n Back to top",
     "crumbs": [
-      "Machine Learning",
-      "Project 3"
+      "Machine Learning projects/3_Regression_Model"
     ]
   },
   {
-    "objectID": "ml.html",
-    "href": "ml.html",
-    "title": "about me",
+    "objectID": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#import-datalibraries",
+    "href": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#import-datalibraries",
+    "title": "K-Nearest Neighbors Machine Leaning Model 💻 🧠",
+    "section": "Import Data/Libraries",
+    "text": "Import Data/Libraries\n\n!pip3 install lets-plot\n\nCollecting lets-plot\n  Downloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)\nCollecting pypng (from lets-plot)\n  Downloading pypng-0.20220715.0-py3-none-any.whl.metadata (13 kB)\nCollecting palettable (from lets-plot)\n  Downloading palettable-3.3.3-py2.py3-none-any.whl.metadata (3.3 kB)\nDownloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 28.8 MB/s eta 0:00:00\nDownloading palettable-3.3.3-py2.py3-none-any.whl (332 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 332.3/332.3 kB 16.1 MB/s eta 0:00:00\nDownloading pypng-0.20220715.0-py3-none-any.whl (58 kB)\n   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.1/58.1 kB 3.9 MB/s eta 0:00:00\nInstalling collected packages: pypng, palettable, lets-plot\nSuccessfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0\n\n\n\n\n# needed libraries for KNN models\nimport pandas as pd\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.metrics import confusion_matrix, accuracy_score, f1_score, recall_score, precision_score\nfrom sklearn.model_selection import cross_val_score,  train_test_split , KFold\nfrom sklearn.preprocessing import StandardScaler, Normalizer\nimport lets_plot as lp\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport seaborn as sns\n\n\n# foundation dataset\nfrom sklearn.datasets import load_iris\n\n# stretch dataset\ncleveland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data', header=None)\nhungarian_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data', header=None)\nswitzerland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.switzerland.data', header=None)\n\n\n# Code to set up access to the foundational dataset\niris = load_iris()\niris_df = pd.DataFrame(data=iris.data, columns=iris.feature_names)\niris_df['target'] = iris.target_names[iris.target]\n# iris_df is now the dataframe to be used for the foundational model\niris_df.head()\n\n\n  \n    \n\n\n\n\n\n\nsepal length (cm)\nsepal width (cm)\npetal length (cm)\npetal width (cm)\ntarget\n\n\n\n\n0\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n1\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n2\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n3\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n4\n5.0\n3.6\n1.4\n0.2\nsetosa"
+  },
+  {
+    "objectID": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#explore-visualize-and-understand-the-data",
+    "href": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#explore-visualize-and-understand-the-data",
+    "title": "K-Nearest Neighbors Machine Leaning Model 💻 🧠",
+    "section": "Explore, Visualize and Understand the Data",
+    "text": "Explore, Visualize and Understand the Data\n\n\nsns.pairplot(iris_df, hue = \"target\", size=3, markers=[\"o\", \"s\", \"D\"])\nplt.figure()\nplt.show()\n\n/usr/local/lib/python3.11/dist-packages/seaborn/axisgrid.py:2100: UserWarning: The `size` parameter has been renamed to `height`; please update your code.\n  warnings.warn(msg, UserWarning)\n\n\n\n\n\n\n\n\n\n&lt;Figure size 640x480 with 0 Axes&gt;"
+  },
+  {
+    "objectID": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#feature-enginnering-and-data-augmentation",
+    "href": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#feature-enginnering-and-data-augmentation",
+    "title": "K-Nearest Neighbors Machine Leaning Model 💻 🧠",
+    "section": "Feature Enginnering and Data Augmentation",
+    "text": "Feature Enginnering and Data Augmentation\n\nData Augmentation\nDefinition: Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.\n\n\nFeature Engineering\nDefinition: Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns."
+  },
+  {
+    "objectID": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#machine-learning-model",
+    "href": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#machine-learning-model",
+    "title": "K-Nearest Neighbors Machine Leaning Model 💻 🧠",
+    "section": "Machine Learning Model",
+    "text": "Machine Learning Model\n\nSplit the data\n\nx= iris_df.drop(columns=['target'])\ny = iris_df['target']\n\n\nX_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42) #Training 80% and testing 20%\n\n\ny.head()\n\n\n\n\n\n\n\n\ntarget\n\n\n\n\n0\nsetosa\n\n\n1\nsetosa\n\n\n2\nsetosa\n\n\n3\nsetosa\n\n\n4\nsetosa\n\n\n\n\ndtype: object\n\n\n\n\nCreate the model\n\nneigh = KNeighborsClassifier(n_neighbors=3)\nneigh.fit(x, y)\n\nKNeighborsClassifier(n_neighbors=3)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.KNeighborsClassifier?Documentation for KNeighborsClassifieriFittedKNeighborsClassifier(n_neighbors=3) \n\n\n\n\nTrain the model\n\nneigh.fit(x, y)\n\nKNeighborsClassifier(n_neighbors=3)In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.KNeighborsClassifier?Documentation for KNeighborsClassifieriFittedKNeighborsClassifier(n_neighbors=3) \n\n\n\n\nMake predictions\n\ny_pred = neigh.predict(X_test)"
+  },
+  {
+    "objectID": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#evaluate-the-model",
+    "href": "Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.html#evaluate-the-model",
+    "title": "K-Nearest Neighbors Machine Leaning Model 💻 🧠",
+    "section": "Evaluate the Model",
+    "text": "Evaluate the Model\n\naccuracy = accuracy_score(y_test, y_pred)*100\n\nprint('Accuracy: ' + str(round(accuracy, 2)) + ' %.')\n\nAccuracy: 100.0 %."
+  },
+  {
+    "objectID": "Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.html",
+    "href": "Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.html",
+    "title": "Tam Tran - Data Science Portfolio",
     "section": "",
-    "text": "MarkDown Basics",
+    "text": "Decision Tree (DT) is a supervised machine learning algorithm used for both classification and regression tasks. It splits data into branches based on feature values to make predictions.\nDefinition A Decision Tree is a flowchart-like model where data is split into smaller subsets based on feature conditions. The structure consists of:\nRoot Node: The starting point that represents the entire dataset. Decision Nodes: Points where the data is split based on a feature. Leaves: Terminal nodes that provide the final prediction. For classification, a Decision Tree assigns class labels based on feature splits. For regression, it predicts continuous values using the average or mean of data points in each leaf.\nKey Concepts\nSplitting Criteria:\nDetermines how the dataset is divided at each step. Common methods: Gini Impurity (Classification) – Measures the likelihood of incorrect classification. Entropy (Classification) – Uses information gain to decide splits. Mean Squared Error (MSE) (Regression) – Measures variance within nodes. Tree Depth & Overfitting:\nDeeper trees fit training data better but may overfit. Pruning (removing unnecessary branches) improves generalization. Feature Importance:\nDecision Trees rank features by their impact on predictions. Helps in feature selection for other models. Handling Missing Data:\nSome implementations allow surrogate splits to handle missing values.\nPros\nEasy to Understand & Interpret – Can be visualized as a simple flowchart. No Need for Feature Scaling – Works with both categorical and numerical features. Handles Non-Linearity – Can model complex relationships without requiring transformation. Fast for Small Datasets – Training and inference are relatively quick.\nCons\nProne to Overfitting – Deep trees can memorize training data, reducing generalization. Unstable to Small Changes – Small variations in data can change the tree structure significantly. Less Efficient on Large Datasets – Computationally expensive for large datasets.\nTips\nLimit Tree Depth – Use max_depth to prevent overfitting. Pruning Techniques – Use pre-pruning (max_leaf_nodes) or post-pruning to remove unnecessary branches. Use Feature Importance – Identify the most influential features and remove irrelevant ones. Consider Ensemble Methods – Random Forest or Gradient Boosting improve Decision Trees by reducing variance.\nUseful Articles and Videos\nhttps://www.datacamp.com/tutorial/decision-tree-classification-python https://www.ibm.com/think/topics/decision-trees https://www.youtube.com/watch?v=6DlWndLbk90 https://www.youtube.com/watch?v=ZOiBe-nrmc4\nRandom Forest (RF) is a supervised machine learning algorithm used for both classification and regression tasks. It builds multiple decision trees and combines their outputs for better accuracy and stability.\nDefinition A Random Forest is an ensemble learning method that creates a “forest” of decision trees during training. Instead of relying on a single tree, Random Forest combines the predictions of multiple trees to improve performance. The structure consists of:\nDecision Trees: Individual trees that make predictions based on subsets of data and features. Bagging (Bootstrap Aggregating): Each tree is trained on a randomly sampled subset of the data. Voting/Averaging: Combines the predictions from all trees: For classification, the majority vote decides the class. For regression, the average of all tree predictions is used. Random Forest reduces the risk of overfitting compared to individual decision trees and works well for both categorical and numerical data.\nKey Concepts\nBagging: Random Forest uses bootstrapping to train each tree on a different sample of the data. This creates diversity among trees, making the model more robust. Feature Randomness: At each split, Random Forest considers a random subset of features rather than all features. This reduces correlation between trees and improves generalization. Out-of-Bag (OOB) Error: Trees not trained on certain data points (left out during bootstrapping) can be used to validate the model. OOB error gives an unbiased estimate of model performance. Feature Importance: Random Forest provides a ranking of feature importance based on how often features are used for splitting across trees. Useful for identifying key predictors in your data. Pros\nImproved Accuracy – Combines multiple trees, reducing overfitting. Robust to Noise – Handles outliers and noisy data better than individual trees. Handles Large Datasets – Can scale well with more data. Feature Selection – Provides insights into the importance of features. No Need for Feature Scaling – Works with unscaled data, both numerical and categorical.\nCons\nLess Interpretable – Harder to visualize compared to a single decision tree. Computationally Intensive – Training many trees can take time and memory for large datasets. Overfitting Risk with Too Many Trees – Although rare, excessive trees might still overfit without tuning. Slower Inference – Predictions may take longer because they aggregate results from multiple trees.\nTips\nTune n_estimators – Adjust the number of trees to balance accuracy and computational cost. Limit Tree Depth – Use max_depth to avoid overfitting while maintaining performance. Optimize Feature Subset Size – Use max_features to control how many features each tree considers at a split. Use Feature Importance – Rank and prioritize the most important features in your dataset. Combine with Other Methods – Random Forest pairs well with techniques like PCA for dimensionality reduction. Useful Articles and Videos\nhttps://www.datacamp.com/tutorial/random-forests-classifier-python https://www.ibm.com/topics/random-forest https://www.youtube.com/watch?v=J4Wdy0Wc_xQ https://www.youtube.com/watch?v=QHOazyP-YlM\n\n\n\n Back to top",
     "crumbs": [
-      "Machine Learning"
+      "Machine Learning projects/2_DecisionTree_RandomForests_Model"
     ]
   },
   {
-    "objectID": "ml.html#title-2-header",
-    "href": "ml.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Machine Learning"
-    ]
+    "objectID": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#overview",
+    "href": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#overview",
+    "title": "Classification Machine Learning Model 🧠 📈",
+    "section": "Overview",
+    "text": "Overview\nXGBoost Classification is a supervised machine learning algorithm that builds an ensemble of decision trees to predict categorical outcomes. It is optimized for speed and performance using gradient boosting techniques.\n\n\n\nDefinition\nXGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient boosting designed for efficiency and accuracy. It improves predictions by sequentially training trees while correcting previous errors. The key components include:\n\nBoosting Trees: A collection of decision trees built sequentially to reduce errors.\n\nGradient Descent Optimization: Adjusts model weights using the gradient of a loss function.\n\nRegularization: Controls model complexity to prevent overfitting.\n\nFor classification, XGBoost predicts categorical outcomes by minimizing a chosen loss function, such as logistic loss for binary classification or softmax (cross-entropy) loss for multi-class classification.\n\n\n\nKey Concepts\n1. Boosting Mechanism:\n- Unlike a single decision tree, XGBoost builds multiple trees in sequence.\n- Each new tree corrects the errors of the previous ones by focusing on misclassified examples.\n\nLoss Functions:\n\nDetermines how errors are measured and minimized.\n\nCommon choices for classification include:\n\nLogistic Loss – Used for binary classification tasks.\n\nSoftmax (Cross-Entropy Loss) – Used for multi-class classification tasks.\n\n\nRegularization Techniques:\n\nPrevents overfitting by adding penalties to complex models.\n\nL1 Regularization (Lasso) – Encourages sparsity by shrinking coefficients.\n\nL2 Regularization (Ridge) – Penalizes large coefficients to reduce variance.\n\nFeature Importance & Selection:\n\nXGBoost ranks features by importance, aiding in feature selection.\n\nHelps in eliminating redundant or irrelevant features for better performance.\n\n\n\n\n\nPros\n1. High Performance – Optimized for speed, scalability, and efficiency.\n2. Handles Missing Data – Automatically learns how to deal with missing values.\n3. Regularization Built-in – Reduces overfitting with L1 and L2 penalties.\n4. Probabilistic Predictions – Provides probability scores for classification, enabling threshold tuning.\n5. Works Well with Large Datasets – Efficient memory usage and parallel processing.\n\n\n\nCons\n1. Complexity – More difficult to tune compared to simpler models.\n2. Computationally Intensive – Training can be slow on very large datasets.\n3. Sensitive to Hyperparameters – Performance depends on careful tuning of learning rate, tree depth, and regularization.\n4. Less Interpretable – Decision boundaries may be challenging to interpret compared to simpler models.\n\n\n\nTips\n* Optimize Hyperparameters – Use grid search or Bayesian optimization for tuning.\n* Use Early Stopping – Stop training if performance ceases to improve on validation data.\n* Scale Features if Needed – Although XGBoost can handle unscaled data, standardization might improve performance.\n* Leverage Feature Importance – Identify and remove less relevant features to improve efficiency.\n* Adjust Decision Thresholds – Fine-tune the probability threshold to balance precision and recall for your specific task.\n\n\n\nUseful Articles and Videos\n* XGBoost Official Documentation\n* XGBoost for Classification – Machine Learning Mastery\n* Understanding XGBoost – Analytics Vidhya\n* XGBoost Explained for Classification – YouTube"
   },
   {
-    "objectID": "Cleansing_Exploration/project4.html",
-    "href": "Cleansing_Exploration/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top"
+    "objectID": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#import-datalibraries",
+    "href": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#import-datalibraries",
+    "title": "Classification Machine Learning Model 🧠 📈",
+    "section": "Import Data/Libraries",
+    "text": "Import Data/Libraries\n\n!pip install lets_plot\n\nRequirement already satisfied: lets_plot in /usr/local/lib/python3.11/dist-packages (4.6.2)\nRequirement already satisfied: pypng in /usr/local/lib/python3.11/dist-packages (from lets_plot) (0.20220715.0)\nRequirement already satisfied: palettable in /usr/local/lib/python3.11/dist-packages (from lets_plot) (3.3.3)\n\n\n\n# needed libraries for Classification models\nimport numpy as np\nimport pandas as pd\nfrom sklearn.model_selection import GridSearchCV, train_test_split\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.preprocessing import OrdinalEncoder\nfrom sklearn.metrics import f1_score\nfrom xgboost import XGBClassifier\nfrom collections import Counter\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\n\n# Load the training dataset\n#### If this gives an error go into the Data folder in GitHub and click on the data csv and then \"Raw\"\n#### (underneath history in the upper righthand corner) then copy that url to replace the \"data_raw_url\"\ndata_raw_url = 'https://raw.githubusercontent.com/BYUIDSS/DSS-ML-Bootcamp/refs/heads/main/3b_Classification_Model/data/Churn_Modelling.csv?token=GHSAT0AAAAAAC7UQH3WQQ4HLOI3GC7L7EVIZ7KGDGQ'\nbanking_df = pd.read_csv(data_raw_url)"
   },
   {
-    "objectID": "Cleansing_Exploration/project1.html",
-    "href": "Cleansing_Exploration/project1.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top"
+    "objectID": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#explore-visualize-and-understand-the-data",
+    "href": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#explore-visualize-and-understand-the-data",
+    "title": "Classification Machine Learning Model 🧠 📈",
+    "section": "Explore, Visualize and Understand the Data",
+    "text": "Explore, Visualize and Understand the Data\n\nbanking_df.head(10)\n\n\n  \n    \n\n\n\n\n\n\nRowNumber\nCustomerId\nSurname\nCreditScore\nGeography\nGender\nAge\nTenure\nBalance\nNumOfProducts\nHasCrCard\nIsActiveMember\nEstimatedSalary\nExited\n\n\n\n\n0\n1\n15634602\nHargrave\n619\nFrance\nFemale\n42.0\n2\n0.00\n1\n1.0\n1.0\n101348.88\n1\n\n\n1\n2\n15647311\nHill\n608\nSpain\nFemale\n41.0\n1\n83807.86\n1\n0.0\n1.0\n112542.58\n0\n\n\n2\n3\n15619304\nOnio\n502\nFrance\nFemale\n42.0\n8\n159660.80\n3\n1.0\n0.0\n113931.57\n1\n\n\n3\n4\n15701354\nBoni\n699\nFrance\nFemale\n39.0\n1\n0.00\n2\n0.0\n0.0\n93826.63\n0\n\n\n4\n5\n15737888\nMitchell\n850\nSpain\nFemale\n43.0\n2\n125510.82\n1\nNaN\n1.0\n79084.10\n0\n\n\n5\n6\n15574012\nChu\n645\nSpain\nMale\n44.0\n8\n113755.78\n2\n1.0\n0.0\n149756.71\n1\n\n\n6\n7\n15592531\nBartlett\n822\nNaN\nMale\n50.0\n7\n0.00\n2\n1.0\n1.0\n10062.80\n0\n\n\n7\n8\n15656148\nObinna\n376\nGermany\nFemale\n29.0\n4\n115046.74\n4\n1.0\n0.0\n119346.88\n1\n\n\n8\n9\n15792365\nHe\n501\nFrance\nMale\n44.0\n4\n142051.07\n2\n0.0\nNaN\n74940.50\n0\n\n\n9\n10\n15592389\nH?\n684\nFrance\nMale\nNaN\n2\n134603.88\n1\n1.0\n1.0\n71725.73\n0\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nbanking_df.describe()\n\n\n  \n    \n\n\n\n\n\n\nRowNumber\nCustomerId\nCreditScore\nAge\nTenure\nBalance\nNumOfProducts\nHasCrCard\nIsActiveMember\nEstimatedSalary\nExited\n\n\n\n\ncount\n10002.000000\n1.000200e+04\n10002.000000\n10001.000000\n10002.000000\n10002.000000\n10002.000000\n10001.000000\n10001.000000\n10002.000000\n10002.000000\n\n\nmean\n5001.499600\n1.569093e+07\n650.555089\n38.922311\n5.012498\n76491.112875\n1.530194\n0.705529\n0.514949\n100083.331145\n0.203759\n\n\nstd\n2887.472338\n7.193177e+04\n96.661615\n10.487200\n2.891973\n62393.474144\n0.581639\n0.455827\n0.499801\n57508.117802\n0.402812\n\n\nmin\n1.000000\n1.556570e+07\n350.000000\n18.000000\n0.000000\n0.000000\n1.000000\n0.000000\n0.000000\n11.580000\n0.000000\n\n\n25%\n2501.250000\n1.562852e+07\n584.000000\n32.000000\n3.000000\n0.000000\n1.000000\n0.000000\n0.000000\n50983.750000\n0.000000\n\n\n50%\n5001.500000\n1.569073e+07\n652.000000\n37.000000\n5.000000\n97198.540000\n1.000000\n1.000000\n1.000000\n100185.240000\n0.000000\n\n\n75%\n7501.750000\n1.575323e+07\n718.000000\n44.000000\n7.000000\n127647.840000\n2.000000\n1.000000\n1.000000\n149383.652500\n0.000000\n\n\nmax\n10000.000000\n1.581569e+07\n850.000000\n92.000000\n10.000000\n250898.090000\n4.000000\n1.000000\n1.000000\n199992.480000\n1.000000\n\n\n\n\n\n    \n\n  \n    \n\n  \n    \n  \n    \n\n  \n\n    \n  \n\n\n\n  \n\n\n    \n        \n    \n\n  \n\n\n\n  \n\n\n    \n  \n\n\n\nbanking_df.dtypes\n\n\n\n\n\n\n\n\n0\n\n\n\n\nRowNumber\nint64\n\n\nCustomerId\nint64\n\n\nSurname\nobject\n\n\nCreditScore\nint64\n\n\nGeography\nobject\n\n\nGender\nobject\n\n\nAge\nfloat64\n\n\nTenure\nint64\n\n\nBalance\nfloat64\n\n\nNumOfProducts\nint64\n\n\nHasCrCard\nfloat64\n\n\nIsActiveMember\nfloat64\n\n\nEstimatedSalary\nfloat64\n\n\nExited\nint64\n\n\n\n\ndtype: object\n\n\n\n# 0 means staying and 1 means leaving.\n# Most of Germany left the bank compared to Spain and France. Does this mean geography has a huge impact on the decision to stay or leave?\nplt.figure(figsize=(10, 6))\nsns.countplot(x='Geography', hue='Exited', data=banking_df)\nplt.title('Geography vs Exited')\nplt.show()\n\n\n\n\n\n\n\n\n\nsns.countplot(data = banking_df, x = \"IsActiveMember\", hue = \"Exited\", palette= \"Set2\")\nplt.title(\"Exited by Status\")\nplt.show()\n\n\n\n\n\n\n\n\n\nsns.boxplot(data = banking_df, x = \"Geography\", y = \"Exited\", hue = \"Geography\", palette= \"Set2\")\nplt.title(\"Exited by Geography\")\nplt.show()\n\n\n\n\n\n\n\n\n\nsns.boxplot(data = banking_df, x = \"Geography\", y = \"Exited\", hue = \"Exited\", palette= \"Set2\")\nplt.title(\"Exited by Estimated Salary\")\nplt.show()"
   },
   {
-    "objectID": "Cleansing_Exploration/project3.html",
-    "href": "Cleansing_Exploration/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top"
+    "objectID": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#feature-enginnering-and-data-augmentation",
+    "href": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#feature-enginnering-and-data-augmentation",
+    "title": "Classification Machine Learning Model 🧠 📈",
+    "section": "Feature Enginnering and Data Augmentation",
+    "text": "Feature Enginnering and Data Augmentation\n\nX = banking_df.drop(['Exited', 'Surname'], axis=1)\ny = banking_df['Exited']\n\n\nData Augmentation\nDefinition: Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.\n\n\nFeature Engineering\nDefinition: Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.\n\ncategorical_features = ['Geography', 'Gender']"
   },
   {
-    "objectID": "Competition/project5.html",
-    "href": "Competition/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Competition",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "Competition/project2.html",
-    "href": "Competition/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Competition",
-      "Project 2"
-    ]
-  },
-  {
-    "objectID": "Full_Stack/project4.html",
-    "href": "Full_Stack/project4.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Full Stack",
-      "Project 4"
-    ]
-  },
-  {
-    "objectID": "Full_Stack/project1.html",
-    "href": "Full_Stack/project1.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Full Stack",
-      "Project 1"
-    ]
-  },
-  {
-    "objectID": "Full_Stack/project3.html",
-    "href": "Full_Stack/project3.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Full Stack",
-      "Project 3"
-    ]
-  },
-  {
-    "objectID": "Cleansing_Projects/project5.html",
-    "href": "Cleansing_Projects/project5.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data Cleansing",
-      "Project 5"
-    ]
-  },
-  {
-    "objectID": "Cleansing_Projects/project2.html",
-    "href": "Cleansing_Projects/project2.html",
-    "title": "Client Report - [Insert Project Title]",
-    "section": "",
-    "text": "Paste in a template\n\n\n\n\n Back to top",
-    "crumbs": [
-      "Data Cleansing",
-      "Project 2"
-    ]
-  },
-  {
-    "objectID": "full_stack.html",
-    "href": "full_stack.html",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Full Stack"
-    ]
-  },
-  {
-    "objectID": "full_stack.html#title-2-header",
-    "href": "full_stack.html#title-2-header",
-    "title": "about me",
-    "section": "",
-    "text": "MarkDown Basics",
-    "crumbs": [
-      "Full Stack"
-    ]
-  },
-  {
-    "objectID": "250_Projects/project2.html",
-    "href": "250_Projects/project2.html",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "",
-    "text": "Our analysis reveals that weather delays are the most significant across major airports, with San Francisco International (SFO) and Chicago O’Hare International (ORD) being the hardest hit. September is the best month to fly, with the lowest proportion of delayed flights, ensuring smoother travel experiences for passengers.\n\n\nRead and format project data\n# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html\n\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4python4ds/master/data-raw/mpg/mpg.csv\")\n\n\nHighlight the Questions and Tasks"
-  },
-  {
-    "objectID": "250_Projects/project2.html#elevator-pitch",
-    "href": "250_Projects/project2.html#elevator-pitch",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "",
-    "text": "Our analysis reveals that weather delays are the most significant across major airports, with San Francisco International (SFO) and Chicago O’Hare International (ORD) being the hardest hit. September is the best month to fly, with the lowest proportion of delayed flights, ensuring smoother travel experiences for passengers.\n\n\nRead and format project data\n# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html\n\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4python4ds/master/data-raw/mpg/mpg.csv\")\n\n\nHighlight the Questions and Tasks"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-1",
-    "href": "250_Projects/project2.html#questiontask-1",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 1",
-    "text": "Question|Task 1\nFix all of the varied missing data types in the data to be consistent (all missing values should be displayed as “NaN”). In your report include one record example (one row) from your new data, in the raw JSON format. Your example should display the “NaN” for at least one missing value.\nTo ensure consistency in the dataset, I replaced all varied missing data types with “NaN”. This involved converting all missing values to the string “NaN”. Here’s an example of one record from the updated dataset:\n\n\nRead and format data\n# Include and execute your code here\nimport pandas as pd\nimport numpy as np\nfrom lets_plot import *\n\nLetsPlot.setup_html(isolated_frame=True)\n\n# Load the data from the URL to the Json file\nurl_flights = 'https://github.com/byuidatascience/data4missing/raw/master/data-raw/flights_missing/flights_missing.json'\ndf = pd.read_json(url_flights)\n\n\n\n\nRead and format data\n# Include and execute your code here\n#| label: Q1\n#| code-summary: Read and format data for missing values in Task 1\n\nimport pandas as pd\nimport numpy as np\nfrom lets_plot import *\n\nLetsPlot.setup_html(isolated_frame=True)\n\n# Load the data\nurl_flights = 'https://github.com/byuidatascience/data4missing/raw/master/data-raw/flights_missing/flights_missing.json'\ndf = pd.read_json(url_flights)\n\n# Replace various representations of missing data with NaN\ndf.replace([-999, \"1500+\", \"n/a\", None, \"\", np.nan], \"NaN\", inplace=True)\n\n# Sort the dataframe based on the \"month\" column in ascending order and select the first 5 rows\ndata = df.sort_values(\"month\", ascending=True).head(5)\n\n# Convert to JSON format\njson_data = data.to_json(orient=\"records\", indent=4)\nprint(json_data)\n\n\n[\n    {\n        \"airport_code\":\"ATL\",\n        \"airport_name\":\"Atlanta, GA: Hartsfield-Jackson Atlanta International\",\n        \"month\":\"April\",\n        \"year\":\"NaN\",\n        \"num_of_flights_total\":32891,\n        \"num_of_delays_carrier\":\"NaN\",\n        \"num_of_delays_late_aircraft\":1826,\n        \"num_of_delays_nas\":1841,\n        \"num_of_delays_security\":7,\n        \"num_of_delays_weather\":299,\n        \"num_of_delays_total\":5796,\n        \"minutes_delayed_carrier\":120428.0,\n        \"minutes_delayed_late_aircraft\":104761,\n        \"minutes_delayed_nas\":60284.0,\n        \"minutes_delayed_security\":329,\n        \"minutes_delayed_weather\":19987,\n        \"minutes_delayed_total\":305789\n    },\n    {\n        \"airport_code\":\"ORD\",\n        \"airport_name\":\"Chicago, IL: Chicago O'Hare International\",\n        \"month\":\"April\",\n        \"year\":2010.0,\n        \"num_of_flights_total\":25754,\n        \"num_of_delays_carrier\":\"708\",\n        \"num_of_delays_late_aircraft\":1358,\n        \"num_of_delays_nas\":2185,\n        \"num_of_delays_security\":8,\n        \"num_of_delays_weather\":67,\n        \"num_of_delays_total\":4323,\n        \"minutes_delayed_carrier\":50594.0,\n        \"minutes_delayed_late_aircraft\":86457,\n        \"minutes_delayed_nas\":143513.0,\n        \"minutes_delayed_security\":304,\n        \"minutes_delayed_weather\":6207,\n        \"minutes_delayed_total\":287075\n    },\n    {\n        \"airport_code\":\"IAD\",\n        \"airport_name\":\"Washington, DC: Washington Dulles International\",\n        \"month\":\"April\",\n        \"year\":2010.0,\n        \"num_of_flights_total\":6245,\n        \"num_of_delays_carrier\":\"235\",\n        \"num_of_delays_late_aircraft\":266,\n        \"num_of_delays_nas\":191,\n        \"num_of_delays_security\":4,\n        \"num_of_delays_weather\":13,\n        \"num_of_delays_total\":710,\n        \"minutes_delayed_carrier\":13417.0,\n        \"minutes_delayed_late_aircraft\":15787,\n        \"minutes_delayed_nas\":6817.0,\n        \"minutes_delayed_security\":169,\n        \"minutes_delayed_weather\":736,\n        \"minutes_delayed_total\":36926\n    },\n    {\n        \"airport_code\":\"DEN\",\n        \"airport_name\":\"Denver, CO: Denver International\",\n        \"month\":\"April\",\n        \"year\":2010.0,\n        \"num_of_flights_total\":19059,\n        \"num_of_delays_carrier\":\"588\",\n        \"num_of_delays_late_aircraft\":1053,\n        \"num_of_delays_nas\":816,\n        \"num_of_delays_security\":11,\n        \"num_of_delays_weather\":70,\n        \"num_of_delays_total\":2537,\n        \"minutes_delayed_carrier\":33097.0,\n        \"minutes_delayed_late_aircraft\":56564,\n        \"minutes_delayed_nas\":\"NaN\",\n        \"minutes_delayed_security\":350,\n        \"minutes_delayed_weather\":4689,\n        \"minutes_delayed_total\":122726\n    },\n    {\n        \"airport_code\":\"ATL\",\n        \"airport_name\":\"Atlanta, GA: Hartsfield-Jackson Atlanta International\",\n        \"month\":\"April\",\n        \"year\":2010.0,\n        \"num_of_flights_total\":34177,\n        \"num_of_delays_carrier\":\"950\",\n        \"num_of_delays_late_aircraft\":1295,\n        \"num_of_delays_nas\":1866,\n        \"num_of_delays_security\":3,\n        \"num_of_delays_weather\":113,\n        \"num_of_delays_total\":4227,\n        \"minutes_delayed_carrier\":73349.0,\n        \"minutes_delayed_late_aircraft\":95114,\n        \"minutes_delayed_nas\":98467.0,\n        \"minutes_delayed_security\":183,\n        \"minutes_delayed_weather\":10079,\n        \"minutes_delayed_total\":277192\n    }\n]"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-2",
-    "href": "250_Projects/project2.html#questiontask-2",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 2",
-    "text": "Question|Task 2\nWhich airport has the worst delays? Describe the metric you chose, and why you chose it to determine the “worst” airport. Your answer should include a summary table that lists (for each airport) the total number of flights, total number of delayed flights, proportion of delayed flights, and average delay time in hours.\nTo identify the worst airport for delays, I analyzed total flights, total delayed flights, the proportion of delayed flights, and average delay time. Total flights and total delayed flights provide scale and extent, while the proportion of delays and average delay time show frequency and severity. Combining these metrics, SFO emerged as the worst, with the highest proportion of delays and significant average delay times.\n\n\nplot example\n# Include and execute your code here\n\n#| label: Q2\n#| code-summary: Calculate delay metrics by airport\n\n# Group by airport and calculate required metrics\nairport_metrics = df.groupby(\"airport_code\").agg(\n    total_flights=(\"num_of_flights_total\", \"sum\"),\n    total_delayed_flights=(\"num_of_delays_total\",\"sum\"),\n    average_delay_time=(\"minutes_delayed_total\", lambda x: x.sum() / df['num_of_delays_total'].sum() / 60)\n).reset_index()\n\n# Calculate the proportion of delayed flights\nairport_metrics[\"proportion_of_delayed_flights\"] = airport_metrics[\"total_delayed_flights\"] / airport_metrics[\"total_flights\"]\n\n# Sort the aggregated metrics\nairport_metrics = airport_metrics.sort_values(by=\"proportion_of_delayed_flights\", ascending=False)\ndisplay(airport_metrics)\n\n\n\n\n\n\n\n\n\nairport_code\ntotal_flights\ntotal_delayed_flights\naverage_delay_time\nproportion_of_delayed_flights\n\n\n\n\n5\nSFO\n1630945\n425604\n0.139322\n0.260955\n\n\n3\nORD\n3597588\n830825\n0.295726\n0.230939\n\n\n0\nATL\n4430047\n902443\n0.283278\n0.203710\n\n\n2\nIAD\n851571\n168467\n0.053962\n0.197831\n\n\n4\nSAN\n917862\n175132\n0.043429\n0.190804\n\n\n1\nDEN\n2513974\n468519\n0.132096\n0.186366\n\n\n6\nSLC\n1403384\n205160\n0.053122\n0.146189"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-3",
-    "href": "250_Projects/project2.html#questiontask-3",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 3",
-    "text": "Question|Task 3\nWhat is the best month to fly if you want to avoid delays of any length? Describe the metric you chose and why you chose it to calculate your answer. Include one chart to help support your answer, with the x-axis ordered by month. (To answer this question, you will need to remove any rows that are missing the Month variable.)\nTo determine the best month to fly to avoid delays of any length, I analyzed the proportion of delayed flights for each month. The key metric I chose was the proportion of delayed flights, calculated as the total number of delayed flights divided by the total number of flights for each month. This metric is crucial as it indicates the likelihood of experiencing a delay during a given month, providing travelers with a clear picture of the best time to fly. Based on the data analysis, September is the best month to fly if you want to avoid delays. This conclusion is drawn from the lowest proportion of delayed flights during this month, ensuring a smoother travel experience for passengers.\n\n\ntable example\n# Include and execute your code here\n# display(penguins.head())\n\n#Create new column for the month\nairport_metrics = df.groupby(\"month\").agg(\n  total_flights = (\"num_of_flights_total\", \"sum\"),\n  total_delayed_flights = (\"num_of_delays_total\", \"sum\")).assign(\n  delay_flight_month = lambda x: x.total_delayed_flights / x.total_flights\n).reset_index()\n\n#Remove rows with missing values in the month column\nairport_metrics = airport_metrics[airport_metrics.month != \"NaN\"]  \n\n# Ensure the month column is ordered by month number\nairport_metrics['month'] = pd.Categorical(airport_metrics['month'], categories=[\n    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], ordered=True)\n  \n# Sort the dataframe by month\nairport_metrics = airport_metrics.sort_values('month')\n\n#Create a chart by Plotly Express\nfig = px.bar(airport_metrics, x = \"month\", y = \"delay_flight_month\", labels={\"month\" : \"Month\", \"delay_flight_month\" : \"Average Delay Flights\"})\nfig.show()\n\n\n                                                \n\n\n\n\ntable example\n# Include and execute your code here\n# display(penguins.head())\n\n#Create new column for the month\nairport_metrics = df.groupby(\"month\").agg(\n  total_flights = (\"num_of_flights_total\", \"sum\"),\n  total_delayed_flights = (\"num_of_delays_total\", \"sum\")).assign(\n  delay_flight_month = lambda x: x.total_delayed_flights / x.total_flights\n).reset_index()\n\n#Remove rows with missing values in the month column\nairport_metrics = airport_metrics[airport_metrics.month != \"NaN\"]\n\n# Ensure the month column is ordered by month number\nairport_metrics['month'] = pd.Categorical(airport_metrics['month'], categories=[\n    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], ordered=True)\n  \n# Sort the dataframe by month\nairport_metrics = airport_metrics.sort_values('month')\n\nfrom lets_plot import *\nimport pandas as pd\n\n# Initialize lets-plot (only needed once)\nLetsPlot.setup_html()\n\nggplot(airport_metrics) + \\\n    geom_bar(aes(x=\"month\", y=\"delay_flight_month\"), stat=\"identity\", fill=\"blue\") + \\\n    scale_x_discrete(name=\"Month\") + \\\n    scale_y_continuous(name=\"Average Delay Flights\") + \\\n    ggtitle(\"Monthly Average Delay Flights\") + \\\n    theme_minimal()\n\n\n\n            \n            \n            \n\n\n   \n   \n\n\n\n\ntable example\n# Include and execute your code here\n# display(penguins.head())\n\n#Create new column for the month\nairport_metrics = df.groupby(\"month\").agg(\n  total_flights = (\"num_of_flights_total\", \"sum\"),\n  total_delayed_flights = (\"num_of_delays_total\", \"sum\")).assign(\n  delay_flight_month = lambda x: x.total_delayed_flights / x.total_flights\n).reset_index()\n\n#Remove rows with missing values in the month column\nairport_metrics = airport_metrics[airport_metrics.month != \"NaN\"]\n  \n# Sort the dataframe by month\nairport_metrics = airport_metrics.sort_values('month')\n\nfrom lets_plot import *\nimport pandas as pd\n\n# Initialize lets-plot (only needed once)\nLetsPlot.setup_html()\n\nggplot(airport_metrics) + \\\n    geom_bar(aes(x=\"month\", y=\"delay_flight_month\"), stat=\"identity\", fill=\"blue\") + \\\n    scale_y_continuous(name=\"Average Delay Flights\") + \\\n    labs(title = \"Monthly Average Delay Flights\") +\\\n    theme_minimal() +\\\n    scale_x_discrete(name=\"Month\", limits=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'])"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-4",
-    "href": "250_Projects/project2.html#questiontask-4",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 4",
-    "text": "Question|Task 4\nAccording to the BTS website, the “Weather” category only accounts for severe weather delays. Mild weather delays are not counted in the “Weather” category, but are actually included in both the “NAS” and “Late-Arriving Aircraft” categories. Your job is to create a new column that calculates the total number of flights delayed by weather (both severe and mild). You will need to replace all the missing values in the Late Aircraft variable with the mean. Show your work by printing the first 5 rows of data in a table.\nBy calculating and adding the “total_weather_delays” column, we now have a comprehensive view of both severe and mild weather-related delays, ensuring the analysis captures all aspects of weather impacts on flight schedules. This helps in making more informed decisions for better flight planning and customer experience.\n\n\ntable example\n# Include and execute your code here\n\n# Load the data from the provided URL\nurl_flights = 'https://github.com/byuidatascience/data4missing/raw/master/data-raw/flights_missing/flights_missing.json'\ndf = pd.read_json(url_flights)\n# Replace specific missing values with NaN\ndf.replace((-999, \"1500+\", \"n/a\"), (np.nan, '1500', np.nan), inplace=True)\ndf[\"num_of_delays_carrier\"] = df[\"num_of_delays_carrier\"].astype(float)\ndf.head(5)\n\n\n\n\n\n\ntable example {#cell-Q4}\n\n\n\nairport_code\nairport_name\nmonth\nyear\nnum_of_flights_total\nnum_of_delays_carrier\nnum_of_delays_late_aircraft\nnum_of_delays_nas\nnum_of_delays_security\nnum_of_delays_weather\nnum_of_delays_total\nminutes_delayed_carrier\nminutes_delayed_late_aircraft\nminutes_delayed_nas\nminutes_delayed_security\nminutes_delayed_weather\nminutes_delayed_total\n\n\n\n\n0\nATL\nAtlanta, GA: Hartsfield-Jackson Atlanta Intern...\nJanuary\n2005.0\n35048\n1500.0\nNaN\n4598\n10\n448\n8355\n116423.0\n104415\n207467.0\n297\n36931\n465533\n\n\n1\nDEN\nDenver, CO: Denver International\nJanuary\n2005.0\n12687\n1041.0\n928.0\n935\n11\n233\n3153\n53537.0\n70301\n36817.0\n363\n21779\n182797\n\n\n2\nIAD\n\nJanuary\n2005.0\n12381\n414.0\n1058.0\n895\n4\n61\n2430\nNaN\n70919\n35660.0\n208\n4497\n134881\n\n\n3\nORD\nChicago, IL: Chicago O'Hare International\nJanuary\n2005.0\n28194\n1197.0\n2255.0\n5415\n5\n306\n9178\n88691.0\n160811\n364382.0\n151\n24859\n638894\n\n\n4\nSAN\nSan Diego, CA: San Diego International\nJanuary\n2005.0\n7283\n572.0\n680.0\n638\n7\n56\n1952\n27436.0\n38445\n21127.0\n218\n4326\n91552\n\n\n\n\n\n\n\n\n\nCalculate total weather delays\n# Replace specific missing values in 'num_of_delays_late_aircraft' with the mean\ndf['num_of_delays_late_aircraft'] = df['num_of_delays_late_aircraft'].replace(\"NaN\", np.nan).astype(float)\nlate_aircraft_mean = df['num_of_delays_late_aircraft'].mean()\ndf['num_of_delays_late_aircraft'].fillna(late_aircraft_mean, inplace=True)\n\n# Calculate total weather delays based on different delay types\ndef calculate_weather_delays(row):\n    weather_delays = row[\"num_of_delays_weather\"]\n    late_aircraft_weather_delays = 0.3 * row[\"num_of_delays_late_aircraft\"]\n    months_with_adjusted_nas = {\"April\", \"May\", \"June\", \"July\", \"August\"}\n    nas_weather_delays_factor = 0.4 if row[\"month\"] in months_with_adjusted_nas else 0.65\n    nas_weather_delays = nas_weather_delays_factor * row[\"num_of_delays_nas\"]\n    total_weather_delays = weather_delays + late_aircraft_weather_delays + nas_weather_delays\n    return total_weather_delays\n\n# Create a new column for the total weather delays\ndf[\"total_weather_delays\"] = df.apply(calculate_weather_delays, axis=1).round()\n\n# Filter to include only relevant columns for review\nfiltered_df = df[[\"airport_code\", \"num_of_delays_weather\", \"num_of_delays_late_aircraft\", \"num_of_delays_nas\", \"total_weather_delays\"]]\ndisplay(filtered_df.head(5))\n\n\n\n\n\n\n\n\n\nairport_code\nnum_of_delays_weather\nnum_of_delays_late_aircraft\nnum_of_delays_nas\ntotal_weather_delays\n\n\n\n\n0\nATL\n448\n1109.104072\n4598\n3769.0\n\n\n1\nDEN\n233\n928.000000\n935\n1119.0\n\n\n2\nIAD\n61\n1058.000000\n895\n960.0\n\n\n3\nORD\n306\n2255.000000\n5415\n4502.0\n\n\n4\nSAN\n56\n680.000000\n638\n675.0"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-5",
-    "href": "250_Projects/project2.html#questiontask-5",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 5",
-    "text": "Question|Task 5\nUsing the new weather variable calculated above, create a barplot showing the proportion of all flights that are delayed by weather at each airport. Describe what you learn from this graph.\nThis graph shows the proportion of flights delayed by weather at each airport. By looking at this chart, we can easily identify which airports are most affected by weather-related delays. San Francisco International (SFO) and Chicago O’Hare International (ORD) stand out with higher proportions, indicating that passengers using these airports are more likely to experience weather-related delays.\n\n\ngraph example\n# Include and execute your code here\n# display(penguins.head())\n\n#Calculate total weather delays based on different delays types\nanswer = (\n  df.groupby(\"airport_code\")\n  .agg(\n    total_flights = (\"num_of_flights_total\", \"sum\"),\n    total_delays = (\"total_weather_delays\", \"sum\")\n  )).reset_index()\n\nanswer[\"weather_proportion\"] = answer[\"total_delays\"] / answer[\"total_flights\"]\nfrom lets_plot import *\nprint(answer[\"airport_code\"],answer[\"weather_proportion\"])\n# Initialize lets-plot\nLetsPlot.setup_html()\n\n#Create a bar plot\nggplot(data=answer) + geom_bar(\n    mapping=aes(x=\"airport_code\", y=\"weather_proportion\"), \n    stat=\"identity\"\n) + labs(\n    x=\"Airport Code\", \n    y=\"Proportion of Weather Delays\", \n    title=\"Total Weather Delays by All Airports\"\n)\n\n\n0    ATL\n1    DEN\n2    IAD\n3    ORD\n4    SAN\n5    SFO\n6    SLC\nName: airport_code, dtype: object 0    0.071061\n1    0.059310\n2    0.059703\n3    0.086156\n4    0.053300\n5    0.097853\n6    0.042997\nName: weather_proportion, dtype: float64"
-  },
-  {
-    "objectID": "250_Projects/project2.html#questiontask-6---stretch",
-    "href": "250_Projects/project2.html#questiontask-6---stretch",
-    "title": "Client Report - Late Flights & Missing Data",
-    "section": "Question|Task 6 - Stretch",
-    "text": "Question|Task 6 - Stretch\nWhich delay is the worst delay? Create a similar analysis as above for Weather Delay with: Carrier Delay and Security Delay. Compare the proportion of delay for each of the three categories in a Chart and a Table. Describe your results.\nWeather delays are the most significant, showing higher proportions compared to carrier and security delays. Airports like San Francisco International (SFO) and Chicago O’Hare International (ORD) are particularly impacted. Carrier delays also contribute, notably at San Diego International (SAN) and Washington Dulles International (IAD), but less so than weather. Security delays have the least impact across all airports. Overall, weather delays are the most challenging and frequent, making them the worst type of delay.\n\n\ntable example\n# Include and execute your code here\n\n# Prepare data for analysis\ndf_6 = df[[\"airport_code\", \"total_weather_delays\", \"num_of_delays_carrier\", \"num_of_delays_security\", \"num_of_flights_total\"]].replace(\"NaN\", np.nan)\n\ndf_6[\"num_of_delays_carrier\"] = df_6[\"num_of_delays_carrier\"].replace(np.nan, df_6[\"num_of_delays_carrier\"].astype(float).mean())\n\ndf_6[\"num_of_delays_carrier\"] = df_6[\"num_of_delays_carrier\"].astype(int)\n\n# Group by airport and calculate proportions\ntable = df_6.groupby(\"airport_code\").agg(\n  delayed_flights = (\"total_weather_delays\", \"sum\"),\n  delayed_carrier = (\"num_of_delays_carrier\", \"sum\"),\n  delayed_security = (\"num_of_delays_security\", \"sum\"),\n  total_flights = (\"num_of_flights_total\", \"sum\")\n).reset_index()\n\ntab = pd.DataFrame(table[\"airport_code\"])\ntab[\"proportion_weather\"] = table[\"delayed_flights\"] / table[\"total_flights\"]\ntab[\"proportion_carrier\"] = table[\"delayed_carrier\"] / table[\"total_flights\"]\ntab[\"proportion_security\"] = table[\"delayed_security\"] / table[\"total_flights\"]\n\ndisplay(tab.head(6))\n\n# Prepare data for plot\nweather = table[[\"airport_code\"]]\nweather[\"proportion\"] = table[\"delayed_flights\"] / table[\"total_flights\"]\ncarrier = table[[\"airport_code\"]]\ncarrier[\"proportion\"] = table[\"delayed_carrier\"] / table[\"total_flights\"]\nsecurity = table[[\"airport_code\"]]\nsecurity[\"proportion\"] = table[\"delayed_security\"] / table[\"total_flights\"]\n\n\nweather[\"category\"] = \"weather\"\ncarrier[\"category\"] = \"carrier\"\nsecurity[\"category\"] = \"security\"\n\n\ndata = pd.concat([weather, carrier, security])\n\n# Create a bar plot\nggplot(data=data)\\\n  + geom_bar(mapping=aes(x='airport_code',y='proportion', fill=\"category\"), stat=\"identity\", position=\"dodge\")\n\n\n\n\n\n\ntable example {#q6}\n\n\n\nairport_code\nproportion_weather\nproportion_carrier\nproportion_security\n\n\n\n\n0\nATL\n0.071061\n0.039068\n0.000188\n\n\n1\nDEN\n0.059310\n0.048483\n0.000392\n\n\n2\nIAD\n0.059703\n0.056086\n0.000319\n\n\n3\nORD\n0.086156\n0.040719\n0.000240\n\n\n4\nSAN\n0.053300\n0.062242\n0.000534\n\n\n5\nSFO\n0.097853\n0.052986\n0.000427"
-  },
-  {
-    "objectID": "250_Projects/project1.html",
-    "href": "250_Projects/project1.html",
-    "title": "Client Report - Project 1",
-    "section": "",
-    "text": "This project has some key insights. In the past, Marry and Brittany were the trendy name. Nevertheless, these days people prefer to use others. Besides, this project also shows that the famous movie does not affect the name usage.\n\n\nRead and format project 01 data\n#df = pd.read_csv(\"names_year.csv\")\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks"
-  },
-  {
-    "objectID": "250_Projects/project1.html#elevator-pitch",
-    "href": "250_Projects/project1.html#elevator-pitch",
-    "title": "Client Report - Project 1",
-    "section": "",
-    "text": "This project has some key insights. In the past, Marry and Brittany were the trendy name. Nevertheless, these days people prefer to use others. Besides, this project also shows that the famous movie does not affect the name usage.\n\n\nRead and format project 01 data\n#df = pd.read_csv(\"names_year.csv\")\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv\")\n\n\nHighlight the Questions and Tasks"
-  },
-  {
-    "objectID": "250_Projects/project1.html#questiontask-1",
-    "href": "250_Projects/project1.html#questiontask-1",
-    "title": "Client Report - Project 1",
-    "section": "Question|Task 1",
-    "text": "Question|Task 1\nHow does your name at your birth year compare to its use historically?\nIn 2002, the name Marry was less popular than in the past, especially in 1950, reaching the height of popularity with 53,791 Marry’s.\n\n\nRead, format data and visualize data as chart\nLetsPlot.setup_html()\ndf_mary = df.loc[df[\"name\"] == \"Mary\"]\nggplot(data=df_mary, mapping=aes(x=\"year\", y=\"Total\")) + geom_line() + scale_x_continuous(format=\"d\") + geom_vline(xintercept=2002, color=\"red\", linetype=\"solid\") + geom_text(x=2002, y=max(df_mary[\"Total\"]), label=\"Birth Year\", color=\"red\", ha=\"center\", va=\"bottom\")"
-  },
-  {
-    "objectID": "250_Projects/project1.html#questiontask-2",
-    "href": "250_Projects/project1.html#questiontask-2",
-    "title": "Client Report - Project 1",
-    "section": "Question|Task 2",
-    "text": "Question|Task 2\nIf you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?\nThe chart shows that most Brittany’s were born in 1990 so if we talked to someone named Brittany on the phone, she should be 34 years old. She might not be under 20 or over 40 because that age would be too far.\n\n\nRead, format data and visualize data as chart\nLetsPlot.setup_html()\ndf_Brittany = df.loc[df[\"name\"] == \"Brittany\"]\nggplot(data=df_Brittany, mapping=aes(x=\"year\", y=\"Total\")) + geom_line() + scale_x_continuous(format=\"d\") + geom_vline(xintercept=1990, color=\"red\", linetype=\"solid\") + geom_text(x=1990, y=max(df_Brittany[\"Total\"]), label=\"Brittany's Birth Year Guess\", color=\"red\", ha=\"center\", va=\"bottom\")"
-  },
-  {
-    "objectID": "250_Projects/project1.html#questiontask-3",
-    "href": "250_Projects/project1.html#questiontask-3",
-    "title": "Client Report - Project 1",
-    "section": "Question|Task 3",
-    "text": "Question|Task 3\nMary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names in a single chart. What trends do you notice?\nIn 1950, Mary was extremely trendy compared to Martha, Peter, and Paul (53,791). The second most popular Christian name is Paul with over 24,000 the name usage. Peter and Martha are not significant with 9,690 and 7,930 respectively.\n\n\nline chart of Christian names with colors using scale_color_manual\nLetsPlot.setup_html()\ndf = df.query('year &gt; 1919 and year &lt; 2001')\ndf_Christian_names = df.loc[df[\"name\"].isin([\"Mary\", \"Martha\", \"Peter\", \"Paul\"])]\nggplot(data=df_Christian_names, mapping=aes(x=\"year\", y=\"Total\", color=\"name\")) + geom_line() + scale_color_manual(values={\"Mary\":\"red\", \"Martha\":\"blue\", \"Peter\":\"green\", \"Paul\":\"yellow\"}) + scale_x_continuous(format=\"d\")"
-  },
-  {
-    "objectID": "250_Projects/project1.html#questiontask-4",
-    "href": "250_Projects/project1.html#questiontask-4",
-    "title": "Client Report - Project 1",
-    "section": "Question|Task 4",
-    "text": "Question|Task 4\nThink of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?\n_In 1990, the Home Alone movie was released which was immensely popular. Nevertheless, Kevin, the name of the main character, was not affected by the use of the famous film. After 1990, there were fewer people named Kevin and it is predicted to be a downward trend for a long time.\n\n\nvisualize Kevin’s name by a line chart\nLetsPlot.setup_html()\ndf_movie_name = df.loc[df[\"name\"] == \"Kevin\"]\nggplot(data=df_movie_name, mapping=aes(x=\"year\", y=\"Total\")) + geom_line() + scale_x_continuous(format=\"d\") + geom_vline(xintercept=1990, color=\"red\", linetype=\"solid\") + geom_text(x=1990, y=max(df_movie_name[\"Total\"]), label=\"Movie's Year Released\", color=\"red\", ha=\"center\", va=\"bottom\")"
-  },
-  {
-    "objectID": "250_Projects/project1.html#questionstretch-task",
-    "href": "250_Projects/project1.html#questionstretch-task",
-    "title": "Client Report - Project 1",
-    "section": "Question|Stretch Task",
-    "text": "Question|Stretch Task\nReproduce the chart Elliot using the data from the names_year.csv file.\n\n\nvisualize Elliot’s name by a line chart, addd a vertical line at 1982, 1985, and 2002, and change the x-axis scale to be every 10 years\nLetsPlot.setup_html()\ndf_movie_name = df.loc[df[\"name\"] == \"Elliot\"]\n(ggplot(data=df_movie_name, mapping=aes(x=\"year\", y=\"Total\", color=\"name\"))\n + geom_line()\n + scale_color_manual(values={\"Elliot\":\"blue\"})\n + scale_x_continuous(limits=[1950, 2020], breaks=[i for i in range(1950, 2021, 10)], format=\"d\")\n + geom_vline(xintercept=1982, color=\"red\", linetype=\"dashed\")\n + geom_vline(xintercept=1985, color=\"red\", linetype=\"dashed\")\n + geom_vline(xintercept=2002, color=\"red\", linetype=\"dashed\")\n + geom_text(x=1982, y=max(df_movie_name[\"Total\"]), label=\"E.T Released\", color=\"black\", ha=\"center\", va=\"bottom\", size= 5,hjust = 1, vjust = 0)\n  + geom_text(x=1985, y=max(df_movie_name[\"Total\"]), label=\"Second Released\", color=\"black\", ha=\"center\", va=\"bottom\", size= 5, hjust = 0, vjust = 1)\n  + geom_text(x=2002, y=max(df_movie_name[\"Total\"]), label=\"Third Released\", color=\"black\", ha=\"center\", va=\"bottom\", size= 5, hjust = 0, vjust = 1)\n+ labs(\n        title=\"Elliot...What?\",\n    )\n+  theme(panel_background = element_rect(fill = \"#e5ecf6\"))\n+ theme(legend_position=[1,1])\n#The first value (1) represents the x-coordinate (horizontal position).\n#The second value (1) represents the y-coordinate (vertical position).\n#Both values range from 0 to 1, where:\n#(0, 0) is the bottom-left corner.\n#(0, 1) is the top-left corner.\n#(1, 0) is the bottom-right corner.\n#(1, 1) is the top-right corner (which you are using).\n)\n\n\n\n            \n            \n            \n\n\n   \n   \n\n\n\n\nShow the code\ndf_mary = df.loc[df[\"name\"] == \"Oliver\"]\nutah_count = df_mary[\"UT\"].sum()\nprint(utah_count)\n\n\n178.0\n\n\nTesting stretch question\n\n\nShow the code\ndf_movie_name = df.loc[df[\"name\"] == \"Elliot\"]\n(\n  ggplot(data=df_movie_name, mapping=aes(x=\"year\", y=\"Total\"))\n  + geom_line(mapping=aes(color=\"name\"), size=1)\n  + scale_color_manual(values={\"Elliot\": \"blue\"})\n  + geom_vline(xintercept=1982.5, linetype=\"dashed\", color=\"red\")\n  + scale_x_continuous(format = '{}')\n  + geom_vline(xintercept=1985, linetype=\"dashed\", color=\"red\")\n  + geom_vline(xintercept=2002, linetype=\"dashed\", color=\"red\")\n  + geom_text(label=\"E.T Released\", x=1977, y=1265, size=5, color=\"black\")\n  + geom_text(label=\"Second Release\", x=1991.5, y=1265, size=5, color=\"black\")\n  + geom_text(label=\"Third Release\", x=2007.5, y=1265, size=5, color=\"black\")\n  + labs(\n        title=\"Elliot... What?\",\n        x=\"Year\",\n        y=\"Total\",\n        color=\"name\"\n    )\n  + scale_x_continuous(limits=(1950, 2025),breaks=list(range(1950,2025, 10)), format = '{}', expand=[0])\n  + scale_y_continuous(limits=(0,1300), breaks=list(range(0, 1300, 200)),format='{}')\n  + ggsize(width=800,height=380)\n  + geom_rect(xmin = 1982, xmax = 1998, ymin = 0, ymax = 35000, \n            fill = \"#843540\", alpha = 0.2, size = 0)  #to have shadow for task 2 (color the range of ages)\n)"
-  },
-  {
-    "objectID": "250_projects.html",
-    "href": "250_projects.html",
-    "title": "DS250 Projects",
-    "section": "",
-    "text": "Project 0\nProject 1\nProject 2\nProject 3\nProject 4\nProject 5\nProject 6"
-  },
-  {
-    "objectID": "250_projects.html#repo-for-all-my-projects",
-    "href": "250_projects.html#repo-for-all-my-projects",
-    "title": "DS250 Projects",
-    "section": "",
-    "text": "Project 0\nProject 1\nProject 2\nProject 3\nProject 4\nProject 5\nProject 6"
-  },
-  {
-    "objectID": "250_Projects/project0.html",
-    "href": "250_Projects/project0.html",
-    "title": "Client Report - Project 0",
-    "section": "",
-    "text": "THIS .qmd IS INSTRUCTIONAL AND SHOULD NOT BE USED TO WRITE YOUR REPORTS (EXCEPTION - PROJECT 0). THERE IS ANOTHER TEMPLATE FILE FOR THAT. YOU WILL NEED TO PREVIEW THE REPORT TO PRODUCE A .html FILE. YOU WILL SUBMIT THE .html FILE ON CANVAS."
-  },
-  {
-    "objectID": "250_Projects/project0.html#elevator-pitch",
-    "href": "250_Projects/project0.html#elevator-pitch",
-    "title": "Client Report - Project 0",
-    "section": "Elevator pitch",
-    "text": "Elevator pitch\nA SHORT (2-3 SENTENCES) PARAGRAPH THAT DESCRIBES KEY INSIGHTS TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS. (Note: this is not a summary of the project, but a summary of the results.)\nA Client has requested this analysis and this is your one shot of what you would say to your boss in a 2 min elevator ride before he takes your report and hands it to the client.\n\n\nRead and format project data\n# Learn morea about Code Cells: https://quarto.org/docs/reference/cells/cells-jupyter.html\n\n# Include and execute your code here\ndf = pd.read_csv(\"https://raw.githubusercontent.com/byuidatascience/data4python4ds/master/data-raw/mpg/mpg.csv\")\n\n\nHighlight the Questions and Tasks"
-  },
-  {
-    "objectID": "250_Projects/project0.html#questiontask-1",
-    "href": "250_Projects/project0.html#questiontask-1",
-    "title": "Client Report - Project 0",
-    "section": "Question|Task 1",
-    "text": "Question|Task 1\nCOPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE\nAdd details here to answer the question but NOT like an assignment Q&A. You need to write your answers as a consulting solution report. A Client needs to understand the answer, but also needs to understand the decisions that went into the answer (when applicable).\ninclude figures in chunks and discuss your findings in the figure.\n\nYOU SHOULD HAVE QUALITY WRITING THAT DESCRIBES YOUR CHARTS AND TABLES.\nWE HIGHLY RECOMMEND GRAMMARLY TO FIX YOUR SPELLING AND GRAMMAR. WRITING TAKES TIME TO BE CLEAR. SPEND THE TIME TO PRACITCE.\nYOU SHOULD HAVE QUALITY COMMENTS THAT DESCRIBES YOUR CODES. OFTEN CODEERS WORK IN TEAMS AND YOU NEED TO HAVE QUALTIY COMMENTS FOR YOUR TEAM AND YOURSELF. YOU MAY NEED TO REVISIT CODE YOU WROTE OVER A YEAR AGO, AND IF YOU DONT COMMENT IT NOW YOU WONT REMEMBER WHY YOU DID WHAT YOU DID.\n\n\n\nRead and format data\n# Include and execute your code here"
-  },
-  {
-    "objectID": "250_Projects/project0.html#questiontask-2",
-    "href": "250_Projects/project0.html#questiontask-2",
-    "title": "Client Report - Project 0",
-    "section": "Question|Task 2",
-    "text": "Question|Task 2\nCOPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE\n\ninclude figures in chunks and discuss your findings in the figure.\n\n\n\nplot example\n# Include and execute your code here\npenguins = load_penguins()\n\n(\n    ggplot(data=penguins, mapping=aes(x=\"flipper_length_mm\", y=\"body_mass_g\"))\n    + geom_point(aes(color=\"species\", shape=\"species\"))\n    + geom_smooth(method=\"lm\")\n    + labs(\n        title=\"Body mass and flipper length\",\n        subtitle=\"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n        x=\"Flipper length (mm)\",\n        y=\"Body mass (g)\",\n        color=\"Species\",\n        shape=\"Species\",\n    )\n)\n\n\n\n   \n       \n       \n   \n   \n          \n   \n   \n\nMy useless chart"
-  },
-  {
-    "objectID": "250_Projects/project0.html#questiontask-3",
-    "href": "250_Projects/project0.html#questiontask-3",
-    "title": "Client Report - Project 0",
-    "section": "Question|Task 3",
-    "text": "Question|Task 3\nCOPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE\n\nPROVIDE TABLES THAT HELP ADDRESS THE QUESTIONS AND TASKS (IF APPLICABLE).\n\n\n\ntable example\n# Include and execute your code here\ndisplay(penguins.head())\n\n\n\n\n\n\ntable example {#cell-Q1-table}\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n\n\n\n\n\nNote: Non executing Python Snippets include (3) ``` followed by (3) more ```, each on their own line. These are not single quotes, they are the key left of the number 1 key on the keyboard. The top row can include the language of code that is pasted inbetween the ``` marks.\nNote: These also work in Slack and it is expected they are used for any code shared in that app. No screen shots allowed."
-  },
-  {
-    "objectID": "250_Projects/project3.html",
-    "href": "250_Projects/project3.html",
-    "title": "Client Report - Project 3",
-    "section": "",
-    "text": "This project delves into baseball data to uncover insights about player performance, salaries, and career longevity. By leveraging the Lahman Baseball Database, we generate SQL queries that identify top players based on batting averages and career lengths, and provide valuable metrics like average salary by position and comparisons between teams. The queries are designed to give the client actionable insights they can display on their website, with results ordered by key performance indicators such as batting average and salary. This analysis also includes visualizations, offering a comprehensive view of trends across different teams and player categories. The goal is to enhance understanding of player performance, salary distribution, and career longevity in the sport.\nWrite an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\n\nSELECT DISTINCT\n  collegeplaying.playerID,  \n  salaries.salary, \n  salaries.yearID,\n  salaries.teamID,\n  collegeplaying.schoolID\n\nFROM \n  collegeplaying\n\nLEFT JOIN\n  salaries ON salaries.playerID = collegeplaying.playerID\n\nWHERE collegeplaying.schoolID = \"idbyuid\"\n\nORDER BY \n  salary DESC;\n\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nplayerID\nsalary\nyearID\nteamID\nschoolID\n\n\n\n\n0\nlindsma01\n4000000.0\n2014.0\nCHA\nidbyuid\n\n\n1\nlindsma01\n3600000.0\n2012.0\nBAL\nidbyuid\n\n\n2\nlindsma01\n2800000.0\n2011.0\nCOL\nidbyuid\n\n\n3\nlindsma01\n2300000.0\n2013.0\nCHA\nidbyuid\n\n\n4\nlindsma01\n1625000.0\n2010.0\nHOU\nidbyuid\n\n\n5\nstephga01\n1025000.0\n2001.0\nSLN\nidbyuid\n\n\n6\nstephga01\n900000.0\n2002.0\nSLN\nidbyuid\n\n\n7\nstephga01\n800000.0\n2003.0\nSLN\nidbyuid\n\n\n8\nstephga01\n550000.0\n2000.0\nSLN\nidbyuid\n\n\n9\nlindsma01\n410000.0\n2009.0\nFLO\nidbyuid\n\n\n10\nlindsma01\n395000.0\n2008.0\nFLO\nidbyuid\n\n\n11\nlindsma01\n380000.0\n2007.0\nFLO\nidbyuid\n\n\n12\nstephga01\n215000.0\n1999.0\nSLN\nidbyuid\n\n\n13\nstephga01\n185000.0\n1998.0\nPHI\nidbyuid\n\n\n14\nstephga01\n150000.0\n1997.0\nPHI\nidbyuid\n\n\n15\ncatetr01\nNaN\nNaN\nNone\nidbyuid\n\n\n\n\n\n\n\nThis three-part question requires you to calculate batting average (number of hits divided by the number of at-bats).\nA. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  batting.H,\n  batting.AB,\n  batting.H / batting.AB AS batting_average\n\nFROM\n  batting\n\nWHERE\n  batting.AB &gt;= 1 \n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nbatting_average\n\n\n\n\n0\naberal01\n1957\n1\n1\n1\n\n\n1\nabernte02\n1960\n1\n1\n1\n\n\n2\nabramge01\n1923\n1\n1\n1\n\n\n3\nacklefr01\n1964\n1\n1\n1\n\n\n4\nalanirj01\n2019\n1\n1\n1\n\n\n\n\n\n\n\nB. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  ROUND (CAST(batting.h AS float) / CAST(batting.ab AS float),2) AS batting_average \n\nFROM\n  batting\n\nWHERE\n  batting.ab &gt;= 10 \n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nbatting_average\n\n\n\n\n0\ncarsoma01\n2013\n0.64\n\n\n1\nnymanny01\n1974\n0.64\n\n\n2\naltizda01\n1910\n0.60\n\n\n3\njohnsde01\n1975\n0.60\n\n\n4\nsilvech01\n1948\n0.57\n\n\n\n\n\n\n\nC. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.\n\n\nRead and format project data\n#Create a new dataframe:\n\n## Second way: ROUND (SUM(CAST(batting.h AS float)) / SUM(CAST(batting.ab AS float)),3) AS batting_average ##\n\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  batting.h,\n  batting.ab,\n  ROUND (SUM(batting.h) * 1.0 / SUM(batting.ab), 3) AS batting_average \nFROM\n  batting\n\nGROUP BY playerID\nHAVING SUM(AB) &gt;= 100\n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\nLIMIT 5\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nbatting_average\n\n\n\n\n0\ncobbty01\n1905\n36\n151\n0.366\n\n\n1\nbarnero01\n1871\n63\n157\n0.360\n\n\n2\nhornsro01\n1915\n14\n57\n0.358\n\n\n3\njacksjo01\n1908\n3\n23\n0.356\n\n\n4\nmeyerle01\n1871\n64\n130\n0.356\n\n\n\n\n\n\n\nPick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Lets-Plot to visualize the comparison. What do you learn?\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  teams.teamID,\n  teams.yearID,\n  teams.HR,\n  teams.W,\n  salaries.teamID,\n  salaries.salary\nFROM\n  teams\nINNER JOIN\n  salaries ON salaries.teamID = teams.teamID\nWHERE\n  teams.teamID = \"BOS\" OR teams.teamID = \"CIN\"\nORDER BY\n  teams.teamID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nteamID\nyearID\nHR\nW\nteamID\nsalary\n\n\n\n\n0\nBOS\n1901\n37\n79\nBOS\n60000.0\n\n\n1\nBOS\n1901\n37\n79\nBOS\n60000.0\n\n\n2\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n3\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n4\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n233231\nCIN\n2019\n227\n75\nCIN\n14000000.0\n\n\n233232\nCIN\n2019\n227\n75\nCIN\n16445535.0\n\n\n233233\nCIN\n2019\n227\n75\nCIN\n18000000.0\n\n\n233234\nCIN\n2019\n227\n75\nCIN\n18910655.0\n\n\n233235\nCIN\n2019\n227\n75\nCIN\n20000000.0\n\n\n\n\n233236 rows × 6 columns\n\n\n\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  teamID,\n  AVG(salary) AS average_salary\nFROM\n  salaries\nWHERE\n  teamID IN ('BOS', 'CIN')\nGROUP BY\n  teamID; \n\"\"\"\ndf = pd.read_sql_query(p, conn)\nLetsPlot.setup_html()\n\n(ggplot(data=df)\n + geom_bar(mapping=aes(x='teamID',y='average_salary',fill=\"teamID\"), stat=\"identity\", xlabel=\"Team\", ylabel=\"Average Salary\", title=\"Team Average Salary Comparison\")\n + labs(title= \"Team Average Salary Comparison\", x= \"Team\", y =\"Average Salary\"))\n\n\n\n            \n            \n            \n\n\n   \n   \n\n\nSTRETCH QUESTIONS 1. Advanced Salary Distribution by Position (with Case Statement)\n\n\nRead and format project data\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  fieldingpost.playerID,\n  COALESCE(MAX(salaries.salary), 'N/A') AS highest_salary,\n  AVG(salaries.salary) AS avg_salary,\n  COUNT(DISTINCT fieldingpost.playerID) AS total_players,\n  fieldingpost.POS,\n  salaries.teamID,\n  CASE\n    WHEN AVG(salaries.salary) &gt;= 1000000 THEN 'High Salary'\n    WHEN AVG(salaries.salary) &gt;= 500000 AND AVG(salaries.salary) &lt; 1000000 THEN 'Medium Salary'\n    ELSE 'Low Salary'\n  END AS salary_category\nFROM\n  fieldingpost\nLEFT JOIN\n  salaries ON salaries.playerID = fieldingpost.playerID\nGROUP BY\n  fieldingpost.POS\nORDER BY\n  avg_salary DESC\nLIMIT 10;\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(10)\n\n\n\n\n\n\n\n\n\nplayerID\nhighest_salary\navg_salary\ntotal_players\nPOS\nteamID\nsalary_category\n\n\n\n\n0\ncabremi01\n28000000.0\n4.714455e+06\n360\n1B\nDET\nHigh Salary\n\n\n1\nrodrial01\n33000000.0\n4.288380e+06\n296\nSS\nNYA\nHigh Salary\n\n\n2\nrodrial01\n33000000.0\n4.257195e+06\n366\n3B\nNYA\nHigh Salary\n\n\n3\ncabremi01\n28000000.0\n4.237139e+06\n498\nRF\nDET\nHigh Salary\n\n\n4\ncespeyo01\n27328046.0\n3.999224e+06\n372\nCF\nNYN\nHigh Salary\n\n\n5\ncabremi01\n28000000.0\n3.963197e+06\n525\nLF\nDET\nHigh Salary\n\n\n6\nkershcl01\n33000000.0\n3.598436e+06\n1796\nP\nLAN\nHigh Salary\n\n\n7\nmauerjo01\n23000000.0\n2.958648e+06\n348\nC\nMIN\nHigh Salary\n\n\n8\ncanoro01\n24000000.0\n2.914565e+06\n352\n2B\nSEA\nHigh Salary\n\n\n\n\n\n\n\n2. Advanced Career Longevity and Performance (with Subqueries)\n\n\nRead and format project data\nimport sqlite3\nimport pandas as pd\n\n# Connect to the SQLite database\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\n\n# First query: Calculate the average career length\np1 = \"\"\"\nWITH CareerLength AS (\n    -- Calculate career length (max yearID - min yearID) for each player\n    SELECT\n        playerID,\n        MIN(yearID) AS first_year,\n        MAX(yearID) AS last_year,\n        (MAX(yearID) - MIN(yearID)) AS career_length\n    FROM\n        Batting\n    GROUP BY\n        playerID\n    HAVING\n        COUNT(yearID) &gt; 0 -- Ensuring the player has played at least one game\n)\n-- Calculate the average career length for all players\nSELECT\n    AVG(career_length) AS average_career_length\nFROM\n    CareerLength;\n\"\"\"\n\n# Execute the first query and store the result\navg_career_length_df = pd.read_sql_query(p1, conn)\nprint(avg_career_length_df)\n\n\n   average_career_length\n0               4.717101\n\n\n\n\nShow the code\n# Second query: Get the top 10 players with the longest careers\np2 = \"\"\"\nWITH CareerLength AS (\n    -- Calculate career length (max yearID - min yearID) for each player\n    SELECT\n        playerID,\n        MIN(yearID) AS first_year,\n        MAX(yearID) AS last_year,\n        (MAX(yearID) - MIN(yearID)) AS career_length\n    FROM\n        Batting\n    GROUP BY\n        playerID\n    HAVING\n        COUNT(yearID) &gt; 0 -- Ensuring the player has played at least one game\n)\n-- Fetch the top 10 players with the longest careers\nSELECT\n    c.playerID,\n    p.nameFirst AS first_name,\n    p.nameLast AS last_name,\n    c.career_length\nFROM\n    CareerLength c\nJOIN\n    People p ON c.playerID = p.playerID -- Use the correct 'People' table instead of 'MASTER'\nORDER BY\n    c.career_length DESC\nLIMIT 10;\n\"\"\"\n\n# Execute the second query and store the result\ntop_10_players_df = pd.read_sql_query(p2, conn)\nprint(top_10_players_df)\n\n# Close the database connection\nconn.close()\n\n\n    playerID first_name last_name  career_length\n0  altroni01       Nick   Altrock             35\n1  orourji01        Jim  O'Rourke             32\n2  minosmi01     Minnie    Minoso             31\n3  olearch01    Charley   O'Leary             30\n4  lathaar01      Arlie    Latham             29\n5  mcguide01     Deacon   McGuire             28\n6  eversjo01     Johnny     Evers             27\n7  jennihu01     Hughie  Jennings             27\n8   ryanno01      Nolan      Ryan             27\n9  streega01      Gabby    Street             27\n\n\nMethod checkpoint\n\n\nShow the code\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\n\n\nSELECT \n  H,\n  AB,\n  playerID,\n  H*1.0/AB AS batting_average\n\nFROM \n  batting\nLIMIT 2;\n\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nH\nAB\nplayerID\nbatting_average\n\n\n\n\n0\n0\n4\nabercda01\n0.000000\n\n\n1\n32\n118\naddybo01\n0.271186"
-  },
-  {
-    "objectID": "250_Projects/project3.html#elevator-pitch",
-    "href": "250_Projects/project3.html#elevator-pitch",
-    "title": "Client Report - Project 3",
-    "section": "",
-    "text": "This project delves into baseball data to uncover insights about player performance, salaries, and career longevity. By leveraging the Lahman Baseball Database, we generate SQL queries that identify top players based on batting averages and career lengths, and provide valuable metrics like average salary by position and comparisons between teams. The queries are designed to give the client actionable insights they can display on their website, with results ordered by key performance indicators such as batting average and salary. This analysis also includes visualizations, offering a comprehensive view of trends across different teams and player categories. The goal is to enhance understanding of player performance, salary distribution, and career longevity in the sport.\nWrite an SQL query to create a new dataframe about baseball players who attended BYU-Idaho. The new table should contain five columns: playerID, schoolID, salary, and the yearID/teamID associated with each salary. Order the table by salary (highest to lowest) and print out the table in your report.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\n\nSELECT DISTINCT\n  collegeplaying.playerID,  \n  salaries.salary, \n  salaries.yearID,\n  salaries.teamID,\n  collegeplaying.schoolID\n\nFROM \n  collegeplaying\n\nLEFT JOIN\n  salaries ON salaries.playerID = collegeplaying.playerID\n\nWHERE collegeplaying.schoolID = \"idbyuid\"\n\nORDER BY \n  salary DESC;\n\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nplayerID\nsalary\nyearID\nteamID\nschoolID\n\n\n\n\n0\nlindsma01\n4000000.0\n2014.0\nCHA\nidbyuid\n\n\n1\nlindsma01\n3600000.0\n2012.0\nBAL\nidbyuid\n\n\n2\nlindsma01\n2800000.0\n2011.0\nCOL\nidbyuid\n\n\n3\nlindsma01\n2300000.0\n2013.0\nCHA\nidbyuid\n\n\n4\nlindsma01\n1625000.0\n2010.0\nHOU\nidbyuid\n\n\n5\nstephga01\n1025000.0\n2001.0\nSLN\nidbyuid\n\n\n6\nstephga01\n900000.0\n2002.0\nSLN\nidbyuid\n\n\n7\nstephga01\n800000.0\n2003.0\nSLN\nidbyuid\n\n\n8\nstephga01\n550000.0\n2000.0\nSLN\nidbyuid\n\n\n9\nlindsma01\n410000.0\n2009.0\nFLO\nidbyuid\n\n\n10\nlindsma01\n395000.0\n2008.0\nFLO\nidbyuid\n\n\n11\nlindsma01\n380000.0\n2007.0\nFLO\nidbyuid\n\n\n12\nstephga01\n215000.0\n1999.0\nSLN\nidbyuid\n\n\n13\nstephga01\n185000.0\n1998.0\nPHI\nidbyuid\n\n\n14\nstephga01\n150000.0\n1997.0\nPHI\nidbyuid\n\n\n15\ncatetr01\nNaN\nNaN\nNone\nidbyuid\n\n\n\n\n\n\n\nThis three-part question requires you to calculate batting average (number of hits divided by the number of at-bats).\nA. Write an SQL query that provides playerID, yearID, and batting average for players with at least 1 at bat that year. Sort the table from highest batting average to lowest, and then by playerid alphabetically. Show the top 5 results in your report.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  batting.H,\n  batting.AB,\n  batting.H / batting.AB AS batting_average\n\nFROM\n  batting\n\nWHERE\n  batting.AB &gt;= 1 \n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nbatting_average\n\n\n\n\n0\naberal01\n1957\n1\n1\n1\n\n\n1\nabernte02\n1960\n1\n1\n1\n\n\n2\nabramge01\n1923\n1\n1\n1\n\n\n3\nacklefr01\n1964\n1\n1\n1\n\n\n4\nalanirj01\n2019\n1\n1\n1\n\n\n\n\n\n\n\nB. Use the same query as above, but only include players with at least 10 at bats that year. Print the top 5 results.\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  ROUND (CAST(batting.h AS float) / CAST(batting.ab AS float),2) AS batting_average \n\nFROM\n  batting\n\nWHERE\n  batting.ab &gt;= 10 \n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nbatting_average\n\n\n\n\n0\ncarsoma01\n2013\n0.64\n\n\n1\nnymanny01\n1974\n0.64\n\n\n2\naltizda01\n1910\n0.60\n\n\n3\njohnsde01\n1975\n0.60\n\n\n4\nsilvech01\n1948\n0.57\n\n\n\n\n\n\n\nC. Now calculate the batting average for players over their entire careers (all years combined). Only include players with at least 100 at bats, and print the top 5 results.\n\n\nRead and format project data\n#Create a new dataframe:\n\n## Second way: ROUND (SUM(CAST(batting.h AS float)) / SUM(CAST(batting.ab AS float)),3) AS batting_average ##\n\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  batting.playerID,\n  batting.yearID,\n  batting.h,\n  batting.ab,\n  ROUND (SUM(batting.h) * 1.0 / SUM(batting.ab), 3) AS batting_average \nFROM\n  batting\n\nGROUP BY playerID\nHAVING SUM(AB) &gt;= 100\n\nORDER BY\n  batting_average DESC,\n  batting.playerID ASC\n\nLIMIT 5\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(5)\n\n\n\n\n\n\n\n\n\nplayerID\nyearID\nH\nAB\nbatting_average\n\n\n\n\n0\ncobbty01\n1905\n36\n151\n0.366\n\n\n1\nbarnero01\n1871\n63\n157\n0.360\n\n\n2\nhornsro01\n1915\n14\n57\n0.358\n\n\n3\njacksjo01\n1908\n3\n23\n0.356\n\n\n4\nmeyerle01\n1871\n64\n130\n0.356\n\n\n\n\n\n\n\nPick any two baseball teams and compare them using a metric of your choice (average salary, home runs, number of wins, etc). Write an SQL query to get the data you need, then make a graph using Lets-Plot to visualize the comparison. What do you learn?\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  teams.teamID,\n  teams.yearID,\n  teams.HR,\n  teams.W,\n  salaries.teamID,\n  salaries.salary\nFROM\n  teams\nINNER JOIN\n  salaries ON salaries.teamID = teams.teamID\nWHERE\n  teams.teamID = \"BOS\" OR teams.teamID = \"CIN\"\nORDER BY\n  teams.teamID ASC\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nteamID\nyearID\nHR\nW\nteamID\nsalary\n\n\n\n\n0\nBOS\n1901\n37\n79\nBOS\n60000.0\n\n\n1\nBOS\n1901\n37\n79\nBOS\n60000.0\n\n\n2\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n3\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n4\nBOS\n1901\n37\n79\nBOS\n62500.0\n\n\n...\n...\n...\n...\n...\n...\n...\n\n\n233231\nCIN\n2019\n227\n75\nCIN\n14000000.0\n\n\n233232\nCIN\n2019\n227\n75\nCIN\n16445535.0\n\n\n233233\nCIN\n2019\n227\n75\nCIN\n18000000.0\n\n\n233234\nCIN\n2019\n227\n75\nCIN\n18910655.0\n\n\n233235\nCIN\n2019\n227\n75\nCIN\n20000000.0\n\n\n\n\n233236 rows × 6 columns\n\n\n\n\n\nRead and format project data\n#Create a new dataframe:\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  teamID,\n  AVG(salary) AS average_salary\nFROM\n  salaries\nWHERE\n  teamID IN ('BOS', 'CIN')\nGROUP BY\n  teamID; \n\"\"\"\ndf = pd.read_sql_query(p, conn)\nLetsPlot.setup_html()\n\n(ggplot(data=df)\n + geom_bar(mapping=aes(x='teamID',y='average_salary',fill=\"teamID\"), stat=\"identity\", xlabel=\"Team\", ylabel=\"Average Salary\", title=\"Team Average Salary Comparison\")\n + labs(title= \"Team Average Salary Comparison\", x= \"Team\", y =\"Average Salary\"))\n\n\n\n            \n            \n            \n\n\n   \n   \n\n\nSTRETCH QUESTIONS 1. Advanced Salary Distribution by Position (with Case Statement)\n\n\nRead and format project data\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\nSELECT\n  fieldingpost.playerID,\n  COALESCE(MAX(salaries.salary), 'N/A') AS highest_salary,\n  AVG(salaries.salary) AS avg_salary,\n  COUNT(DISTINCT fieldingpost.playerID) AS total_players,\n  fieldingpost.POS,\n  salaries.teamID,\n  CASE\n    WHEN AVG(salaries.salary) &gt;= 1000000 THEN 'High Salary'\n    WHEN AVG(salaries.salary) &gt;= 500000 AND AVG(salaries.salary) &lt; 1000000 THEN 'Medium Salary'\n    ELSE 'Low Salary'\n  END AS salary_category\nFROM\n  fieldingpost\nLEFT JOIN\n  salaries ON salaries.playerID = fieldingpost.playerID\nGROUP BY\n  fieldingpost.POS\nORDER BY\n  avg_salary DESC\nLIMIT 10;\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf.head(10)\n\n\n\n\n\n\n\n\n\nplayerID\nhighest_salary\navg_salary\ntotal_players\nPOS\nteamID\nsalary_category\n\n\n\n\n0\ncabremi01\n28000000.0\n4.714455e+06\n360\n1B\nDET\nHigh Salary\n\n\n1\nrodrial01\n33000000.0\n4.288380e+06\n296\nSS\nNYA\nHigh Salary\n\n\n2\nrodrial01\n33000000.0\n4.257195e+06\n366\n3B\nNYA\nHigh Salary\n\n\n3\ncabremi01\n28000000.0\n4.237139e+06\n498\nRF\nDET\nHigh Salary\n\n\n4\ncespeyo01\n27328046.0\n3.999224e+06\n372\nCF\nNYN\nHigh Salary\n\n\n5\ncabremi01\n28000000.0\n3.963197e+06\n525\nLF\nDET\nHigh Salary\n\n\n6\nkershcl01\n33000000.0\n3.598436e+06\n1796\nP\nLAN\nHigh Salary\n\n\n7\nmauerjo01\n23000000.0\n2.958648e+06\n348\nC\nMIN\nHigh Salary\n\n\n8\ncanoro01\n24000000.0\n2.914565e+06\n352\n2B\nSEA\nHigh Salary\n\n\n\n\n\n\n\n2. Advanced Career Longevity and Performance (with Subqueries)\n\n\nRead and format project data\nimport sqlite3\nimport pandas as pd\n\n# Connect to the SQLite database\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\n\n# First query: Calculate the average career length\np1 = \"\"\"\nWITH CareerLength AS (\n    -- Calculate career length (max yearID - min yearID) for each player\n    SELECT\n        playerID,\n        MIN(yearID) AS first_year,\n        MAX(yearID) AS last_year,\n        (MAX(yearID) - MIN(yearID)) AS career_length\n    FROM\n        Batting\n    GROUP BY\n        playerID\n    HAVING\n        COUNT(yearID) &gt; 0 -- Ensuring the player has played at least one game\n)\n-- Calculate the average career length for all players\nSELECT\n    AVG(career_length) AS average_career_length\nFROM\n    CareerLength;\n\"\"\"\n\n# Execute the first query and store the result\navg_career_length_df = pd.read_sql_query(p1, conn)\nprint(avg_career_length_df)\n\n\n   average_career_length\n0               4.717101\n\n\n\n\nShow the code\n# Second query: Get the top 10 players with the longest careers\np2 = \"\"\"\nWITH CareerLength AS (\n    -- Calculate career length (max yearID - min yearID) for each player\n    SELECT\n        playerID,\n        MIN(yearID) AS first_year,\n        MAX(yearID) AS last_year,\n        (MAX(yearID) - MIN(yearID)) AS career_length\n    FROM\n        Batting\n    GROUP BY\n        playerID\n    HAVING\n        COUNT(yearID) &gt; 0 -- Ensuring the player has played at least one game\n)\n-- Fetch the top 10 players with the longest careers\nSELECT\n    c.playerID,\n    p.nameFirst AS first_name,\n    p.nameLast AS last_name,\n    c.career_length\nFROM\n    CareerLength c\nJOIN\n    People p ON c.playerID = p.playerID -- Use the correct 'People' table instead of 'MASTER'\nORDER BY\n    c.career_length DESC\nLIMIT 10;\n\"\"\"\n\n# Execute the second query and store the result\ntop_10_players_df = pd.read_sql_query(p2, conn)\nprint(top_10_players_df)\n\n# Close the database connection\nconn.close()\n\n\n    playerID first_name last_name  career_length\n0  altroni01       Nick   Altrock             35\n1  orourji01        Jim  O'Rourke             32\n2  minosmi01     Minnie    Minoso             31\n3  olearch01    Charley   O'Leary             30\n4  lathaar01      Arlie    Latham             29\n5  mcguide01     Deacon   McGuire             28\n6  eversjo01     Johnny     Evers             27\n7  jennihu01     Hughie  Jennings             27\n8   ryanno01      Nolan      Ryan             27\n9  streega01      Gabby    Street             27\n\n\nMethod checkpoint\n\n\nShow the code\nconn = sqlite3.connect('lahmansbaseballdb.sqlite')\np = \"\"\"\n\n\nSELECT \n  H,\n  AB,\n  playerID,\n  H*1.0/AB AS batting_average\n\nFROM \n  batting\nLIMIT 2;\n\n\"\"\"\ndf = pd.read_sql_query(p, conn)\ndf\n\n\n\n\n\n\n\n\n\nH\nAB\nplayerID\nbatting_average\n\n\n\n\n0\n0\n4\nabercda01\n0.000000\n\n\n1\n32\n118\naddybo01\n0.271186"
+    "objectID": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#machine-learning-model",
+    "href": "Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html#machine-learning-model",
+    "title": "Classification Machine Learning Model 🧠 📈",
+    "section": "Machine Learning Model",
+    "text": "Machine Learning Model\n\nSplit the data to train and test\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n\n\nCreate the model\n\n# Create an ordinal encoder\nordinal_encoder = OrdinalEncoder()\n\n# Create a column transformer to apply ordinal encoding to categorical features\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', ordinal_encoder, categorical_features)\n    ],\n    remainder='passthrough'  # Keep other columns unchanged\n)\n\n\n\nTrain the model\n\n# Fit and transform the training data\nX_train_encoded = preprocessor.fit_transform(X_train)\n\n# Transform the test data using the fitted preprocessor\nX_test_encoded = preprocessor.transform(X_test)\n\n\n\nMake predictions\n\n# Initialize the XGBoost classifier\nxgb_classifier = XGBClassifier(random_state=42)\n\n\nHyperparameter Search\n\n# Define the parameter grid for hyperparameter tuning\nparam_grid = {\n    'learning_rate': [0.01, 0.1, 0.2],\n    'n_estimators': [100, 200, 300],\n    'max_depth': [3, 5, 7],\n}\n\n# Perform GridSearchCV\ngrid_search = GridSearchCV(estimator=xgb_classifier, param_grid=param_grid, cv=3, scoring='f1')\ngrid_search.fit(X_train_encoded, y_train)\n\n# Get the best model from GridSearchCV\nbest_xgb_classifier = grid_search.best_estimator_\n\n# Make predictions using the best model\ny_pred = best_xgb_classifier.predict(X_test_encoded)\n\n\n\n\nEvaluate the Model\nAccuracy – The percentage of total predictions that are correct.\nExample: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.\nF1 Score – Out of all the positive predictions, how many were actually correct.\nExample: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.\nRecall Score – Out of all the actual positive cases, how many did the model correctly identify.\nExample: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.\nPrecision Score – A balance between precision and recall (harmonic mean).\nExample: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.\n\n# Evaluate the model using classification metrics\nfrom sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error\n\n# Calculate Mean Squared Error (MSE)\nmse = mean_squared_error(y_test, y_pred)\n\n# Calculate Root Mean Squared Error (RMSE)\nrmse = np.sqrt(mse)\n\n# Calculate Mean Absolute Error (MAE)\nmae = mean_absolute_error(y_test, y_pred)\n\n# Calculate R-squared (R2)\nr2 = r2_score(y_test, y_pred)\n\n# Print the evaluation metrics\nprint('Mean Squared Error (MSE):', mse)\nprint('Root Mean Squared Error (RMSE):', rmse)\nprint('Mean Absolute Error (MAE):', mae)\nprint('R-squared (R2):', r2)\n\nMean Squared Error (MSE): 0.13693153423288357\nRoot Mean Squared Error (RMSE): 0.37004261137453287\nMean Absolute Error (MAE): 0.13693153423288357\nR-squared (R2): 0.14705086201263828"
   }
 ]
