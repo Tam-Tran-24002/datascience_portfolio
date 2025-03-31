@@ -6,5 +6,4 @@ subtitle: "my data science portfolio"
 
 # Resume
 ## Machine Learning projects
-
-[MarkDown Basics](https://quarto.org/docs/authoring/markdown-basics.html#links-images)
+  

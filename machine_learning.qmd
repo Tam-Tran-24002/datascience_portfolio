@@ -4,7 +4,7 @@ title: "Machine Learning - Bootcamp"
 
 ## My projects
 
-/machine_learning_projects
+/Machine Learning projects
     /1_KNN_Model
         ML_Bootcamp_KNN.ipynb
     /2_DecisionTree_RandomForests_Model
