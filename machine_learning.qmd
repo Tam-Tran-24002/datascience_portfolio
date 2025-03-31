@@ -6,10 +6,10 @@ title: "Machine Learning - Bootcamp"
 
 /Machine Learning projects
     /1_KNN_Model
-        ML_Bootcamp_KNN.ipynb
+        ML_Bootcamp_KNN.html
     /2_DecisionTree_RandomForests_Model
-        ML_Bootcamp_DecisionTree_RandomForest.ipynb
+        ML_Bootcamp_DecisionTree_RandomForest.html
     /3_Regression_Model
-        ML_Bootcamp_Regression.ipynb
+        ML_Bootcamp_Regression.html
     /4_Classification_Model
-        ML_Bootcamp_Classification_XGBoost.ipynb
+        ML_Bootcamp_Classification_XGBoost.html
