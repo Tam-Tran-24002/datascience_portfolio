@@ -1,11 +1,11 @@
 ---
-layout: Resume
+layout: resume
 title: Tam Tran's Resume
 ---  
-minhtamtran.work@gmail.com | 208-671-3212 | https://www.linkedin.com/in/tam-tran-b37a9123b/ |    
-https://github.com/Tam-Tran-24002    
+minhtamtran.work@gmail.com | 208-671-3212 | https://www.linkedin.com/in/tam-tran-b37a9123b/ |      
+https://github.com/Tam-Tran-24002      
 
-Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.   
+Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.     
 
 # Education
 Bachelor of Science in Data Science    
@@ -23,7 +23,7 @@ Brigham Young University - Idaho | Expected Graduation: December 2027
 Rexburg, Idaho | January 2025 - Present    
 Brigham Young University - Idaho                                                                 
 • Tutor 200+ students in Data Intuition and Insights (Tableau), Data Science Programming (Python, SQL, Machine Learning), and Programming with Functions    
-• Break down complex data science concepts for both technical and non-technical students, using clear explanations and practical examples, leading to increased comprehension and engagement     
+• Break down complex data science concepts for both technical and non-technical students, using clear explanations and practical examples, leading to increased comprehension and engagement       
 
 ## Teaching Assistant
 Rexburg, Idaho | September 2024 - Present    
