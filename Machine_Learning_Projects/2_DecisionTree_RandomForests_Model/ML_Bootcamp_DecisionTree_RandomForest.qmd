@@ -1,2743 +1,395 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "collapsed_sections": [
-        "ui9HCoerL1ei"
-      ]
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "source": [
-        "# Decision Tree Machine Learning Model 💻 🧠\n",
-        "\n",
-        "---\n",
-        "\n"
-      ],
-      "metadata": {
-        "id": "AHAWitwpCmVO"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Overview"
-      ],
-      "metadata": {
-        "id": "ui9HCoerL1ei"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "**Decision Tree (DT) is a supervised machine learning algorithm used for both classification and regression tasks. It splits data into branches based on feature values to make predictions.**  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Definition**  \n",
-        "A Decision Tree is a flowchart-like model where data is split into smaller subsets based on feature conditions. The structure consists of:  \n",
-        "\n",
-        "* **Root Node**: The starting point that represents the entire dataset.  \n",
-        "* **Decision Nodes**: Points where the data is split based on a feature.  \n",
-        "* **Leaves**: Terminal nodes that provide the final prediction.  \n",
-        "\n",
-        "For **classification**, a Decision Tree assigns class labels based on feature splits.  \n",
-        "For **regression**, it predicts continuous values using the average or mean of data points in each leaf.  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Key Concepts**\n",
-        "1. **Splitting Criteria**:  \n",
-        "   - Determines how the dataset is divided at each step.  \n",
-        "   - Common methods:\n",
-        "     * **Gini Impurity** (Classification) – Measures the likelihood of incorrect classification.  \n",
-        "     * **Entropy** (Classification) – Uses information gain to decide splits.  \n",
-        "     * **Mean Squared Error (MSE)** (Regression) – Measures variance within nodes.  \n",
-        "\n",
-        "2. **Tree Depth & Overfitting**:  \n",
-        "   - **Deeper trees** fit training data better but may overfit.  \n",
-        "   - **Pruning** (removing unnecessary branches) improves generalization.  \n",
-        "\n",
-        "3. **Feature Importance**:  \n",
-        "   - Decision Trees rank features by their impact on predictions.  \n",
-        "   - Helps in feature selection for other models.  \n",
-        "\n",
-        "4. **Handling Missing Data**:  \n",
-        "   - Some implementations allow surrogate splits to handle missing values.  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Pros**\n",
-        "1. **Easy to Understand & Interpret** – Can be visualized as a simple flowchart.  \n",
-        "2. **No Need for Feature Scaling** – Works with both categorical and numerical features.  \n",
-        "3. **Handles Non-Linearity** – Can model complex relationships without requiring transformation.  \n",
-        "4. **Fast for Small Datasets** – Training and inference are relatively quick.  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Cons**\n",
-        "1. **Prone to Overfitting** – Deep trees can memorize training data, reducing generalization.  \n",
-        "2. **Unstable to Small Changes** – Small variations in data can change the tree structure significantly.  \n",
-        "3. **Less Efficient on Large Datasets** – Computationally expensive for large datasets.  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Tips**\n",
-        "* **Limit Tree Depth** – Use `max_depth` to prevent overfitting.  \n",
-        "* **Pruning Techniques** – Use pre-pruning (`max_leaf_nodes`) or post-pruning to remove unnecessary branches.  \n",
-        "* **Use Feature Importance** – Identify the most influential features and remove irrelevant ones.  \n",
-        "* **Consider Ensemble Methods** – Random Forest or Gradient Boosting improve Decision Trees by reducing variance.  \n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "\n",
-        "---\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Useful Articles and Videos**\n",
-        "* https://www.datacamp.com/tutorial/decision-tree-classification-python\n",
-        "* https://www.ibm.com/think/topics/decision-trees\n",
-        "* https://www.youtube.com/watch?v=6DlWndLbk90\n",
-        "* https://www.youtube.com/watch?v=ZOiBe-nrmc4\n",
-        "\n",
-        "\n",
-        "<br>"
-      ],
-      "metadata": {
-        "id": "KoKmsmdLC8f9"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Import Data/Libraries"
-      ],
-      "metadata": {
-        "id": "sZVO9xtJJIuG"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "!pip install lets_plot"
-      ],
-      "metadata": {
-        "id": "XovyWRX24bZj",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "outputId": "a6ae2b85-ed60-4ee8-d99f-58b5149de9e6"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Collecting lets_plot\n",
-            "  Downloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)\n",
-            "Collecting pypng (from lets_plot)\n",
-            "  Downloading pypng-0.20220715.0-py3-none-any.whl.metadata (13 kB)\n",
-            "Collecting palettable (from lets_plot)\n",
-            "  Downloading palettable-3.3.3-py2.py3-none-any.whl.metadata (3.3 kB)\n",
-            "Downloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.4/3.4 MB\u001b[0m \u001b[31m19.2 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading palettable-3.3.3-py2.py3-none-any.whl (332 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m332.3/332.3 kB\u001b[0m \u001b[31m7.5 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hDownloading pypng-0.20220715.0-py3-none-any.whl (58 kB)\n",
-            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m58.1/58.1 kB\u001b[0m \u001b[31m3.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
-            "\u001b[?25hInstalling collected packages: pypng, palettable, lets_plot\n",
-            "Successfully installed lets_plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": null,
-      "metadata": {
-        "id": "HWL1QsBFCYTe"
-      },
-      "outputs": [],
-      "source": [
-        "# needed libraries for Decision Tree models\n",
-        "import pandas as pd\n",
-        "from sklearn import tree\n",
-        "from sklearn.tree import DecisionTreeClassifier\n",
-        "from sklearn.metrics import confusion_matrix, accuracy_score, f1_score, recall_score, precision_score\n",
-        "from sklearn.model_selection import cross_val_score,  train_test_split , KFold\n",
-        "from sklearn.preprocessing import StandardScaler, Normalizer\n",
-        "import lets_plot as lp\n",
-        "import matplotlib.pyplot as plt\n",
-        "import numpy as np\n",
-        "import seaborn as sns\n",
-        "\n",
-        "# foundation dataset\n",
-        "titanic_df = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')\n",
-        "\n",
-        "# stretch dataset\n",
-        "cleveland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data', header=None)\n",
-        "hungarian_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data', header=None)\n",
-        "switzerland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.switzerland.data', header=None)"
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Explore, Visualize and Understand the Data"
-      ],
-      "metadata": {
-        "id": "7eveNgiiJPAZ"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "sns.countplot(data=titanic_df, x=\"Pclass\", hue=\"Survived\", palette=\"Set2\")\n",
-        "plt.title(\"Survival Count by Passenger Class\")\n",
-        "plt.xlabel(\"Passenger Class\")\n",
-        "plt.ylabel(\"Count\")\n",
-        "plt.legend(title=\"Survived\", labels=[\"No\", \"Yes\"])\n",
-        "plt.show()"
-      ],
-      "metadata": {
-        "id": "j-9s4kegJeVc",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 472
-        },
-        "outputId": "69b33090-83e0-498c-a914-e72de9342a04"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "display_data",
-          "data": {
-            "text/plain": [
-              "<Figure size 640x480 with 1 Axes>"
-            ],
-            "image/png": "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Bx98UC+FEhEREdVGjcKOnZ0dDh8+jPHjxyMiIgKCIAAAZDIZAgMDER0dDTs7u3oplIiIiKg2avxSQWdnZ+zatQu3b99GRkYGBEFA06ZN0aBBg/qoj4iIiOiZ1OoNygDQoEEDtG/fvi5rISIiIqpztfpuLCIiIqIXBcMOERERSRrDDhEREUkaww4RERFJGsMOERERSRrDDhEREUkaww4RERFJGsMOERERSRrDDhEREUkaww4RERFJGsMOERERSRrDDhEREUkaww4RERFJGsMOERERSRrDDhEREUmaVsPOgQMH0KdPHzg4OEAmk2H79u0a7SNGjIBMJtOYevToodHn1q1bGDp0KBQKBSwtLTFq1CgUFhY+x6MgIiIiXabVsHPnzh20atUK0dHRj+zTo0cPZGVlidOPP/6o0T506FCkpaUhISEBO3fuxIEDBzB27Nj6Lp2IiIheEAba3HlQUBCCgoIe20cul0OlUlXbdu7cOezevRvHjh1Du3btAAArVqxAz5498emnn8LBwaHOayYiIqIXi86P2UlKSoKtrS2aN2+O8ePH4+bNm2JbcnIyLC0txaADAAEBAdDT08PRo0e1US4RERHpGK1e2XmSHj16oH///nBxccGlS5fw/vvvIygoCMnJydDX10d2djZsbW011jEwMICVlRWys7Mfud3i4mIUFxeL82q1ut6OgYiIiLRLp8PO4MGDxX97eXnB29sbrq6uSEpKgr+/f623GxUVhfnz59dFiURERKTjdP421oOaNGmChg0bIiMjAwCgUqmQm5ur0aesrAy3bt165DgfAIiIiEB+fr44Xbt2rV7rJiIiIu15ocLOX3/9hZs3b8Le3h4A4Ovri7y8PKSkpIh99u7di4qKCnTo0OGR25HL5VAoFBoTERERSZNWb2MVFhaKV2kAIDMzE6mpqbCysoKVlRXmz5+PkJAQqFQqXLp0CTNmzICbmxsCAwMBAB4eHujRowfGjBmDVatWobS0FBMnTsTgwYP5JBYREREB0PKVnePHj6NNmzZo06YNAGDatGlo06YN5syZA319fZw6dQpvvPEGmjVrhlGjRsHHxwcHDx6EXC4Xt7Fhwwa4u7vD398fPXv2RKdOnfDVV19p65CIiIhIx2j1yk7nzp0hCMIj2+Pj45+4DSsrK8TExNRlWURERCQhL9SYHSIiIqKaYtghIiIiSWPY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\n"
-          },
-          "metadata": {}
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "titanic_df.head()"
-      ],
-      "metadata": {
-        "id": "upU1gUqMJfLA",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 206
-        },
-        "outputId": "52911049-e3d7-4faa-ca66-bf35afce28ba"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "   PassengerId  Survived  Pclass  \\\n",
-              "0            1         0       3   \n",
-              "1            2         1       1   \n",
-              "2            3         1       3   \n",
-              "3            4         1       1   \n",
-              "4            5         0       3   \n",
-              "\n",
-              "                                                Name     Sex   Age  SibSp  \\\n",
-              "0                            Braund, Mr. Owen Harris    male  22.0      1   \n",
-              "1  Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1   \n",
-              "2                             Heikkinen, Miss. Laina  female  26.0      0   \n",
-              "3       Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1   \n",
-              "4                           Allen, Mr. William Henry    male  35.0      0   \n",
-              "\n",
-              "   Parch            Ticket     Fare Cabin Embarked  \n",
-              "0      0         A/5 21171   7.2500   NaN        S  \n",
-              "1      0          PC 17599  71.2833   C85        C  \n",
-              "2      0  STON/O2. 3101282   7.9250   NaN        S  \n",
-              "3      0            113803  53.1000  C123        S  \n",
-              "4      0            373450   8.0500   NaN        S  "
-            ],
-            "text/html": [
-              "\n",
-              "  <div id=\"df-283a5f21-7b50-4336-99ae-b01e96df8536\" class=\"colab-df-container\">\n",
-              "    <div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>PassengerId</th>\n",
-              "      <th>Survived</th>\n",
-              "      <th>Pclass</th>\n",
-              "      <th>Name</th>\n",
-              "      <th>Sex</th>\n",
-              "      <th>Age</th>\n",
-              "      <th>SibSp</th>\n",
-              "      <th>Parch</th>\n",
-              "      <th>Ticket</th>\n",
-              "      <th>Fare</th>\n",
-              "      <th>Cabin</th>\n",
-              "      <th>Embarked</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>0</th>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>3</td>\n",
-              "      <td>Braund, Mr. Owen Harris</td>\n",
-              "      <td>male</td>\n",
-              "      <td>22.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>A/5 21171</td>\n",
-              "      <td>7.2500</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>S</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>1</th>\n",
-              "      <td>2</td>\n",
-              "      <td>1</td>\n",
-              "      <td>1</td>\n",
-              "      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>\n",
-              "      <td>female</td>\n",
-              "      <td>38.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>PC 17599</td>\n",
-              "      <td>71.2833</td>\n",
-              "      <td>C85</td>\n",
-              "      <td>C</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2</th>\n",
-              "      <td>3</td>\n",
-              "      <td>1</td>\n",
-              "      <td>3</td>\n",
-              "      <td>Heikkinen, Miss. Laina</td>\n",
-              "      <td>female</td>\n",
-              "      <td>26.0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>STON/O2. 3101282</td>\n",
-              "      <td>7.9250</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>S</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3</th>\n",
-              "      <td>4</td>\n",
-              "      <td>1</td>\n",
-              "      <td>1</td>\n",
-              "      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>\n",
-              "      <td>female</td>\n",
-              "      <td>35.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>113803</td>\n",
-              "      <td>53.1000</td>\n",
-              "      <td>C123</td>\n",
-              "      <td>S</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>4</th>\n",
-              "      <td>5</td>\n",
-              "      <td>0</td>\n",
-              "      <td>3</td>\n",
-              "      <td>Allen, Mr. William Henry</td>\n",
-              "      <td>male</td>\n",
-              "      <td>35.0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>373450</td>\n",
-              "      <td>8.0500</td>\n",
-              "      <td>NaN</td>\n",
-              "      <td>S</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "</div>\n",
-              "    <div class=\"colab-df-buttons\">\n",
-              "\n",
-              "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-283a5f21-7b50-4336-99ae-b01e96df8536')\"\n",
-              "            title=\"Convert this dataframe to an interactive table.\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
-              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
-              "  </svg>\n",
-              "    </button>\n",
-              "\n",
-              "  <style>\n",
-              "    .colab-df-container {\n",
-              "      display:flex;\n",
-              "      gap: 12px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert {\n",
-              "      background-color: #E8F0FE;\n",
-              "      border: none;\n",
-              "      border-radius: 50%;\n",
-              "      cursor: pointer;\n",
-              "      display: none;\n",
-              "      fill: #1967D2;\n",
-              "      height: 32px;\n",
-              "      padding: 0 0 0 0;\n",
-              "      width: 32px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert:hover {\n",
-              "      background-color: #E2EBFA;\n",
-              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "      fill: #174EA6;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-buttons div {\n",
-              "      margin-bottom: 4px;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert {\n",
-              "      background-color: #3B4455;\n",
-              "      fill: #D2E3FC;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert:hover {\n",
-              "      background-color: #434B5C;\n",
-              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
-              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
-              "      fill: #FFFFFF;\n",
-              "    }\n",
-              "  </style>\n",
-              "\n",
-              "    <script>\n",
-              "      const buttonEl =\n",
-              "        document.querySelector('#df-283a5f21-7b50-4336-99ae-b01e96df8536 button.colab-df-convert');\n",
-              "      buttonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "\n",
-              "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-283a5f21-7b50-4336-99ae-b01e96df8536');\n",
-              "        const dataTable =\n",
-              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
-              "                                                    [key], {});\n",
-              "        if (!dataTable) return;\n",
-              "\n",
-              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
-              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
-              "          + ' to learn more about interactive tables.';\n",
-              "        element.innerHTML = '';\n",
-              "        dataTable['output_type'] = 'display_data';\n",
-              "        await google.colab.output.renderOutput(dataTable, element);\n",
-              "        const docLink = document.createElement('div');\n",
-              "        docLink.innerHTML = docLinkHtml;\n",
-              "        element.appendChild(docLink);\n",
-              "      }\n",
-              "    </script>\n",
-              "  </div>\n",
-              "\n",
-              "\n",
-              "<div id=\"df-ada61339-bb56-4948-937e-d0d217a9739b\">\n",
-              "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-ada61339-bb56-4948-937e-d0d217a9739b')\"\n",
-              "            title=\"Suggest charts\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
-              "     width=\"24px\">\n",
-              "    <g>\n",
-              "        <path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z\"/>\n",
-              "    </g>\n",
-              "</svg>\n",
-              "  </button>\n",
-              "\n",
-              "<style>\n",
-              "  .colab-df-quickchart {\n",
-              "      --bg-color: #E8F0FE;\n",
-              "      --fill-color: #1967D2;\n",
-              "      --hover-bg-color: #E2EBFA;\n",
-              "      --hover-fill-color: #174EA6;\n",
-              "      --disabled-fill-color: #AAA;\n",
-              "      --disabled-bg-color: #DDD;\n",
-              "  }\n",
-              "\n",
-              "  [theme=dark] .colab-df-quickchart {\n",
-              "      --bg-color: #3B4455;\n",
-              "      --fill-color: #D2E3FC;\n",
-              "      --hover-bg-color: #434B5C;\n",
-              "      --hover-fill-color: #FFFFFF;\n",
-              "      --disabled-bg-color: #3B4455;\n",
-              "      --disabled-fill-color: #666;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart {\n",
-              "    background-color: var(--bg-color);\n",
-              "    border: none;\n",
-              "    border-radius: 50%;\n",
-              "    cursor: pointer;\n",
-              "    display: none;\n",
-              "    fill: var(--fill-color);\n",
-              "    height: 32px;\n",
-              "    padding: 0;\n",
-              "    width: 32px;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart:hover {\n",
-              "    background-color: var(--hover-bg-color);\n",
-              "    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "    fill: var(--button-hover-fill-color);\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart-complete:disabled,\n",
-              "  .colab-df-quickchart-complete:disabled:hover {\n",
-              "    background-color: var(--disabled-bg-color);\n",
-              "    fill: var(--disabled-fill-color);\n",
-              "    box-shadow: none;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-spinner {\n",
-              "    border: 2px solid var(--fill-color);\n",
-              "    border-color: transparent;\n",
-              "    border-bottom-color: var(--fill-color);\n",
-              "    animation:\n",
-              "      spin 1s steps(1) infinite;\n",
-              "  }\n",
-              "\n",
-              "  @keyframes spin {\n",
-              "    0% {\n",
-              "      border-color: transparent;\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "      border-left-color: var(--fill-color);\n",
-              "    }\n",
-              "    20% {\n",
-              "      border-color: transparent;\n",
-              "      border-left-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "    }\n",
-              "    30% {\n",
-              "      border-color: transparent;\n",
-              "      border-left-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "      border-right-color: var(--fill-color);\n",
-              "    }\n",
-              "    40% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "    }\n",
-              "    60% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "    }\n",
-              "    80% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "    }\n",
-              "    90% {\n",
-              "      border-color: transparent;\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "    }\n",
-              "  }\n",
-              "</style>\n",
-              "\n",
-              "  <script>\n",
-              "    async function quickchart(key) {\n",
-              "      const quickchartButtonEl =\n",
-              "        document.querySelector('#' + key + ' button');\n",
-              "      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.\n",
-              "      quickchartButtonEl.classList.add('colab-df-spinner');\n",
-              "      try {\n",
-              "        const charts = await google.colab.kernel.invokeFunction(\n",
-              "            'suggestCharts', [key], {});\n",
-              "      } catch (error) {\n",
-              "        console.error('Error during call to suggestCharts:', error);\n",
-              "      }\n",
-              "      quickchartButtonEl.classList.remove('colab-df-spinner');\n",
-              "      quickchartButtonEl.classList.add('colab-df-quickchart-complete');\n",
-              "    }\n",
-              "    (() => {\n",
-              "      let quickchartButtonEl =\n",
-              "        document.querySelector('#df-ada61339-bb56-4948-937e-d0d217a9739b button');\n",
-              "      quickchartButtonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "    })();\n",
-              "  </script>\n",
-              "</div>\n",
-              "\n",
-              "    </div>\n",
-              "  </div>\n"
-            ],
-            "application/vnd.google.colaboratory.intrinsic+json": {
-              "type": "dataframe",
-              "variable_name": "titanic_df",
-              "summary": "{\n  \"name\": \"titanic_df\",\n  \"rows\": 891,\n  \"fields\": [\n    {\n      \"column\": \"PassengerId\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 257,\n        \"min\": 1,\n        \"max\": 891,\n        \"num_unique_values\": 891,\n        \"samples\": [\n          710,\n          440,\n          841\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Survived\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 0,\n        \"max\": 1,\n        \"num_unique_values\": 2,\n        \"samples\": [\n          1,\n          0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Pclass\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 1,\n        \"max\": 3,\n        \"num_unique_values\": 3,\n        \"samples\": [\n          3,\n          1\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Name\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 891,\n        \"samples\": [\n          \"Moubarek, Master. Halim Gonios (\\\"William George\\\")\",\n          \"Kvillner, Mr. Johan Henrik Johannesson\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Sex\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 2,\n        \"samples\": [\n          \"female\",\n          \"male\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Age\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 14.526497332334044,\n        \"min\": 0.42,\n        \"max\": 80.0,\n        \"num_unique_values\": 88,\n        \"samples\": [\n          0.75,\n          22.0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"SibSp\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 1,\n        \"min\": 0,\n        \"max\": 8,\n        \"num_unique_values\": 7,\n        \"samples\": [\n          1,\n          0\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Parch\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 0,\n        \"max\": 6,\n        \"num_unique_values\": 7,\n        \"samples\": [\n          0,\n          1\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Ticket\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 681,\n        \"samples\": [\n          \"11774\",\n          \"248740\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Fare\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 49.693428597180905,\n        \"min\": 0.0,\n        \"max\": 512.3292,\n        \"num_unique_values\": 248,\n        \"samples\": [\n          11.2417,\n          51.8625\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Cabin\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 147,\n        \"samples\": [\n          \"D45\",\n          \"B49\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Embarked\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 3,\n        \"samples\": [\n          \"S\",\n          \"C\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
-            }
-          },
-          "metadata": {},
-          "execution_count": 4
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "import numpy as np\n",
-        "from lets_plot import *\n",
-        "LetsPlot.setup_html()\n",
-        "ggplot(mapping=aes(x='Pclass', fill='Survived'), data=titanic_df) + geom_bar()"
-      ],
-      "metadata": {
-        "id": "bCAQyXCuJfnR",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 400
-        },
-        "outputId": "390100ea-c255-4a6e-8446-21002456d23a"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "<lets_plot.plot.core.PlotSpec at 0x7935c52597d0>"
-            ],
-            "text/html": [
-              "<html lang=\"en\">\n",
-              "   <head>\n",
-              "       <meta charset=\"UTF-8\">\n",
-              "       <style> html, body { margin: 0; padding: 0; } </style>\n",
-              "       <script type=\"text/javascript\" data-lets-plot-script=\"library\" src=\"https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js\"></script>\n",
-              "   </head>\n",
-              "   <body>\n",
-              "          <div id=\"6tOrjS\"></div>\n",
-              "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
-              "   \n",
-              "   (function() {\n",
-              "   // ----------\n",
-              "   \n",
-              "   const forceImmediateRender = false;\n",
-              "   const responsive = false;\n",
-              "   \n",
-              "   let sizing = {\n",
-              "       width_mode: \"MIN\",\n",
-              "       height_mode: \"SCALED\",\n",
-              "       width: null, \n",
-              "       height: null \n",
-              "   };\n",
-              "   \n",
-              "   const preferredWidth = document.body.dataset.letsPlotPreferredWidth;\n",
-              "   if (preferredWidth !== undefined) {\n",
-              "       sizing = {\n",
-              "           width_mode: 'FIXED',\n",
-              "           height_mode: 'SCALED',\n",
-              "           width: parseFloat(preferredWidth)\n",
-              "       };\n",
-              "   }\n",
-              "   \n",
-              "   const containerDiv = document.getElementById(\"6tOrjS\");\n",
-              "   let fig = null;\n",
-              "   \n",
-              "   function renderPlot() {\n",
-              "       if (fig === null) {\n",
-              "           const plotSpec = {\n",
-              "\"data\":{\n",
-              "},\n",
-              "\"mapping\":{\n",
-              "\"x\":\"Pclass\",\n",
-              "\"fill\":\"Survived\"\n",
-              "},\n",
-              "\"data_meta\":{\n",
-              "\"series_annotations\":[{\n",
-              "\"type\":\"int\",\n",
-              "\"column\":\"PassengerId\"\n",
-              "},{\n",
-              "\"type\":\"int\",\n",
-              "\"column\":\"Survived\"\n",
-              "},{\n",
-              "\"type\":\"int\",\n",
-              "\"column\":\"Pclass\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"Name\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"Sex\"\n",
-              "},{\n",
-              "\"type\":\"float\",\n",
-              "\"column\":\"Age\"\n",
-              "},{\n",
-              "\"type\":\"int\",\n",
-              "\"column\":\"SibSp\"\n",
-              "},{\n",
-              "\"type\":\"int\",\n",
-              "\"column\":\"Parch\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"Ticket\"\n",
-              "},{\n",
-              "\"type\":\"float\",\n",
-              "\"column\":\"Fare\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"Cabin\"\n",
-              "},{\n",
-              "\"type\":\"str\",\n",
-              "\"column\":\"Embarked\"\n",
-              "}]\n",
-              "},\n",
-              "\"kind\":\"plot\",\n",
-              "\"scales\":[],\n",
-              "\"layers\":[{\n",
-              "\"geom\":\"bar\",\n",
-              "\"mapping\":{\n",
-              "},\n",
-              "\"data_meta\":{\n",
-              "},\n",
-              "\"data\":{\n",
-              "\"..count..\":[491.0,216.0,184.0],\n",
-              "\"Pclass\":[3.0,1.0,2.0],\n",
-              "\"Survived\":[0.38383838383838426,0.38383838383838426,0.38383838383838426]\n",
-              "}\n",
-              "}],\n",
-              "\"metainfo_list\":[],\n",
-              "\"spec_id\":\"1\"\n",
-              "};\n",
-              "           fig = LetsPlot.buildPlotFromProcessedSpecs(plotSpec, containerDiv, sizing);\n",
-              "       } else {\n",
-              "           fig.updateView({});\n",
-              "       }\n",
-              "   }\n",
-              "   \n",
-              "   const renderImmediately = \n",
-              "       forceImmediateRender || (\n",
-              "           sizing.width_mode === 'FIXED' && \n",
-              "           (sizing.height_mode === 'FIXED' || sizing.height_mode === 'SCALED')\n",
-              "       );\n",
-              "   \n",
-              "   if (renderImmediately) {\n",
-              "       renderPlot();\n",
-              "   }\n",
-              "   \n",
-              "   if (!renderImmediately || responsive) {\n",
-              "       // Set up observer for initial sizing or continuous monitoring\n",
-              "       var observer = new ResizeObserver(function(entries) {\n",
-              "           for (let entry of entries) {\n",
-              "               if (entry.contentBoxSize && \n",
-              "                   entry.contentBoxSize[0].inlineSize > 0) {\n",
-              "                   if (!responsive && observer) {\n",
-              "                       observer.disconnect();\n",
-              "                       observer = null;\n",
-              "                   }\n",
-              "                   renderPlot();\n",
-              "                   if (!responsive) {\n",
-              "                       break;\n",
-              "                   }\n",
-              "               }\n",
-              "           }\n",
-              "       });\n",
-              "       \n",
-              "       observer.observe(containerDiv);\n",
-              "   }\n",
-              "   \n",
-              "   // ----------\n",
-              "   })();\n",
-              "   \n",
-              "   </script>\n",
-              "   </body>\n",
-              "</html>"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 5
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Feature Enginnering and Data Augmentation"
-      ],
-      "metadata": {
-        "id": "qKylx8ZxJgAB"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### **Data Augmentation**  \n",
-        "**Definition:**\n",
-        "Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.\n",
-        "\n",
-        "### **Feature Engineering**  \n",
-        "**Definition:**\n",
-        "Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.\n"
-      ],
-      "metadata": {
-        "id": "74NeCrCiJqWB"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "conditions = [\n",
-        "    titanic_df[\"Name\"].str.contains(r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)', na=False),  # Condition 1: If \"Name\" contains \"Mr\"\n",
-        "    titanic_df[\"Name\"].str.contains(r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)', na=False), # Condition 2: If \"Name\" contains \"Mrs\"\n",
-        "    titanic_df[\"Name\"].str.contains(r'(?i)(Master)|(Countess)|(Jonkheer)|(Don)', na=False) # Condition 3: If \"Name\" contains \"Miss\"\n",
-        "]\n",
-        "\n",
-        "outputs = [\n",
-        "    1,\n",
-        "    2,\n",
-        "    3\n",
-        "]\n",
-        "\n",
-        "titanic_df[\"Name_group\"] = np.select(conditions, outputs, default=5)"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "puYG6q7FBlo1",
-        "outputId": "39356209-400b-4fef-96e5-76954331f4d6"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stderr",
-          "text": [
-            "<ipython-input-6-1b68d7e0032b>:2: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n",
-            "  titanic_df[\"Name\"].str.contains(r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)', na=False),  # Condition 1: If \"Name\" contains \"Mr\"\n",
-            "<ipython-input-6-1b68d7e0032b>:3: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n",
-            "  titanic_df[\"Name\"].str.contains(r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)', na=False), # Condition 2: If \"Name\" contains \"Mrs\"\n",
-            "<ipython-input-6-1b68d7e0032b>:4: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.\n",
-            "  titanic_df[\"Name\"].str.contains(r'(?i)(Master)|(Countess)|(Jonkheer)|(Don)', na=False) # Condition 3: If \"Name\" contains \"Miss\"\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Machine Learning Model: Decision Tree"
-      ],
-      "metadata": {
-        "id": "JtZjh6LZK9i7"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Split the data"
-      ],
-      "metadata": {
-        "id": "LAK2BuxWLC5D"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Fitting the model\n",
-        "titanic_df2 = pd.get_dummies(titanic_df, columns=['Sex', 'Embarked', 'Name', 'Fare', 'Ticket', 'Cabin'], drop_first=True)"
-      ],
-      "metadata": {
-        "id": "ZbLd6tU0LU-o"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "X = titanic_df2.drop('Survived', axis=1)\n",
-        "y = titanic_df2['Survived']"
-      ],
-      "metadata": {
-        "id": "MMSuVHCQLGDh"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Create the model"
-      ],
-      "metadata": {
-        "id": "xN2sJm5ELGzD"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)"
-      ],
-      "metadata": {
-        "id": "BmBPs2R8LSad"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "y.head()"
-      ],
-      "metadata": {
-        "id": "_6-vG31RCjNW",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 241
-        },
-        "outputId": "365cca05-5961-42c5-c6d5-55336dd797ce"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "0    0\n",
-              "1    1\n",
-              "2    1\n",
-              "3    1\n",
-              "4    0\n",
-              "Name: Survived, dtype: int64"
-            ],
-            "text/html": [
-              "<div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>Survived</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>0</th>\n",
-              "      <td>0</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>1</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>4</th>\n",
-              "      <td>0</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "</div><br><label><b>dtype:</b> int64</label>"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 10
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Train the model"
-      ],
-      "metadata": {
-        "id": "8LJspZOjLSuV"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Make predictions"
-      ],
-      "metadata": {
-        "id": "2jhhDHYbLVSg"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "titanic_df2.head()"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 273
-        },
-        "id": "qqUliLibBB25",
-        "outputId": "cf3d2405-dd05-4d3e-e84e-8de85a214d0b"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "   PassengerId  Survived  Pclass   Age  SibSp  Parch  Name_group  Sex_male  \\\n",
-              "0            1         0       3  22.0      1      0           1      True   \n",
-              "1            2         1       1  38.0      1      0           1     False   \n",
-              "2            3         1       3  26.0      0      0           1     False   \n",
-              "3            4         1       1  35.0      1      0           1     False   \n",
-              "4            5         0       3  35.0      0      0           1      True   \n",
-              "\n",
-              "   Embarked_Q  Embarked_S  ...  Cabin_E8  Cabin_F E69  Cabin_F G63  \\\n",
-              "0       False        True  ...     False        False        False   \n",
-              "1       False       False  ...     False        False        False   \n",
-              "2       False        True  ...     False        False        False   \n",
-              "3       False        True  ...     False        False        False   \n",
-              "4       False        True  ...     False        False        False   \n",
-              "\n",
-              "   Cabin_F G73  Cabin_F2  Cabin_F33  Cabin_F38  Cabin_F4  Cabin_G6  Cabin_T  \n",
-              "0        False     False      False      False     False     False    False  \n",
-              "1        False     False      False      False     False     False    False  \n",
-              "2        False     False      False      False     False     False    False  \n",
-              "3        False     False      False      False     False     False    False  \n",
-              "4        False     False      False      False     False     False    False  \n",
-              "\n",
-              "[5 rows x 1973 columns]"
-            ],
-            "text/html": [
-              "\n",
-              "  <div id=\"df-7f084445-c813-44fc-a792-e3e295183397\" class=\"colab-df-container\">\n",
-              "    <div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>PassengerId</th>\n",
-              "      <th>Survived</th>\n",
-              "      <th>Pclass</th>\n",
-              "      <th>Age</th>\n",
-              "      <th>SibSp</th>\n",
-              "      <th>Parch</th>\n",
-              "      <th>Name_group</th>\n",
-              "      <th>Sex_male</th>\n",
-              "      <th>Embarked_Q</th>\n",
-              "      <th>Embarked_S</th>\n",
-              "      <th>...</th>\n",
-              "      <th>Cabin_E8</th>\n",
-              "      <th>Cabin_F E69</th>\n",
-              "      <th>Cabin_F G63</th>\n",
-              "      <th>Cabin_F G73</th>\n",
-              "      <th>Cabin_F2</th>\n",
-              "      <th>Cabin_F33</th>\n",
-              "      <th>Cabin_F38</th>\n",
-              "      <th>Cabin_F4</th>\n",
-              "      <th>Cabin_G6</th>\n",
-              "      <th>Cabin_T</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>0</th>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>3</td>\n",
-              "      <td>22.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>True</td>\n",
-              "      <td>False</td>\n",
-              "      <td>True</td>\n",
-              "      <td>...</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>1</th>\n",
-              "      <td>2</td>\n",
-              "      <td>1</td>\n",
-              "      <td>1</td>\n",
-              "      <td>38.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>...</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2</th>\n",
-              "      <td>3</td>\n",
-              "      <td>1</td>\n",
-              "      <td>3</td>\n",
-              "      <td>26.0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>True</td>\n",
-              "      <td>...</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3</th>\n",
-              "      <td>4</td>\n",
-              "      <td>1</td>\n",
-              "      <td>1</td>\n",
-              "      <td>35.0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>True</td>\n",
-              "      <td>...</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>4</th>\n",
-              "      <td>5</td>\n",
-              "      <td>0</td>\n",
-              "      <td>3</td>\n",
-              "      <td>35.0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>0</td>\n",
-              "      <td>1</td>\n",
-              "      <td>True</td>\n",
-              "      <td>False</td>\n",
-              "      <td>True</td>\n",
-              "      <td>...</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "      <td>False</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "<p>5 rows × 1973 columns</p>\n",
-              "</div>\n",
-              "    <div class=\"colab-df-buttons\">\n",
-              "\n",
-              "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-7f084445-c813-44fc-a792-e3e295183397')\"\n",
-              "            title=\"Convert this dataframe to an interactive table.\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
-              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
-              "  </svg>\n",
-              "    </button>\n",
-              "\n",
-              "  <style>\n",
-              "    .colab-df-container {\n",
-              "      display:flex;\n",
-              "      gap: 12px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert {\n",
-              "      background-color: #E8F0FE;\n",
-              "      border: none;\n",
-              "      border-radius: 50%;\n",
-              "      cursor: pointer;\n",
-              "      display: none;\n",
-              "      fill: #1967D2;\n",
-              "      height: 32px;\n",
-              "      padding: 0 0 0 0;\n",
-              "      width: 32px;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-convert:hover {\n",
-              "      background-color: #E2EBFA;\n",
-              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "      fill: #174EA6;\n",
-              "    }\n",
-              "\n",
-              "    .colab-df-buttons div {\n",
-              "      margin-bottom: 4px;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert {\n",
-              "      background-color: #3B4455;\n",
-              "      fill: #D2E3FC;\n",
-              "    }\n",
-              "\n",
-              "    [theme=dark] .colab-df-convert:hover {\n",
-              "      background-color: #434B5C;\n",
-              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
-              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
-              "      fill: #FFFFFF;\n",
-              "    }\n",
-              "  </style>\n",
-              "\n",
-              "    <script>\n",
-              "      const buttonEl =\n",
-              "        document.querySelector('#df-7f084445-c813-44fc-a792-e3e295183397 button.colab-df-convert');\n",
-              "      buttonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "\n",
-              "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-7f084445-c813-44fc-a792-e3e295183397');\n",
-              "        const dataTable =\n",
-              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
-              "                                                    [key], {});\n",
-              "        if (!dataTable) return;\n",
-              "\n",
-              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
-              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
-              "          + ' to learn more about interactive tables.';\n",
-              "        element.innerHTML = '';\n",
-              "        dataTable['output_type'] = 'display_data';\n",
-              "        await google.colab.output.renderOutput(dataTable, element);\n",
-              "        const docLink = document.createElement('div');\n",
-              "        docLink.innerHTML = docLinkHtml;\n",
-              "        element.appendChild(docLink);\n",
-              "      }\n",
-              "    </script>\n",
-              "  </div>\n",
-              "\n",
-              "\n",
-              "<div id=\"df-c28954cf-3077-4225-a52c-97b941f29d69\">\n",
-              "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-c28954cf-3077-4225-a52c-97b941f29d69')\"\n",
-              "            title=\"Suggest charts\"\n",
-              "            style=\"display:none;\">\n",
-              "\n",
-              "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
-              "     width=\"24px\">\n",
-              "    <g>\n",
-              "        <path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z\"/>\n",
-              "    </g>\n",
-              "</svg>\n",
-              "  </button>\n",
-              "\n",
-              "<style>\n",
-              "  .colab-df-quickchart {\n",
-              "      --bg-color: #E8F0FE;\n",
-              "      --fill-color: #1967D2;\n",
-              "      --hover-bg-color: #E2EBFA;\n",
-              "      --hover-fill-color: #174EA6;\n",
-              "      --disabled-fill-color: #AAA;\n",
-              "      --disabled-bg-color: #DDD;\n",
-              "  }\n",
-              "\n",
-              "  [theme=dark] .colab-df-quickchart {\n",
-              "      --bg-color: #3B4455;\n",
-              "      --fill-color: #D2E3FC;\n",
-              "      --hover-bg-color: #434B5C;\n",
-              "      --hover-fill-color: #FFFFFF;\n",
-              "      --disabled-bg-color: #3B4455;\n",
-              "      --disabled-fill-color: #666;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart {\n",
-              "    background-color: var(--bg-color);\n",
-              "    border: none;\n",
-              "    border-radius: 50%;\n",
-              "    cursor: pointer;\n",
-              "    display: none;\n",
-              "    fill: var(--fill-color);\n",
-              "    height: 32px;\n",
-              "    padding: 0;\n",
-              "    width: 32px;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart:hover {\n",
-              "    background-color: var(--hover-bg-color);\n",
-              "    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
-              "    fill: var(--button-hover-fill-color);\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-quickchart-complete:disabled,\n",
-              "  .colab-df-quickchart-complete:disabled:hover {\n",
-              "    background-color: var(--disabled-bg-color);\n",
-              "    fill: var(--disabled-fill-color);\n",
-              "    box-shadow: none;\n",
-              "  }\n",
-              "\n",
-              "  .colab-df-spinner {\n",
-              "    border: 2px solid var(--fill-color);\n",
-              "    border-color: transparent;\n",
-              "    border-bottom-color: var(--fill-color);\n",
-              "    animation:\n",
-              "      spin 1s steps(1) infinite;\n",
-              "  }\n",
-              "\n",
-              "  @keyframes spin {\n",
-              "    0% {\n",
-              "      border-color: transparent;\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "      border-left-color: var(--fill-color);\n",
-              "    }\n",
-              "    20% {\n",
-              "      border-color: transparent;\n",
-              "      border-left-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "    }\n",
-              "    30% {\n",
-              "      border-color: transparent;\n",
-              "      border-left-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "      border-right-color: var(--fill-color);\n",
-              "    }\n",
-              "    40% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "      border-top-color: var(--fill-color);\n",
-              "    }\n",
-              "    60% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "    }\n",
-              "    80% {\n",
-              "      border-color: transparent;\n",
-              "      border-right-color: var(--fill-color);\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "    }\n",
-              "    90% {\n",
-              "      border-color: transparent;\n",
-              "      border-bottom-color: var(--fill-color);\n",
-              "    }\n",
-              "  }\n",
-              "</style>\n",
-              "\n",
-              "  <script>\n",
-              "    async function quickchart(key) {\n",
-              "      const quickchartButtonEl =\n",
-              "        document.querySelector('#' + key + ' button');\n",
-              "      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.\n",
-              "      quickchartButtonEl.classList.add('colab-df-spinner');\n",
-              "      try {\n",
-              "        const charts = await google.colab.kernel.invokeFunction(\n",
-              "            'suggestCharts', [key], {});\n",
-              "      } catch (error) {\n",
-              "        console.error('Error during call to suggestCharts:', error);\n",
-              "      }\n",
-              "      quickchartButtonEl.classList.remove('colab-df-spinner');\n",
-              "      quickchartButtonEl.classList.add('colab-df-quickchart-complete');\n",
-              "    }\n",
-              "    (() => {\n",
-              "      let quickchartButtonEl =\n",
-              "        document.querySelector('#df-c28954cf-3077-4225-a52c-97b941f29d69 button');\n",
-              "      quickchartButtonEl.style.display =\n",
-              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
-              "    })();\n",
-              "  </script>\n",
-              "</div>\n",
-              "\n",
-              "    </div>\n",
-              "  </div>\n"
-            ],
-            "application/vnd.google.colaboratory.intrinsic+json": {
-              "type": "dataframe",
-              "variable_name": "titanic_df2"
-            }
-          },
-          "metadata": {},
-          "execution_count": 11
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Predicting the Test set results\n",
-        "DT = DecisionTreeClassifier()\n",
-        "DT.fit(X_train, y_train)"
-      ],
-      "metadata": {
-        "id": "Jhjz5c3uLfT5",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 80
-        },
-        "outputId": "27d69cf3-fd19-42fe-f2ef-0b73790406a0"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "DecisionTreeClassifier()"
-            ],
-            "text/html": [
-              "<style>#sk-container-id-1 {\n",
-              "  /* Definition of color scheme common for light and dark mode */\n",
-              "  --sklearn-color-text: #000;\n",
-              "  --sklearn-color-text-muted: #666;\n",
-              "  --sklearn-color-line: gray;\n",
-              "  /* Definition of color scheme for unfitted estimators */\n",
-              "  --sklearn-color-unfitted-level-0: #fff5e6;\n",
-              "  --sklearn-color-unfitted-level-1: #f6e4d2;\n",
-              "  --sklearn-color-unfitted-level-2: #ffe0b3;\n",
-              "  --sklearn-color-unfitted-level-3: chocolate;\n",
-              "  /* Definition of color scheme for fitted estimators */\n",
-              "  --sklearn-color-fitted-level-0: #f0f8ff;\n",
-              "  --sklearn-color-fitted-level-1: #d4ebff;\n",
-              "  --sklearn-color-fitted-level-2: #b3dbfd;\n",
-              "  --sklearn-color-fitted-level-3: cornflowerblue;\n",
-              "\n",
-              "  /* Specific color for light theme */\n",
-              "  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));\n",
-              "  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));\n",
-              "  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));\n",
-              "  --sklearn-color-icon: #696969;\n",
-              "\n",
-              "  @media (prefers-color-scheme: dark) {\n",
-              "    /* Redefinition of color scheme for dark theme */\n",
-              "    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));\n",
-              "    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));\n",
-              "    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));\n",
-              "    --sklearn-color-icon: #878787;\n",
-              "  }\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 pre {\n",
-              "  padding: 0;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 input.sk-hidden--visually {\n",
-              "  border: 0;\n",
-              "  clip: rect(1px 1px 1px 1px);\n",
-              "  clip: rect(1px, 1px, 1px, 1px);\n",
-              "  height: 1px;\n",
-              "  margin: -1px;\n",
-              "  overflow: hidden;\n",
-              "  padding: 0;\n",
-              "  position: absolute;\n",
-              "  width: 1px;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-dashed-wrapped {\n",
-              "  border: 1px dashed var(--sklearn-color-line);\n",
-              "  margin: 0 0.4em 0.5em 0.4em;\n",
-              "  box-sizing: border-box;\n",
-              "  padding-bottom: 0.4em;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-container {\n",
-              "  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`\n",
-              "     but bootstrap.min.css set `[hidden] { display: none !important; }`\n",
-              "     so we also need the `!important` here to be able to override the\n",
-              "     default hidden behavior on the sphinx rendered scikit-learn.org.\n",
-              "     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */\n",
-              "  display: inline-block !important;\n",
-              "  position: relative;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-text-repr-fallback {\n",
-              "  display: none;\n",
-              "}\n",
-              "\n",
-              "div.sk-parallel-item,\n",
-              "div.sk-serial,\n",
-              "div.sk-item {\n",
-              "  /* draw centered vertical line to link estimators */\n",
-              "  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));\n",
-              "  background-size: 2px 100%;\n",
-              "  background-repeat: no-repeat;\n",
-              "  background-position: center center;\n",
-              "}\n",
-              "\n",
-              "/* Parallel-specific style estimator block */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel-item::after {\n",
-              "  content: \"\";\n",
-              "  width: 100%;\n",
-              "  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);\n",
-              "  flex-grow: 1;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel {\n",
-              "  display: flex;\n",
-              "  align-items: stretch;\n",
-              "  justify-content: center;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  position: relative;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel-item {\n",
-              "  display: flex;\n",
-              "  flex-direction: column;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel-item:first-child::after {\n",
-              "  align-self: flex-end;\n",
-              "  width: 50%;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel-item:last-child::after {\n",
-              "  align-self: flex-start;\n",
-              "  width: 50%;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-parallel-item:only-child::after {\n",
-              "  width: 0;\n",
-              "}\n",
-              "\n",
-              "/* Serial-specific style estimator block */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-serial {\n",
-              "  display: flex;\n",
-              "  flex-direction: column;\n",
-              "  align-items: center;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  padding-right: 1em;\n",
-              "  padding-left: 1em;\n",
-              "}\n",
-              "\n",
-              "\n",
-              "/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is\n",
-              "clickable and can be expanded/collapsed.\n",
-              "- Pipeline and ColumnTransformer use this feature and define the default style\n",
-              "- Estimators will overwrite some part of the style using the `sk-estimator` class\n",
-              "*/\n",
-              "\n",
-              "/* Pipeline and ColumnTransformer style (default) */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-toggleable {\n",
-              "  /* Default theme specific background. It is overwritten whether we have a\n",
-              "  specific estimator or a Pipeline/ColumnTransformer */\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "}\n",
-              "\n",
-              "/* Toggleable label */\n",
-              "#sk-container-id-1 label.sk-toggleable__label {\n",
-              "  cursor: pointer;\n",
-              "  display: flex;\n",
-              "  width: 100%;\n",
-              "  margin-bottom: 0;\n",
-              "  padding: 0.5em;\n",
-              "  box-sizing: border-box;\n",
-              "  text-align: center;\n",
-              "  align-items: start;\n",
-              "  justify-content: space-between;\n",
-              "  gap: 0.5em;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 label.sk-toggleable__label .caption {\n",
-              "  font-size: 0.6rem;\n",
-              "  font-weight: lighter;\n",
-              "  color: var(--sklearn-color-text-muted);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 label.sk-toggleable__label-arrow:before {\n",
-              "  /* Arrow on the left of the label */\n",
-              "  content: \"▸\";\n",
-              "  float: left;\n",
-              "  margin-right: 0.25em;\n",
-              "  color: var(--sklearn-color-icon);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "}\n",
-              "\n",
-              "/* Toggleable content - dropdown */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-toggleable__content {\n",
-              "  max-height: 0;\n",
-              "  max-width: 0;\n",
-              "  overflow: hidden;\n",
-              "  text-align: left;\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-toggleable__content.fitted {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-toggleable__content pre {\n",
-              "  margin: 0.2em;\n",
-              "  border-radius: 0.25em;\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-toggleable__content.fitted pre {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {\n",
-              "  /* Expand drop-down */\n",
-              "  max-height: 200px;\n",
-              "  max-width: 100%;\n",
-              "  overflow: auto;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {\n",
-              "  content: \"▾\";\n",
-              "}\n",
-              "\n",
-              "/* Pipeline/ColumnTransformer-specific style */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Estimator-specific style */\n",
-              "\n",
-              "/* Colorize estimator box */\n",
-              "#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-label label.sk-toggleable__label,\n",
-              "#sk-container-id-1 div.sk-label label {\n",
-              "  /* The background is the default theme color */\n",
-              "  color: var(--sklearn-color-text-on-default-background);\n",
-              "}\n",
-              "\n",
-              "/* On hover, darken the color of the background */\n",
-              "#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Label box, darken color on hover, fitted */\n",
-              "#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Estimator label */\n",
-              "\n",
-              "#sk-container-id-1 div.sk-label label {\n",
-              "  font-family: monospace;\n",
-              "  font-weight: bold;\n",
-              "  display: inline-block;\n",
-              "  line-height: 1.2em;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-label-container {\n",
-              "  text-align: center;\n",
-              "}\n",
-              "\n",
-              "/* Estimator-specific */\n",
-              "#sk-container-id-1 div.sk-estimator {\n",
-              "  font-family: monospace;\n",
-              "  border: 1px dotted var(--sklearn-color-border-box);\n",
-              "  border-radius: 0.25em;\n",
-              "  box-sizing: border-box;\n",
-              "  margin-bottom: 0.5em;\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-estimator.fitted {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "/* on hover */\n",
-              "#sk-container-id-1 div.sk-estimator:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 div.sk-estimator.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Specification for estimator info (e.g. \"i\" and \"?\") */\n",
-              "\n",
-              "/* Common style for \"i\" and \"?\" */\n",
-              "\n",
-              ".sk-estimator-doc-link,\n",
-              "a:link.sk-estimator-doc-link,\n",
-              "a:visited.sk-estimator-doc-link {\n",
-              "  float: right;\n",
-              "  font-size: smaller;\n",
-              "  line-height: 1em;\n",
-              "  font-family: monospace;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  border-radius: 1em;\n",
-              "  height: 1em;\n",
-              "  width: 1em;\n",
-              "  text-decoration: none !important;\n",
-              "  margin-left: 0.5em;\n",
-              "  text-align: center;\n",
-              "  /* unfitted */\n",
-              "  border: var(--sklearn-color-unfitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-unfitted-level-1);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link.fitted,\n",
-              "a:link.sk-estimator-doc-link.fitted,\n",
-              "a:visited.sk-estimator-doc-link.fitted {\n",
-              "  /* fitted */\n",
-              "  border: var(--sklearn-color-fitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-fitted-level-1);\n",
-              "}\n",
-              "\n",
-              "/* On hover */\n",
-              "div.sk-estimator:hover .sk-estimator-doc-link:hover,\n",
-              ".sk-estimator-doc-link:hover,\n",
-              "div.sk-label-container:hover .sk-estimator-doc-link:hover,\n",
-              ".sk-estimator-doc-link:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,\n",
-              ".sk-estimator-doc-link.fitted:hover,\n",
-              "div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,\n",
-              ".sk-estimator-doc-link.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "/* Span, style for the box shown on hovering the info icon */\n",
-              ".sk-estimator-doc-link span {\n",
-              "  display: none;\n",
-              "  z-index: 9999;\n",
-              "  position: relative;\n",
-              "  font-weight: normal;\n",
-              "  right: .2ex;\n",
-              "  padding: .5ex;\n",
-              "  margin: .5ex;\n",
-              "  width: min-content;\n",
-              "  min-width: 20ex;\n",
-              "  max-width: 50ex;\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  box-shadow: 2pt 2pt 4pt #999;\n",
-              "  /* unfitted */\n",
-              "  background: var(--sklearn-color-unfitted-level-0);\n",
-              "  border: .5pt solid var(--sklearn-color-unfitted-level-3);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link.fitted span {\n",
-              "  /* fitted */\n",
-              "  background: var(--sklearn-color-fitted-level-0);\n",
-              "  border: var(--sklearn-color-fitted-level-3);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link:hover span {\n",
-              "  display: block;\n",
-              "}\n",
-              "\n",
-              "/* \"?\"-specific style due to the `<a>` HTML tag */\n",
-              "\n",
-              "#sk-container-id-1 a.estimator_doc_link {\n",
-              "  float: right;\n",
-              "  font-size: 1rem;\n",
-              "  line-height: 1em;\n",
-              "  font-family: monospace;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  border-radius: 1rem;\n",
-              "  height: 1rem;\n",
-              "  width: 1rem;\n",
-              "  text-decoration: none;\n",
-              "  /* unfitted */\n",
-              "  color: var(--sklearn-color-unfitted-level-1);\n",
-              "  border: var(--sklearn-color-unfitted-level-1) 1pt solid;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 a.estimator_doc_link.fitted {\n",
-              "  /* fitted */\n",
-              "  border: var(--sklearn-color-fitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-fitted-level-1);\n",
-              "}\n",
-              "\n",
-              "/* On hover */\n",
-              "#sk-container-id-1 a.estimator_doc_link:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-1 a.estimator_doc_link.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-3);\n",
-              "}\n",
-              "</style><div id=\"sk-container-id-1\" class=\"sk-top-container\"><div class=\"sk-text-repr-fallback\"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class=\"sk-container\" hidden><div class=\"sk-item\"><div class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-1\" type=\"checkbox\" checked><label for=\"sk-estimator-id-1\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"><div><div>DecisionTreeClassifier</div></div><div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html\">?<span>Documentation for DecisionTreeClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label><div class=\"sk-toggleable__content fitted\"><pre>DecisionTreeClassifier()</pre></div> </div></div></div></div>"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 12
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "y_pred = DT.predict(X_test)"
-      ],
-      "metadata": {
-        "id": "a98DPjwNBgf4"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Evaluate the Model"
-      ],
-      "metadata": {
-        "id": "KefJ8f62LftJ"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "**Accuracy – The percentage of total predictions that are correct.**  \n",
-        "Example: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.  \n",
-        "\n",
-        "**F1 Score  – Out of all the positive predictions, how many were actually correct.**  \n",
-        "Example: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.  \n",
-        "\n",
-        "\n",
-        "**Recall Score – Out of all the actual positive cases, how many did the model correctly identify.**  \n",
-        "Example: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.  \n",
-        "\n",
-        "**Precision Score – A balance between precision and recall (harmonic mean).**  \n",
-        "Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.  \n",
-        "\n"
-      ],
-      "metadata": {
-        "id": "bYvhqMR4eqMq"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [],
-      "metadata": {
-        "id": "VxPEjBj2COUv"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "Accuracy: 82.68 %.\n",
-        "F1 Score: 0.82 %.\n",
-        "Recall Score: 0.83 %.\n",
-        "Precision Score: 0.83 %."
-      ],
-      "metadata": {
-        "id": "mrhd71zJCRrl"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Accuracy, F1 Score, Recall score, Precision score\n",
-        "accuracy = accuracy_score(y_test, y_pred)*100\n",
-        "f1_score = f1_score(y_test, y_pred, average='weighted')\n",
-        "recall_score = recall_score(y_test, y_pred, average='weighted')\n",
-        "precision_score = precision_score(y_test, y_pred, average='weighted')\n",
-        "\n",
-        "print('Accuracy: ' + str(round(accuracy, 2)) + ' %.')\n",
-        "print('F1 Score: ' + str(round(f1_score, 2)) + ' %.')\n",
-        "print('Recall Score: ' + str(round(recall_score, 2)) + ' %.')\n",
-        "print('Precision Score: ' + str(round(precision_score, 2)) + ' %.')"
-      ],
-      "metadata": {
-        "id": "V0jQXowqLkkK",
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "outputId": "0e6201bb-e405-4a3c-caed-e80589216925"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Accuracy: 82.12 %.\n",
-            "F1 Score: 0.82 %.\n",
-            "Recall Score: 0.82 %.\n",
-            "Precision Score: 0.82 %.\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "# Random Forest Model"
-      ],
-      "metadata": {
-        "id": "Bd08gwQ_yL5u"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "## Overview of Random Forests"
-      ],
-      "metadata": {
-        "id": "QEC0SEDFEYJ6"
-      }
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "\n",
-        "\n",
-        "**Random Forest (RF) is a supervised machine learning algorithm used for both classification and regression tasks. It builds multiple decision trees and combines their outputs for better accuracy and stability.**\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Definition**  \n",
-        "A Random Forest is an ensemble learning method that creates a \"forest\" of decision trees during training. Instead of relying on a single tree, Random Forest combines the predictions of multiple trees to improve performance. The structure consists of:\n",
-        "\n",
-        "- Decision Trees: Individual trees that make predictions based on subsets of data and features.\n",
-        "- Bagging (Bootstrap Aggregating): Each tree is trained on a randomly sampled subset of the data.\n",
-        "- Voting/Averaging: Combines the predictions from all trees:\n",
-        "- For classification, the majority vote decides the class.\n",
-        "- For regression, the average of all tree predictions is used.  \n",
-        "Random Forest reduces the risk of overfitting compared to individual decision trees and works well for both categorical and numerical data.\n",
-        "\n",
-        "<br>\n",
-        "\n",
-        "**Key Concepts**\n",
-        "\n",
-        "1. Bagging:\n",
-        "  - Random Forest uses bootstrapping to train each tree on a different sample of the data.\n",
-        "  - This creates diversity among trees, making the model more robust.\n",
-        "2. Feature Randomness:\n",
-        "  - At each split, Random Forest considers a random subset of features rather than all features.\n",
-        "  - This reduces correlation between trees and improves generalization.\n",
-        "3. Out-of-Bag (OOB) Error:\n",
-        "  - Trees not trained on certain data points (left out during bootstrapping) can be used to validate the model.\n",
-        "  - OOB error gives an unbiased estimate of model performance.\n",
-        "4. Feature Importance:\n",
-        "  - Random Forest provides a ranking of feature importance based on how often features are used for splitting across trees.\n",
-        "  - Useful for identifying key predictors in your data.\n",
-        "<br>\n",
-        "\n",
-        "**Pros**\n",
-        "\n",
-        "Improved Accuracy – Combines multiple trees, reducing overfitting.\n",
-        "Robust to Noise – Handles outliers and noisy data better than individual trees.\n",
-        "Handles Large Datasets – Can scale well with more data.\n",
-        "Feature Selection – Provides insights into the importance of features.\n",
-        "No Need for Feature Scaling – Works with unscaled data, both numerical and categorical.\n",
-        "<br>\n",
-        "\n",
-        "**Cons**\n",
-        "\n",
-        "Less Interpretable – Harder to visualize compared to a single decision tree.\n",
-        "Computationally Intensive – Training many trees can take time and memory for large datasets.\n",
-        "Overfitting Risk with Too Many Trees – Although rare, excessive trees might still overfit without tuning.\n",
-        "Slower Inference – Predictions may take longer because they aggregate results from multiple trees.\n",
-        "<br>\n",
-        "\n",
-        "**Tips**\n",
-        "\n",
-        "* Tune n_estimators – Adjust the number of trees to balance accuracy and computational cost.\n",
-        "* Limit Tree Depth – Use max_depth to avoid overfitting while maintaining performance.\n",
-        "* Optimize Feature Subset Size – Use max_features to control how many features each tree considers at a split.\n",
-        "* Use Feature Importance – Rank and prioritize the most important features in your dataset.\n",
-        "* Combine with Other Methods – Random Forest pairs well with techniques like PCA for dimensionality reduction.\n",
-        "<br>\n",
-        "\n",
-        "**Useful Articles and Videos**\n",
-        "\n",
-        "https://www.datacamp.com/tutorial/random-forests-classifier-python  \n",
-        "https://www.ibm.com/topics/random-forest  \n",
-        "https://www.youtube.com/watch?v=J4Wdy0Wc_xQ    \n",
-        "https://www.youtube.com/watch?v=QHOazyP-YlM\n",
-        "\n",
-        "<br>\n"
-      ],
-      "metadata": {
-        "id": "Obw9DkJA045B"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "from sklearn import preprocessing\n",
-        "from sklearn.preprocessing import OneHotEncoder\n",
-        "from sklearn.model_selection import train_test_split\n",
-        "from sklearn.ensemble import RandomForestClassifier\n",
-        "from sklearn.model_selection import GridSearchCV"
-      ],
-      "metadata": {
-        "id": "CSoMEYSkKY3P"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Create Model"
-      ],
-      "metadata": {
-        "id": "1cYoyYdYF12B"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)"
-      ],
-      "metadata": {
-        "id": "5rEIDcYeDKG8"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Train Model"
-      ],
-      "metadata": {
-        "id": "qAnPZ-LTF3zd"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "y.head()"
-      ],
-      "metadata": {
-        "id": "TbzR48tcFjl5",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 241
-        },
-        "outputId": "3acd0656-8db9-4377-acbf-c9bcfa220926"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "0    0\n",
-              "1    1\n",
-              "2    1\n",
-              "3    1\n",
-              "4    0\n",
-              "Name: Survived, dtype: int64"
-            ],
-            "text/html": [
-              "<div>\n",
-              "<style scoped>\n",
-              "    .dataframe tbody tr th:only-of-type {\n",
-              "        vertical-align: middle;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe tbody tr th {\n",
-              "        vertical-align: top;\n",
-              "    }\n",
-              "\n",
-              "    .dataframe thead th {\n",
-              "        text-align: right;\n",
-              "    }\n",
-              "</style>\n",
-              "<table border=\"1\" class=\"dataframe\">\n",
-              "  <thead>\n",
-              "    <tr style=\"text-align: right;\">\n",
-              "      <th></th>\n",
-              "      <th>Survived</th>\n",
-              "    </tr>\n",
-              "  </thead>\n",
-              "  <tbody>\n",
-              "    <tr>\n",
-              "      <th>0</th>\n",
-              "      <td>0</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>1</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>2</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>3</th>\n",
-              "      <td>1</td>\n",
-              "    </tr>\n",
-              "    <tr>\n",
-              "      <th>4</th>\n",
-              "      <td>0</td>\n",
-              "    </tr>\n",
-              "  </tbody>\n",
-              "</table>\n",
-              "</div><br><label><b>dtype:</b> int64</label>"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 17
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Make Predictions"
-      ],
-      "metadata": {
-        "id": "UfYwgg0YF7S7"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Predicting the Test set results\n",
-        "RF = RandomForestClassifier()\n",
-        "RF.fit(X_train, y_train)"
-      ],
-      "metadata": {
-        "id": "yCa2oqzMF-V4",
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 80
-        },
-        "outputId": "12d46ae1-7fe4-44c8-cc85-9dac07a7584d"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "execute_result",
-          "data": {
-            "text/plain": [
-              "RandomForestClassifier()"
-            ],
-            "text/html": [
-              "<style>#sk-container-id-2 {\n",
-              "  /* Definition of color scheme common for light and dark mode */\n",
-              "  --sklearn-color-text: #000;\n",
-              "  --sklearn-color-text-muted: #666;\n",
-              "  --sklearn-color-line: gray;\n",
-              "  /* Definition of color scheme for unfitted estimators */\n",
-              "  --sklearn-color-unfitted-level-0: #fff5e6;\n",
-              "  --sklearn-color-unfitted-level-1: #f6e4d2;\n",
-              "  --sklearn-color-unfitted-level-2: #ffe0b3;\n",
-              "  --sklearn-color-unfitted-level-3: chocolate;\n",
-              "  /* Definition of color scheme for fitted estimators */\n",
-              "  --sklearn-color-fitted-level-0: #f0f8ff;\n",
-              "  --sklearn-color-fitted-level-1: #d4ebff;\n",
-              "  --sklearn-color-fitted-level-2: #b3dbfd;\n",
-              "  --sklearn-color-fitted-level-3: cornflowerblue;\n",
-              "\n",
-              "  /* Specific color for light theme */\n",
-              "  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));\n",
-              "  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));\n",
-              "  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));\n",
-              "  --sklearn-color-icon: #696969;\n",
-              "\n",
-              "  @media (prefers-color-scheme: dark) {\n",
-              "    /* Redefinition of color scheme for dark theme */\n",
-              "    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));\n",
-              "    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));\n",
-              "    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));\n",
-              "    --sklearn-color-icon: #878787;\n",
-              "  }\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 pre {\n",
-              "  padding: 0;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 input.sk-hidden--visually {\n",
-              "  border: 0;\n",
-              "  clip: rect(1px 1px 1px 1px);\n",
-              "  clip: rect(1px, 1px, 1px, 1px);\n",
-              "  height: 1px;\n",
-              "  margin: -1px;\n",
-              "  overflow: hidden;\n",
-              "  padding: 0;\n",
-              "  position: absolute;\n",
-              "  width: 1px;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-dashed-wrapped {\n",
-              "  border: 1px dashed var(--sklearn-color-line);\n",
-              "  margin: 0 0.4em 0.5em 0.4em;\n",
-              "  box-sizing: border-box;\n",
-              "  padding-bottom: 0.4em;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-container {\n",
-              "  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`\n",
-              "     but bootstrap.min.css set `[hidden] { display: none !important; }`\n",
-              "     so we also need the `!important` here to be able to override the\n",
-              "     default hidden behavior on the sphinx rendered scikit-learn.org.\n",
-              "     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */\n",
-              "  display: inline-block !important;\n",
-              "  position: relative;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-text-repr-fallback {\n",
-              "  display: none;\n",
-              "}\n",
-              "\n",
-              "div.sk-parallel-item,\n",
-              "div.sk-serial,\n",
-              "div.sk-item {\n",
-              "  /* draw centered vertical line to link estimators */\n",
-              "  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));\n",
-              "  background-size: 2px 100%;\n",
-              "  background-repeat: no-repeat;\n",
-              "  background-position: center center;\n",
-              "}\n",
-              "\n",
-              "/* Parallel-specific style estimator block */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel-item::after {\n",
-              "  content: \"\";\n",
-              "  width: 100%;\n",
-              "  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);\n",
-              "  flex-grow: 1;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel {\n",
-              "  display: flex;\n",
-              "  align-items: stretch;\n",
-              "  justify-content: center;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  position: relative;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel-item {\n",
-              "  display: flex;\n",
-              "  flex-direction: column;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel-item:first-child::after {\n",
-              "  align-self: flex-end;\n",
-              "  width: 50%;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel-item:last-child::after {\n",
-              "  align-self: flex-start;\n",
-              "  width: 50%;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-parallel-item:only-child::after {\n",
-              "  width: 0;\n",
-              "}\n",
-              "\n",
-              "/* Serial-specific style estimator block */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-serial {\n",
-              "  display: flex;\n",
-              "  flex-direction: column;\n",
-              "  align-items: center;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  padding-right: 1em;\n",
-              "  padding-left: 1em;\n",
-              "}\n",
-              "\n",
-              "\n",
-              "/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is\n",
-              "clickable and can be expanded/collapsed.\n",
-              "- Pipeline and ColumnTransformer use this feature and define the default style\n",
-              "- Estimators will overwrite some part of the style using the `sk-estimator` class\n",
-              "*/\n",
-              "\n",
-              "/* Pipeline and ColumnTransformer style (default) */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-toggleable {\n",
-              "  /* Default theme specific background. It is overwritten whether we have a\n",
-              "  specific estimator or a Pipeline/ColumnTransformer */\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "}\n",
-              "\n",
-              "/* Toggleable label */\n",
-              "#sk-container-id-2 label.sk-toggleable__label {\n",
-              "  cursor: pointer;\n",
-              "  display: flex;\n",
-              "  width: 100%;\n",
-              "  margin-bottom: 0;\n",
-              "  padding: 0.5em;\n",
-              "  box-sizing: border-box;\n",
-              "  text-align: center;\n",
-              "  align-items: start;\n",
-              "  justify-content: space-between;\n",
-              "  gap: 0.5em;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 label.sk-toggleable__label .caption {\n",
-              "  font-size: 0.6rem;\n",
-              "  font-weight: lighter;\n",
-              "  color: var(--sklearn-color-text-muted);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 label.sk-toggleable__label-arrow:before {\n",
-              "  /* Arrow on the left of the label */\n",
-              "  content: \"▸\";\n",
-              "  float: left;\n",
-              "  margin-right: 0.25em;\n",
-              "  color: var(--sklearn-color-icon);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "}\n",
-              "\n",
-              "/* Toggleable content - dropdown */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-toggleable__content {\n",
-              "  max-height: 0;\n",
-              "  max-width: 0;\n",
-              "  overflow: hidden;\n",
-              "  text-align: left;\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-toggleable__content.fitted {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-toggleable__content pre {\n",
-              "  margin: 0.2em;\n",
-              "  border-radius: 0.25em;\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-toggleable__content.fitted pre {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {\n",
-              "  /* Expand drop-down */\n",
-              "  max-height: 200px;\n",
-              "  max-width: 100%;\n",
-              "  overflow: auto;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {\n",
-              "  content: \"▾\";\n",
-              "}\n",
-              "\n",
-              "/* Pipeline/ColumnTransformer-specific style */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Estimator-specific style */\n",
-              "\n",
-              "/* Colorize estimator box */\n",
-              "#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-label label.sk-toggleable__label,\n",
-              "#sk-container-id-2 div.sk-label label {\n",
-              "  /* The background is the default theme color */\n",
-              "  color: var(--sklearn-color-text-on-default-background);\n",
-              "}\n",
-              "\n",
-              "/* On hover, darken the color of the background */\n",
-              "#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Label box, darken color on hover, fitted */\n",
-              "#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Estimator label */\n",
-              "\n",
-              "#sk-container-id-2 div.sk-label label {\n",
-              "  font-family: monospace;\n",
-              "  font-weight: bold;\n",
-              "  display: inline-block;\n",
-              "  line-height: 1.2em;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-label-container {\n",
-              "  text-align: center;\n",
-              "}\n",
-              "\n",
-              "/* Estimator-specific */\n",
-              "#sk-container-id-2 div.sk-estimator {\n",
-              "  font-family: monospace;\n",
-              "  border: 1px dotted var(--sklearn-color-border-box);\n",
-              "  border-radius: 0.25em;\n",
-              "  box-sizing: border-box;\n",
-              "  margin-bottom: 0.5em;\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-0);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-estimator.fitted {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-0);\n",
-              "}\n",
-              "\n",
-              "/* on hover */\n",
-              "#sk-container-id-2 div.sk-estimator:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-2);\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 div.sk-estimator.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-2);\n",
-              "}\n",
-              "\n",
-              "/* Specification for estimator info (e.g. \"i\" and \"?\") */\n",
-              "\n",
-              "/* Common style for \"i\" and \"?\" */\n",
-              "\n",
-              ".sk-estimator-doc-link,\n",
-              "a:link.sk-estimator-doc-link,\n",
-              "a:visited.sk-estimator-doc-link {\n",
-              "  float: right;\n",
-              "  font-size: smaller;\n",
-              "  line-height: 1em;\n",
-              "  font-family: monospace;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  border-radius: 1em;\n",
-              "  height: 1em;\n",
-              "  width: 1em;\n",
-              "  text-decoration: none !important;\n",
-              "  margin-left: 0.5em;\n",
-              "  text-align: center;\n",
-              "  /* unfitted */\n",
-              "  border: var(--sklearn-color-unfitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-unfitted-level-1);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link.fitted,\n",
-              "a:link.sk-estimator-doc-link.fitted,\n",
-              "a:visited.sk-estimator-doc-link.fitted {\n",
-              "  /* fitted */\n",
-              "  border: var(--sklearn-color-fitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-fitted-level-1);\n",
-              "}\n",
-              "\n",
-              "/* On hover */\n",
-              "div.sk-estimator:hover .sk-estimator-doc-link:hover,\n",
-              ".sk-estimator-doc-link:hover,\n",
-              "div.sk-label-container:hover .sk-estimator-doc-link:hover,\n",
-              ".sk-estimator-doc-link:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,\n",
-              ".sk-estimator-doc-link.fitted:hover,\n",
-              "div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,\n",
-              ".sk-estimator-doc-link.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "/* Span, style for the box shown on hovering the info icon */\n",
-              ".sk-estimator-doc-link span {\n",
-              "  display: none;\n",
-              "  z-index: 9999;\n",
-              "  position: relative;\n",
-              "  font-weight: normal;\n",
-              "  right: .2ex;\n",
-              "  padding: .5ex;\n",
-              "  margin: .5ex;\n",
-              "  width: min-content;\n",
-              "  min-width: 20ex;\n",
-              "  max-width: 50ex;\n",
-              "  color: var(--sklearn-color-text);\n",
-              "  box-shadow: 2pt 2pt 4pt #999;\n",
-              "  /* unfitted */\n",
-              "  background: var(--sklearn-color-unfitted-level-0);\n",
-              "  border: .5pt solid var(--sklearn-color-unfitted-level-3);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link.fitted span {\n",
-              "  /* fitted */\n",
-              "  background: var(--sklearn-color-fitted-level-0);\n",
-              "  border: var(--sklearn-color-fitted-level-3);\n",
-              "}\n",
-              "\n",
-              ".sk-estimator-doc-link:hover span {\n",
-              "  display: block;\n",
-              "}\n",
-              "\n",
-              "/* \"?\"-specific style due to the `<a>` HTML tag */\n",
-              "\n",
-              "#sk-container-id-2 a.estimator_doc_link {\n",
-              "  float: right;\n",
-              "  font-size: 1rem;\n",
-              "  line-height: 1em;\n",
-              "  font-family: monospace;\n",
-              "  background-color: var(--sklearn-color-background);\n",
-              "  border-radius: 1rem;\n",
-              "  height: 1rem;\n",
-              "  width: 1rem;\n",
-              "  text-decoration: none;\n",
-              "  /* unfitted */\n",
-              "  color: var(--sklearn-color-unfitted-level-1);\n",
-              "  border: var(--sklearn-color-unfitted-level-1) 1pt solid;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 a.estimator_doc_link.fitted {\n",
-              "  /* fitted */\n",
-              "  border: var(--sklearn-color-fitted-level-1) 1pt solid;\n",
-              "  color: var(--sklearn-color-fitted-level-1);\n",
-              "}\n",
-              "\n",
-              "/* On hover */\n",
-              "#sk-container-id-2 a.estimator_doc_link:hover {\n",
-              "  /* unfitted */\n",
-              "  background-color: var(--sklearn-color-unfitted-level-3);\n",
-              "  color: var(--sklearn-color-background);\n",
-              "  text-decoration: none;\n",
-              "}\n",
-              "\n",
-              "#sk-container-id-2 a.estimator_doc_link.fitted:hover {\n",
-              "  /* fitted */\n",
-              "  background-color: var(--sklearn-color-fitted-level-3);\n",
-              "}\n",
-              "</style><div id=\"sk-container-id-2\" class=\"sk-top-container\"><div class=\"sk-text-repr-fallback\"><pre>RandomForestClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class=\"sk-container\" hidden><div class=\"sk-item\"><div class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-2\" type=\"checkbox\" checked><label for=\"sk-estimator-id-2\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"><div><div>RandomForestClassifier</div></div><div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html\">?<span>Documentation for RandomForestClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label><div class=\"sk-toggleable__content fitted\"><pre>RandomForestClassifier()</pre></div> </div></div></div></div>"
-            ]
-          },
-          "metadata": {},
-          "execution_count": 18
-        }
-      ]
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Hyperparameter Search"
-      ],
-      "metadata": {
-        "id": "BYrraE6iF-_t"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "y_pred = RF.predict(X_test)"
-      ],
-      "metadata": {
-        "id": "X00EnPnyGKed"
-      },
-      "execution_count": null,
-      "outputs": []
-    },
-    {
-      "cell_type": "markdown",
-      "source": [
-        "### Evaluate the Model"
-      ],
-      "metadata": {
-        "id": "GRM-RMw1GLfg"
-      }
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score\n",
-        "\n",
-        "# Assuming y_test and y_pred are defined somewhere in your code\n",
-        "accuracy = accuracy_score(y_test, y_pred) * 100\n",
-        "f1_value = f1_score(y_test, y_pred, average='weighted') * 100\n",
-        "recall_value = recall_score(y_test, y_pred, average='weighted') * 100\n",
-        "precision_value = precision_score(y_test, y_pred, average='weighted') * 100\n",
-        "\n",
-        "print('Accuracy: ' + str(round(accuracy, 2)) + ' %.')\n",
-        "print('F1 Score: ' + str(round(f1_value, 2)) + ' %.')\n",
-        "print('Recall Score: ' + str(round(recall_value, 2)) + ' %.')\n",
-        "print('Precision Score: ' + str(round(precision_value, 2)) + ' %.')\n"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "1yh1_SROCuOJ",
-        "outputId": "65647dfc-97f7-40e2-9846-0b228513006e"
-      },
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Accuracy: 81.56 %.\n",
-            "F1 Score: 80.97 %.\n",
-            "Recall Score: 81.56 %.\n",
-            "Precision Score: 82.44 %.\n"
-          ]
-        }
-      ]
-    }
-  ]
-}
+---
+title: "Decision Tree Machine Learning Model \U0001F4BB \U0001F9E0"
+jupyter: python3
+---
+
+
+---
+
+
+
+## Overview
+
+**Decision Tree (DT) is a supervised machine learning algorithm used for both classification and regression tasks. It splits data into branches based on feature values to make predictions.**  
+
+<br>
+
+---
+
+<br>
+
+**Definition**  
+A Decision Tree is a flowchart-like model where data is split into smaller subsets based on feature conditions. The structure consists of:  
+
+* **Root Node**: The starting point that represents the entire dataset.  
+* **Decision Nodes**: Points where the data is split based on a feature.  
+* **Leaves**: Terminal nodes that provide the final prediction.  
+
+For **classification**, a Decision Tree assigns class labels based on feature splits.  
+For **regression**, it predicts continuous values using the average or mean of data points in each leaf.  
+
+<br>
+
+---
+
+<br>
+
+**Key Concepts**
+1. **Splitting Criteria**:  
+   - Determines how the dataset is divided at each step.  
+   - Common methods:
+     * **Gini Impurity** (Classification) – Measures the likelihood of incorrect classification.  
+     * **Entropy** (Classification) – Uses information gain to decide splits.  
+     * **Mean Squared Error (MSE)** (Regression) – Measures variance within nodes.  
+
+2. **Tree Depth & Overfitting**:  
+   - **Deeper trees** fit training data better but may overfit.  
+   - **Pruning** (removing unnecessary branches) improves generalization.  
+
+3. **Feature Importance**:  
+   - Decision Trees rank features by their impact on predictions.  
+   - Helps in feature selection for other models.  
+
+4. **Handling Missing Data**:  
+   - Some implementations allow surrogate splits to handle missing values.  
+
+<br>
+
+---
+
+<br>
+
+**Pros**
+1. **Easy to Understand & Interpret** – Can be visualized as a simple flowchart.  
+2. **No Need for Feature Scaling** – Works with both categorical and numerical features.  
+3. **Handles Non-Linearity** – Can model complex relationships without requiring transformation.  
+4. **Fast for Small Datasets** – Training and inference are relatively quick.  
+
+<br>
+
+---
+
+<br>
+
+**Cons**
+1. **Prone to Overfitting** – Deep trees can memorize training data, reducing generalization.  
+2. **Unstable to Small Changes** – Small variations in data can change the tree structure significantly.  
+3. **Less Efficient on Large Datasets** – Computationally expensive for large datasets.  
+
+<br>
+
+---
+
+<br>
+
+**Tips**
+* **Limit Tree Depth** – Use `max_depth` to prevent overfitting.  
+* **Pruning Techniques** – Use pre-pruning (`max_leaf_nodes`) or post-pruning to remove unnecessary branches.  
+* **Use Feature Importance** – Identify the most influential features and remove irrelevant ones.  
+* **Consider Ensemble Methods** – Random Forest or Gradient Boosting improve Decision Trees by reducing variance.  
+
+<br>
+
+
+---
+
+<br>
+
+**Useful Articles and Videos**
+* https://www.datacamp.com/tutorial/decision-tree-classification-python
+* https://www.ibm.com/think/topics/decision-trees
+* https://www.youtube.com/watch?v=6DlWndLbk90
+* https://www.youtube.com/watch?v=ZOiBe-nrmc4
+
+
+<br>
+
+## Import Data/Libraries
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+!pip install lets_plot
+```
+
+```{python}
+# needed libraries for Decision Tree models
+import pandas as pd
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import confusion_matrix, accuracy_score, f1_score, recall_score, precision_score
+from sklearn.model_selection import cross_val_score,  train_test_split , KFold
+from sklearn.preprocessing import StandardScaler, Normalizer
+import lets_plot as lp
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+# foundation dataset
+titanic_df = pd.read_csv('https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv')
+
+# stretch dataset
+cleveland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.cleveland.data', header=None)
+hungarian_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data', header=None)
+switzerland_df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.switzerland.data', header=None)
+```
+
+## Explore, Visualize and Understand the Data
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 472}
+sns.countplot(data=titanic_df, x="Pclass", hue="Survived", palette="Set2")
+plt.title("Survival Count by Passenger Class")
+plt.xlabel("Passenger Class")
+plt.ylabel("Count")
+plt.legend(title="Survived", labels=["No", "Yes"])
+plt.show()
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 206}
+titanic_df.head()
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 400}
+import numpy as np
+from lets_plot import *
+LetsPlot.setup_html()
+ggplot(mapping=aes(x='Pclass', fill='Survived'), data=titanic_df) + geom_bar()
+```
+
+## Feature Enginnering and Data Augmentation
+
+### **Data Augmentation**  
+**Definition:**
+Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.
+
+### **Feature Engineering**  
+**Definition:**
+Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+conditions = [
+    titanic_df["Name"].str.contains(r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)', na=False),  # Condition 1: If "Name" contains "Mr"
+    titanic_df["Name"].str.contains(r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)', na=False), # Condition 2: If "Name" contains "Mrs"
+    titanic_df["Name"].str.contains(r'(?i)(Master)|(Countess)|(Jonkheer)|(Don)', na=False) # Condition 3: If "Name" contains "Miss"
+]
+
+outputs = [
+    1,
+    2,
+    3
+]
+
+titanic_df["Name_group"] = np.select(conditions, outputs, default=5)
+```
+
+## Machine Learning Model: Decision Tree
+
+### Split the data
+
+```{python}
+# Fitting the model
+titanic_df2 = pd.get_dummies(titanic_df, columns=['Sex', 'Embarked', 'Name', 'Fare', 'Ticket', 'Cabin'], drop_first=True)
+```
+
+```{python}
+X = titanic_df2.drop('Survived', axis=1)
+y = titanic_df2['Survived']
+```
+
+### Create the model
+
+```{python}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 241}
+y.head()
+```
+
+### Train the model
+
+### Make predictions
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 273}
+titanic_df2.head()
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 80}
+# Predicting the Test set results
+DT = DecisionTreeClassifier()
+DT.fit(X_train, y_train)
+```
+
+```{python}
+y_pred = DT.predict(X_test)
+```
+
+### Evaluate the Model
+
+**Accuracy – The percentage of total predictions that are correct.**  
+Example: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.  
+
+**F1 Score  – Out of all the positive predictions, how many were actually correct.**  
+Example: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.  
+
+
+**Recall Score – Out of all the actual positive cases, how many did the model correctly identify.**  
+Example: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.  
+
+**Precision Score – A balance between precision and recall (harmonic mean).**  
+Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.  
+
+
+
+Accuracy: 82.68 %.
+F1 Score: 0.82 %.
+Recall Score: 0.83 %.
+Precision Score: 0.83 %.
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+# Accuracy, F1 Score, Recall score, Precision score
+accuracy = accuracy_score(y_test, y_pred)*100
+f1_score = f1_score(y_test, y_pred, average='weighted')
+recall_score = recall_score(y_test, y_pred, average='weighted')
+precision_score = precision_score(y_test, y_pred, average='weighted')
+
+print('Accuracy: ' + str(round(accuracy, 2)) + ' %.')
+print('F1 Score: ' + str(round(f1_score, 2)) + ' %.')
+print('Recall Score: ' + str(round(recall_score, 2)) + ' %.')
+print('Precision Score: ' + str(round(precision_score, 2)) + ' %.')
+```
+
+# Random Forest Model
+
+## Overview of Random Forests
+
+
+
+**Random Forest (RF) is a supervised machine learning algorithm used for both classification and regression tasks. It builds multiple decision trees and combines their outputs for better accuracy and stability.**
+
+<br>
+
+**Definition**  
+A Random Forest is an ensemble learning method that creates a "forest" of decision trees during training. Instead of relying on a single tree, Random Forest combines the predictions of multiple trees to improve performance. The structure consists of:
+
+- Decision Trees: Individual trees that make predictions based on subsets of data and features.
+- Bagging (Bootstrap Aggregating): Each tree is trained on a randomly sampled subset of the data.
+- Voting/Averaging: Combines the predictions from all trees:
+- For classification, the majority vote decides the class.
+- For regression, the average of all tree predictions is used.  
+Random Forest reduces the risk of overfitting compared to individual decision trees and works well for both categorical and numerical data.
+
+<br>
+
+**Key Concepts**
+
+1. Bagging:
+  - Random Forest uses bootstrapping to train each tree on a different sample of the data.
+  - This creates diversity among trees, making the model more robust.
+2. Feature Randomness:
+  - At each split, Random Forest considers a random subset of features rather than all features.
+  - This reduces correlation between trees and improves generalization.
+3. Out-of-Bag (OOB) Error:
+  - Trees not trained on certain data points (left out during bootstrapping) can be used to validate the model.
+  - OOB error gives an unbiased estimate of model performance.
+4. Feature Importance:
+  - Random Forest provides a ranking of feature importance based on how often features are used for splitting across trees.
+  - Useful for identifying key predictors in your data.
+<br>
+
+**Pros**
+
+Improved Accuracy – Combines multiple trees, reducing overfitting.
+Robust to Noise – Handles outliers and noisy data better than individual trees.
+Handles Large Datasets – Can scale well with more data.
+Feature Selection – Provides insights into the importance of features.
+No Need for Feature Scaling – Works with unscaled data, both numerical and categorical.
+<br>
+
+**Cons**
+
+Less Interpretable – Harder to visualize compared to a single decision tree.
+Computationally Intensive – Training many trees can take time and memory for large datasets.
+Overfitting Risk with Too Many Trees – Although rare, excessive trees might still overfit without tuning.
+Slower Inference – Predictions may take longer because they aggregate results from multiple trees.
+<br>
+
+**Tips**
+
+* Tune n_estimators – Adjust the number of trees to balance accuracy and computational cost.
+* Limit Tree Depth – Use max_depth to avoid overfitting while maintaining performance.
+* Optimize Feature Subset Size – Use max_features to control how many features each tree considers at a split.
+* Use Feature Importance – Rank and prioritize the most important features in your dataset.
+* Combine with Other Methods – Random Forest pairs well with techniques like PCA for dimensionality reduction.
+<br>
+
+**Useful Articles and Videos**
+
+https://www.datacamp.com/tutorial/random-forests-classifier-python  
+https://www.ibm.com/topics/random-forest  
+https://www.youtube.com/watch?v=J4Wdy0Wc_xQ    
+https://www.youtube.com/watch?v=QHOazyP-YlM
+
+<br>
+
+```{python}
+from sklearn import preprocessing
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
+```
+
+### Create Model
+
+```{python}
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+### Train Model
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 241}
+y.head()
+```
+
+### Make Predictions
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/', height: 80}
+# Predicting the Test set results
+RF = RandomForestClassifier()
+RF.fit(X_train, y_train)
+```
+
+### Hyperparameter Search
+
+```{python}
+y_pred = RF.predict(X_test)
+```
+
+### Evaluate the Model
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score
+
+# Assuming y_test and y_pred are defined somewhere in your code
+accuracy = accuracy_score(y_test, y_pred) * 100
+f1_value = f1_score(y_test, y_pred, average='weighted') * 100
+recall_value = recall_score(y_test, y_pred, average='weighted') * 100
+precision_value = precision_score(y_test, y_pred, average='weighted') * 100
+
+print('Accuracy: ' + str(round(accuracy, 2)) + ' %.')
+print('F1 Score: ' + str(round(f1_value, 2)) + ' %.')
+print('Recall Score: ' + str(round(recall_value, 2)) + ' %.')
+print('Precision Score: ' + str(round(precision_value, 2)) + ' %.')
+```
+

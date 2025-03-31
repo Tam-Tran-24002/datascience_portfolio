@@ -4,12 +4,7 @@ title: "Machine Learning - Bootcamp"
 
 ## My projects
 
-/Machine Learning projects
-    /1_KNN_Model
-        ML_Bootcamp_KNN.html
-    /2_DecisionTree_RandomForests_Model
-        ML_Bootcamp_DecisionTree_RandomForest.html
-    /3_Regression_Model
-        ML_Bootcamp_Regression.html
-    /4_Classification_Model
-        ML_Bootcamp_Classification_XGBoost.html
+K-Nearest Neighbors Model  
+Decision Tree - Random Forest Model  
+Regression Model      
+Classification Model    

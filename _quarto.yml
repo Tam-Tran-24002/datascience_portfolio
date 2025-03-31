@@ -35,24 +35,16 @@ website:
           file: machine_learning.qmd 
         - text: "---"
         - text: "KNN Model"
-          file: Machine_Learning_Projects/1_KNN_Model/readme.qmd  
-          outputknn: Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd  
-          data: Machine_Learning_Projects/1_KNN_Model/KNN_Data
+          file: Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd  
         - text: "---"
         - text: "Decision Tree & Random Forests Model"
-          file: Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/readme.qmd  
-          outputdt: Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd  
+          file: Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd  
         - text: "---"
         - text: "Regression Model"
-          file: Machine_Learning_Projects/3_Regression_Model/readme.qmd  
-          output: Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd  
-          data: Machine_Learning_Projects/3_Regression_Model/Data  
+          file: Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd  
         - text: "---"
         - text: "Classification Model (XGBoost)"
-          file: Machine_Learning_Projects/4_Classification_Model/readme.qmd    
-          output: Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd  
-          data: Machine_Learning_Projects/4_Classification_Model/data
-
+          file: Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd  
 format:  
   html:
     theme:
