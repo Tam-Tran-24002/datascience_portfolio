@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ml_bootcamp_regression_template – Tam Tran - Data Science Portfolio</title>
+<title>Classification Machine Learning Model 🧠 📈 – Tam Tran - Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,20 +137,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">My Resume</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../SQL.qmd"> 
-<span class="menu-text">SQL projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../machine_mearning.qmd"> 
-<span class="menu-text">Machine Learning</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../data_science_programming.qmd"> 
-<span class="menu-text">Data Science Programming projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../ml.html"> 
-<span class="menu-text">Machine Learning</span></a>
+    <a class="nav-link" href="../../machine_mearning.html"> 
+<span class="menu-text">Machine Learning projects</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -169,10 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#regression-machine-learning-model" id="toc-regression-machine-learning-model" class="nav-link active" data-scroll-target="#regression-machine-learning-model">Regression Machine Learning Model 🧠 📈</a>
-  <ul class="collapse">
-  <li><a href="#please-copy-this-notebook-into-your-own-github-or-google-drive-do-not-modify-this-version" id="toc-please-copy-this-notebook-into-your-own-github-or-google-drive-do-not-modify-this-version" class="nav-link" data-scroll-target="#please-copy-this-notebook-into-your-own-github-or-google-drive-do-not-modify-this-version">🔴 PLEASE COPY THIS NOTEBOOK INTO YOUR OWN GITHUB OR GOOGLE DRIVE DO NOT MODIFY THIS VERSION🔴</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#import-datalibraries" id="toc-import-datalibraries" class="nav-link" data-scroll-target="#import-datalibraries">Import Data/Libraries</a></li>
   <li><a href="#explore-visualize-and-understand-the-data" id="toc-explore-visualize-and-understand-the-data" class="nav-link" data-scroll-target="#explore-visualize-and-understand-the-data">Explore, Visualize and Understand the Data</a></li>
   <li><a href="#feature-enginnering-and-data-augmentation" id="toc-feature-enginnering-and-data-augmentation" class="nav-link" data-scroll-target="#feature-enginnering-and-data-augmentation">Feature Enginnering and Data Augmentation</a>
@@ -188,26 +173,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#make-predictions" id="toc-make-predictions" class="nav-link" data-scroll-target="#make-predictions">Make predictions</a></li>
   <li><a href="#evaluate-the-model" id="toc-evaluate-the-model" class="nav-link" data-scroll-target="#evaluate-the-model">Evaluate the Model</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Classification Machine Learning Model 🧠 📈</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<p><a href="https://colab.research.google.com/github/BYUIDSS/DSS-ML-Bootcamp/blob/main/3a_Regression_Model/ML_Bootcamp_Regression_Template.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a></p>
-<section id="regression-machine-learning-model" class="level1">
-<h1>Regression Machine Learning Model 🧠 📈</h1>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <hr>
-<section id="please-copy-this-notebook-into-your-own-github-or-google-drive-do-not-modify-this-version" class="level3">
-<h3 class="anchored" data-anchor-id="please-copy-this-notebook-into-your-own-github-or-google-drive-do-not-modify-this-version">🔴 PLEASE COPY THIS NOTEBOOK INTO YOUR OWN GITHUB OR GOOGLE DRIVE DO NOT MODIFY THIS VERSION🔴</h3>
-</section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p><strong>XGBoost Regression is a supervised machine learning algorithm that builds an ensemble of decision trees to predict continuous values. It is optimized for speed and performance using gradient boosting techniques.</strong></p>
+<p><strong>XGBoost Classification is a supervised machine learning algorithm that builds an ensemble of decision trees to predict categorical outcomes. It is optimized for speed and performance using gradient boosting techniques.</strong></p>
 <p><br></p>
 <hr>
 <p><br></p>
@@ -220,41 +214,39 @@ XGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient bo
 </li>
 <li><strong>Regularization</strong>: Controls model complexity to prevent overfitting.</li>
 </ul>
-<p>For <strong>regression</strong>, XGBoost predicts continuous values by minimizing a chosen loss function, commonly Mean Squared Error (MSE) or Mean Absolute Error (MAE).</p>
+<p>For <strong>classification</strong>, XGBoost predicts categorical outcomes by minimizing a chosen loss function, such as logistic loss for binary classification or softmax (cross-entropy) loss for multi-class classification.</p>
 <p><br></p>
 <hr>
 <p><br></p>
 <p><strong>Key Concepts</strong><br>
 1. <strong>Boosting Mechanism</strong>:<br>
 - Unlike a single decision tree, XGBoost builds multiple trees in sequence.<br>
-- Each new tree corrects the errors of the previous ones by focusing on residuals.</p>
+- Each new tree corrects the errors of the previous ones by focusing on misclassified examples.</p>
 <ol start="2" type="1">
 <li><strong>Loss Functions</strong>:
 <ul>
 <li>Determines how errors are measured and minimized.<br>
 </li>
-<li>Common choices:
+<li>Common choices for classification include:
 <ul>
-<li><strong>Mean Squared Error (MSE)</strong> – Penalizes larger errors more heavily.<br>
+<li><strong>Logistic Loss</strong> – Used for binary classification tasks.<br>
 </li>
-<li><strong>Mean Absolute Error (MAE)</strong> – Treats all errors equally.<br>
-</li>
-<li><strong>Huber Loss</strong> – A mix of MSE and MAE to handle outliers.</li>
+<li><strong>Softmax (Cross-Entropy Loss)</strong> – Used for multi-class classification tasks.</li>
 </ul></li>
 </ul></li>
 <li><strong>Regularization Techniques</strong>:
 <ul>
 <li>Prevents overfitting by adding penalties to complex models.<br>
 </li>
-<li><strong>L1 Regularization (Lasso)</strong> – Shrinks coefficients, promoting sparsity.<br>
+<li><strong>L1 Regularization (Lasso)</strong> – Encourages sparsity by shrinking coefficients.<br>
 </li>
 <li><strong>L2 Regularization (Ridge)</strong> – Penalizes large coefficients to reduce variance.</li>
 </ul></li>
 <li><strong>Feature Importance &amp; Selection</strong>:
 <ul>
-<li>XGBoost ranks features by importance, aiding feature selection.<br>
+<li>XGBoost ranks features by importance, aiding in feature selection.<br>
 </li>
-<li>Can be used to eliminate redundant or irrelevant features.</li>
+<li>Helps in eliminating redundant or irrelevant features for better performance.</li>
 </ul></li>
 </ol>
 <p><br></p>
@@ -264,71 +256,73 @@ XGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient bo
 1. <strong>High Performance</strong> – Optimized for speed, scalability, and efficiency.<br>
 2. <strong>Handles Missing Data</strong> – Automatically learns how to deal with missing values.<br>
 3. <strong>Regularization Built-in</strong> – Reduces overfitting with L1 and L2 penalties.<br>
-4. <strong>Works Well with Large Datasets</strong> – Efficient memory usage and parallel processing.</p>
+4. <strong>Probabilistic Predictions</strong> – Provides probability scores for classification, enabling threshold tuning.<br>
+5. <strong>Works Well with Large Datasets</strong> – Efficient memory usage and parallel processing.</p>
 <p><br></p>
 <hr>
 <p><br></p>
 <p><strong>Cons</strong><br>
 1. <strong>Complexity</strong> – More difficult to tune compared to simpler models.<br>
 2. <strong>Computationally Intensive</strong> – Training can be slow on very large datasets.<br>
-3. <strong>Sensitive to Hyperparameters</strong> – Performance depends on careful tuning of learning rate, tree depth, and regularization.</p>
+3. <strong>Sensitive to Hyperparameters</strong> – Performance depends on careful tuning of learning rate, tree depth, and regularization.<br>
+4. <strong>Less Interpretable</strong> – Decision boundaries may be challenging to interpret compared to simpler models.</p>
 <p><br></p>
 <hr>
 <p><br></p>
 <p><strong>Tips</strong><br>
 * <strong>Optimize Hyperparameters</strong> – Use grid search or Bayesian optimization for tuning.<br>
-* <strong>Use Early Stopping</strong> – Stops training if performance stops improving on validation data.<br>
-* <strong>Scale Features if Needed</strong> – Although XGBoost can handle unscaled data, standardization may help in some cases.<br>
-* <strong>Leverage Feature Importance</strong> – Identify and remove less relevant features to improve efficiency.</p>
+* <strong>Use Early Stopping</strong> – Stop training if performance ceases to improve on validation data.<br>
+* <strong>Scale Features if Needed</strong> – Although XGBoost can handle unscaled data, standardization might improve performance.<br>
+* <strong>Leverage Feature Importance</strong> – Identify and remove less relevant features to improve efficiency.<br>
+* <strong>Adjust Decision Thresholds</strong> – Fine-tune the probability threshold to balance precision and recall for your specific task.</p>
 <p><br></p>
 <hr>
 <p><br></p>
 <p><strong>Useful Articles and Videos</strong><br>
-* <a href="https://xgboost.readthedocs.io/en/stable/tutorials/model.html">XGBoost Official Documentation</a><br>
-* <a href="https://machinelearningmastery.com/xgboost-for-regression/">XGBoost for Regression – Machine Learning Mastery</a><br>
+* <a href="https://xgboost.readthedocs.io/en/stable/index.html">XGBoost Official Documentation</a><br>
+* <a href="https://machinelearningmastery.com/xgboost-for-classification/">XGBoost for Classification – Machine Learning Mastery</a><br>
 * <a href="https://www.analyticsvidhya.com/blog/2016/01/xgboost-algorithm-easy-steps/">Understanding XGBoost – Analytics Vidhya</a><br>
-* <a href="https://www.youtube.com/watch?v=OtD8wVaFm6E">XGBoost Explained – YouTube</a></p>
+* <a href="https://www.youtube.com/watch?v=8j0UDiN7my4">XGBoost Explained for Classification – YouTube</a></p>
 <p><br></p>
 </section>
 <section id="import-datalibraries" class="level2">
 <h2 class="anchored" data-anchor-id="import-datalibraries">Import Data/Libraries</h2>
-<div id="cell-6" class="cell" data-outputid="2ac6dc9d-9566-4ec3-b6a6-5483111411ae" data-execution_count="5">
+<div id="cell-5" class="cell" data-outputid="f9a2ef7a-77bc-4e1c-89bf-bd2d8ca222dc" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install lets_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Requirement already satisfied: lets_plot in /usr/local/lib/python3.11/dist-packages (4.6.1)
+<pre><code>Requirement already satisfied: lets_plot in /usr/local/lib/python3.11/dist-packages (4.6.2)
 Requirement already satisfied: pypng in /usr/local/lib/python3.11/dist-packages (from lets_plot) (0.20220715.0)
 Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-packages (from lets_plot) (3.3.3)</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># needed libraries for Regression models</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix, accuracy_score, f1_score, recall_score, precision_score, mean_squared_error</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score,  train_test_split , KFold, GridSearchCV</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, Normalizer</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> lets_plot <span class="im">as</span> lp</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> kagglehub</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># foundation dataset</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">#### If this gives an error go into the Data folder in GitHub and click on the baseball data csv and then click "Raw" (underneath history in the upper righthand corner) then copy that url to replace the "data_raw_url"</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>data_raw_url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/BYUIDSS/DSS-ML-Bootcamp/refs/heads/main/3a_Regression_Model/Data/nyc-east-river-bicycle-counts.csv?token=GHSAT0AAAAAAC6JBYNOYS7FRMQ2VJSQ5HZ6Z6N4UCQ"</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>bicycle_df <span class="op">=</span> pd.read_csv(data_raw_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-6" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># needed libraries for Classification models</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV, train_test_split</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OrdinalEncoder</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBClassifier</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the training dataset</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#### If this gives an error go into the Data folder in GitHub and click on the data csv and then "Raw"</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#### (underneath history in the upper righthand corner) then copy that url to replace the "data_raw_url"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>data_raw_url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/BYUIDSS/DSS-ML-Bootcamp/refs/heads/main/3b_Classification_Model/data/Churn_Modelling.csv?token=GHSAT0AAAAAAC7UQH3WQQ4HLOI3GC7L7EVIZ7KGDGQ'</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>banking_df <span class="op">=</span> pd.read_csv(data_raw_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="explore-visualize-and-understand-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="explore-visualize-and-understand-the-data">Explore, Visualize and Understand the Data</h2>
-<div id="cell-9" class="cell" data-outputid="f4382cce-a829-4637-9c0f-f71d31bffb1d" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bicycle_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="cell-8" class="cell" data-outputid="bbc5b651-47fd-4949-be00-589199b09d24" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>banking_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
 
-  <div id="df-0b5ed05c-679e-4bd7-9cf7-b172fb814634" class="colab-df-container">
+  <div id="df-35961408-bb9e-43f2-b0cc-3b542bdf210b" class="colab-df-container">
     <div>
 
 
@@ -336,159 +330,192 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">Unnamed: 0</th>
-<th data-quarto-table-cell-role="th">Date</th>
-<th data-quarto-table-cell-role="th">Day</th>
-<th data-quarto-table-cell-role="th">High Temp (°F)</th>
-<th data-quarto-table-cell-role="th">Low Temp (°F)</th>
-<th data-quarto-table-cell-role="th">Precipitation</th>
-<th data-quarto-table-cell-role="th">Brooklyn Bridge</th>
-<th data-quarto-table-cell-role="th">Manhattan Bridge</th>
-<th data-quarto-table-cell-role="th">Williamsburg Bridge</th>
-<th data-quarto-table-cell-role="th">Queensboro Bridge</th>
-<th data-quarto-table-cell-role="th">Total</th>
+<th data-quarto-table-cell-role="th">RowNumber</th>
+<th data-quarto-table-cell-role="th">CustomerId</th>
+<th data-quarto-table-cell-role="th">Surname</th>
+<th data-quarto-table-cell-role="th">CreditScore</th>
+<th data-quarto-table-cell-role="th">Geography</th>
+<th data-quarto-table-cell-role="th">Gender</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Tenure</th>
+<th data-quarto-table-cell-role="th">Balance</th>
+<th data-quarto-table-cell-role="th">NumOfProducts</th>
+<th data-quarto-table-cell-role="th">HasCrCard</th>
+<th data-quarto-table-cell-role="th">IsActiveMember</th>
+<th data-quarto-table-cell-role="th">EstimatedSalary</th>
+<th data-quarto-table-cell-role="th">Exited</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>0</td>
-<td>2016-04-01 00:00:00</td>
-<td>2016-04-01 00:00:00</td>
-<td>78.1</td>
-<td>66.0</td>
-<td>0.01</td>
-<td>1704.0</td>
-<td>3126</td>
-<td>4115.0</td>
-<td>2552.0</td>
-<td>11497</td>
+<td>1</td>
+<td>15634602</td>
+<td>Hargrave</td>
+<td>619</td>
+<td>France</td>
+<td>Female</td>
+<td>42.0</td>
+<td>2</td>
+<td>0.00</td>
+<td>1</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>101348.88</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>15647311</td>
+<td>Hill</td>
+<td>608</td>
+<td>Spain</td>
+<td>Female</td>
+<td>41.0</td>
 <td>1</td>
-<td>2016-04-02 00:00:00</td>
-<td>2016-04-02 00:00:00</td>
-<td>55.0</td>
-<td>48.9</td>
-<td>0.15</td>
-<td>827.0</td>
-<td>1646</td>
-<td>2565.0</td>
-<td>1884.0</td>
-<td>6922</td>
+<td>83807.86</td>
+<td>1</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>112542.58</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>2</td>
-<td>2016-04-03 00:00:00</td>
-<td>2016-04-03 00:00:00</td>
-<td>39.9</td>
-<td>34.0</td>
-<td>0.09</td>
-<td>526.0</td>
-<td>1232</td>
-<td>1695.0</td>
-<td>1306.0</td>
-<td>4759</td>
+<td>3</td>
+<td>15619304</td>
+<td>Onio</td>
+<td>502</td>
+<td>France</td>
+<td>Female</td>
+<td>42.0</td>
+<td>8</td>
+<td>159660.80</td>
+<td>3</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>113931.57</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>3</td>
-<td>2016-04-04 00:00:00</td>
-<td>2016-04-04 00:00:00</td>
-<td>44.1</td>
-<td>33.1</td>
-<td>0.47 (S)</td>
-<td>521.0</td>
-<td>1067</td>
-<td>1440.0</td>
-<td>1307.0</td>
-<td>4335</td>
+<td>4</td>
+<td>15701354</td>
+<td>Boni</td>
+<td>699</td>
+<td>France</td>
+<td>Female</td>
+<td>39.0</td>
+<td>1</td>
+<td>0.00</td>
+<td>2</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>93826.63</td>
+<td>0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>4</td>
-<td>2016-04-05 00:00:00</td>
-<td>2016-04-05 00:00:00</td>
-<td>42.1</td>
-<td>26.1</td>
+<td>5</td>
+<td>15737888</td>
+<td>Mitchell</td>
+<td>850</td>
+<td>Spain</td>
+<td>Female</td>
+<td>43.0</td>
+<td>2</td>
+<td>125510.82</td>
+<td>1</td>
+<td>NaN</td>
+<td>1.0</td>
+<td>79084.10</td>
 <td>0</td>
-<td>1416.0</td>
-<td>2617</td>
-<td>3081.0</td>
-<td>2357.0</td>
-<td>9471</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>5</td>
-<td>2016-04-06 00:00:00</td>
-<td>2016-04-06 00:00:00</td>
-<td>45.0</td>
-<td>30.0</td>
-<td>0</td>
-<td>1885.0</td>
-<td>3329</td>
-<td>3856.0</td>
-<td>2849.0</td>
-<td>11919</td>
+<td>6</td>
+<td>15574012</td>
+<td>Chu</td>
+<td>645</td>
+<td>Spain</td>
+<td>Male</td>
+<td>44.0</td>
+<td>8</td>
+<td>113755.78</td>
+<td>2</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>149756.71</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
-<td>6</td>
-<td>2016-04-07 00:00:00</td>
-<td>2016-04-07 00:00:00</td>
-<td>57.0</td>
-<td>53.1</td>
-<td>0.09</td>
-<td>1276.0</td>
-<td>2581</td>
-<td>3282.0</td>
-<td>2457.0</td>
-<td>9596</td>
+<td>7</td>
+<td>15592531</td>
+<td>Bartlett</td>
+<td>822</td>
+<td>NaN</td>
+<td>Male</td>
+<td>50.0</td>
+<td>7</td>
+<td>0.00</td>
+<td>2</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>10062.80</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
-<td>7</td>
-<td>2016-04-08 00:00:00</td>
-<td>2016-04-08 00:00:00</td>
-<td>46.9</td>
-<td>44.1</td>
-<td>0.01</td>
-<td>1982.0</td>
-<td>3455</td>
-<td>4113.0</td>
-<td>3194.0</td>
-<td>12744</td>
+<td>8</td>
+<td>15656148</td>
+<td>Obinna</td>
+<td>376</td>
+<td>Germany</td>
+<td>Female</td>
+<td>29.0</td>
+<td>4</td>
+<td>115046.74</td>
+<td>4</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>119346.88</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>8</td>
-<td>2016-04-09 00:00:00</td>
-<td>2016-04-09 00:00:00</td>
-<td>43.0</td>
-<td>37.9</td>
-<td>0.09</td>
-<td>504.0</td>
-<td>997</td>
-<td>1507.0</td>
-<td>1502.0</td>
-<td>4510</td>
+<td>9</td>
+<td>15792365</td>
+<td>He</td>
+<td>501</td>
+<td>France</td>
+<td>Male</td>
+<td>44.0</td>
+<td>4</td>
+<td>142051.07</td>
+<td>2</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>74940.50</td>
+<td>0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>9</td>
-<td>2016-04-10 00:00:00</td>
-<td>2016-04-10 00:00:00</td>
-<td>48.9</td>
-<td>30.9</td>
+<td>10</td>
+<td>15592389</td>
+<td>H?</td>
+<td>684</td>
+<td>France</td>
+<td>Male</td>
+<td>NaN</td>
+<td>2</td>
+<td>134603.88</td>
+<td>1</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>71725.73</td>
 <td>0</td>
-<td>1447.0</td>
-<td>2387</td>
-<td>3132.0</td>
-<td>2160.0</td>
-<td>9126</td>
 </tr>
 </tbody>
 </table>
@@ -497,7 +524,7 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0b5ed05c-679e-4bd7-9cf7-b172fb814634')" title="Convert this dataframe to an interactive table." style="display:none;">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-35961408-bb9e-43f2-b0cc-3b542bdf210b')" title="Convert this dataframe to an interactive table." style="display:none;">
 
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
@@ -547,12 +574,12 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0b5ed05c-679e-4bd7-9cf7-b172fb814634 button.colab-df-convert');
+        document.querySelector('#df-35961408-bb9e-43f2-b0cc-3b542bdf210b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0b5ed05c-679e-4bd7-9cf7-b172fb814634');
+        const element = document.querySelector('#df-35961408-bb9e-43f2-b0cc-3b542bdf210b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -572,8 +599,8 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
   </div>
 
 
-<div id="df-14f2bb91-ad38-40ba-9e2b-832f42d07849">
-  <button class="colab-df-quickchart" onclick="quickchart('df-14f2bb91-ad38-40ba-9e2b-832f42d07849')" title="Suggest charts" style="display:none;">
+<div id="df-f42cb75f-cf4b-49ff-863b-25c915e1fab0">
+  <button class="colab-df-quickchart" onclick="quickchart('df-f42cb75f-cf4b-49ff-863b-25c915e1fab0')" title="Suggest charts" style="display:none;">
 
 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
     <g>
@@ -689,7 +716,7 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-14f2bb91-ad38-40ba-9e2b-832f42d07849 button');
+        document.querySelector('#df-f42cb75f-cf4b-49ff-863b-25c915e1fab0 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -700,15 +727,488 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
   </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># try info</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-9" class="cell" data-outputid="beff6f30-a3eb-46ee-d1f2-9ef2764b6652" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>banking_df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+
+  <div id="df-2dcc6433-3f56-4e46-9c2d-8b7291b2b479" class="colab-df-container">
+    <div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">RowNumber</th>
+<th data-quarto-table-cell-role="th">CustomerId</th>
+<th data-quarto-table-cell-role="th">CreditScore</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Tenure</th>
+<th data-quarto-table-cell-role="th">Balance</th>
+<th data-quarto-table-cell-role="th">NumOfProducts</th>
+<th data-quarto-table-cell-role="th">HasCrCard</th>
+<th data-quarto-table-cell-role="th">IsActiveMember</th>
+<th data-quarto-table-cell-role="th">EstimatedSalary</th>
+<th data-quarto-table-cell-role="th">Exited</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>10002.000000</td>
+<td>1.000200e+04</td>
+<td>10002.000000</td>
+<td>10001.000000</td>
+<td>10002.000000</td>
+<td>10002.000000</td>
+<td>10002.000000</td>
+<td>10001.000000</td>
+<td>10001.000000</td>
+<td>10002.000000</td>
+<td>10002.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>5001.499600</td>
+<td>1.569093e+07</td>
+<td>650.555089</td>
+<td>38.922311</td>
+<td>5.012498</td>
+<td>76491.112875</td>
+<td>1.530194</td>
+<td>0.705529</td>
+<td>0.514949</td>
+<td>100083.331145</td>
+<td>0.203759</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>2887.472338</td>
+<td>7.193177e+04</td>
+<td>96.661615</td>
+<td>10.487200</td>
+<td>2.891973</td>
+<td>62393.474144</td>
+<td>0.581639</td>
+<td>0.455827</td>
+<td>0.499801</td>
+<td>57508.117802</td>
+<td>0.402812</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>1.000000</td>
+<td>1.556570e+07</td>
+<td>350.000000</td>
+<td>18.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>11.580000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2501.250000</td>
+<td>1.562852e+07</td>
+<td>584.000000</td>
+<td>32.000000</td>
+<td>3.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>50983.750000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>5001.500000</td>
+<td>1.569073e+07</td>
+<td>652.000000</td>
+<td>37.000000</td>
+<td>5.000000</td>
+<td>97198.540000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>100185.240000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>7501.750000</td>
+<td>1.575323e+07</td>
+<td>718.000000</td>
+<td>44.000000</td>
+<td>7.000000</td>
+<td>127647.840000</td>
+<td>2.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>149383.652500</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>10000.000000</td>
+<td>1.581569e+07</td>
+<td>850.000000</td>
+<td>92.000000</td>
+<td>10.000000</td>
+<td>250898.090000</td>
+<td>4.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>199992.480000</td>
+<td>1.000000</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div id="cell-11" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># investigate describe()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2dcc6433-3f56-4e46-9c2d-8b7291b2b479')" title="Convert this dataframe to an interactive table." style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"></path>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-2dcc6433-3f56-4e46-9c2d-8b7291b2b479 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-2dcc6433-3f56-4e46-9c2d-8b7291b2b479');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-b8418378-37be-42aa-b8c4-12e80f139a93">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b8418378-37be-42aa-b8c4-12e80f139a93')" title="Suggest charts" style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"></path>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-b8418378-37be-42aa-b8c4-12e80f139a93 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+    </div>
+  </div>
+</div>
+</div>
+<div id="cell-10" class="cell" data-outputid="1d4a6277-a5f4-4105-9c52-8da8bf1acd6c" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>banking_df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">RowNumber</td>
+<td>int64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CustomerId</td>
+<td>int64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Surname</td>
+<td>object</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CreditScore</td>
+<td>int64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Geography</td>
+<td>object</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Gender</td>
+<td>object</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Age</td>
+<td>float64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Tenure</td>
+<td>int64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Balance</td>
+<td>float64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NumOfProducts</td>
+<td>int64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HasCrCard</td>
+<td>float64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">IsActiveMember</td>
+<td>float64</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EstimatedSalary</td>
+<td>float64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Exited</td>
+<td>int64</td>
+</tr>
+</tbody>
+</table>
+
+</div><br><label><b>dtype:</b> object</label>
+</div>
+</div>
+<div id="cell-12" class="cell" data-outputid="99d29148-7982-4c42-e040-cc7b85a894a6" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 means staying and 1 means leaving.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Most of Germany left the bank compared to Spain and France. Does this mean geography has a huge impact on the decision to stay or leave?</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sns.countplot(x<span class="op">=</span><span class="st">'Geography'</span>, hue<span class="op">=</span><span class="st">'Exited'</span>, data<span class="op">=</span>banking_df)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Geography vs Exited'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ML_Bootcamp_Classification_XGBoost_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-13" class="cell" data-outputid="cd459e20-5092-45ee-d39a-1f864432793f" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"IsActiveMember"</span>, hue <span class="op">=</span> <span class="st">"Exited"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Status"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ML_Bootcamp_Classification_XGBoost_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-14" class="cell" data-outputid="0afb2691-ec60-4716-9d58-3fbbf569c777" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"Geography"</span>, y <span class="op">=</span> <span class="st">"Exited"</span>, hue <span class="op">=</span> <span class="st">"Geography"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Geography"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ML_Bootcamp_Classification_XGBoost_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-15" class="cell" data-outputid="4913ae42-8b4c-43a2-f08c-b8d135381e93" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"Geography"</span>, y <span class="op">=</span> <span class="st">"Exited"</span>, hue <span class="op">=</span> <span class="st">"Exited"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Estimated Salary"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ML_Bootcamp_Classification_XGBoost_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="feature-enginnering-and-data-augmentation" class="level2">
 <h2 class="anchored" data-anchor-id="feature-enginnering-and-data-augmentation">Feature Enginnering and Data Augmentation</h2>
+<div id="cell-17" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> banking_df.drop([<span class="st">'Exited'</span>, <span class="st">'Surname'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> banking_df[<span class="st">'Exited'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="data-augmentation" class="level3">
 <h3 class="anchored" data-anchor-id="data-augmentation"><strong>Data Augmentation</strong></h3>
 <p><strong>Definition:</strong> Data augmentation is the process of artificially expanding the size and diversity of a training dataset by applying transformations or modifications to the existing data while preserving the underlying labels or structure. It is commonly used in machine learning, especially in computer vision and natural language processing, to improve model performance and robustness.</p>
@@ -716,63 +1216,112 @@ Requirement already satisfied: palettable in /usr/local/lib/python3.11/dist-pack
 <section id="feature-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="feature-engineering"><strong>Feature Engineering</strong></h3>
 <p><strong>Definition:</strong> Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.</p>
+<div id="cell-19" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>categorical_features <span class="op">=</span> [<span class="st">'Geography'</span>, <span class="st">'Gender'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="machine-learning-model" class="level2">
 <h2 class="anchored" data-anchor-id="machine-learning-model">Machine Learning Model</h2>
 <section id="split-the-data-to-train-and-test" class="level3">
 <h3 class="anchored" data-anchor-id="split-the-data-to-train-and-test">Split the data to train and test</h3>
+<div id="cell-22" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="create-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-model">Create the model</h3>
+<div id="cell-24" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ordinal encoder</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ordinal_encoder <span class="op">=</span> OrdinalEncoder()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a column transformer to apply ordinal encoding to categorical features</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>preprocessor <span class="op">=</span> ColumnTransformer(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    transformers<span class="op">=</span>[</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        (<span class="st">'cat'</span>, ordinal_encoder, categorical_features)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    remainder<span class="op">=</span><span class="st">'passthrough'</span>  <span class="co"># Keep other columns unchanged</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="train-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="train-the-model">Train the model</h3>
+<div id="cell-26" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit and transform the training data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>X_train_encoded <span class="op">=</span> preprocessor.fit_transform(X_train)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform the test data using the fitted preprocessor</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>X_test_encoded <span class="op">=</span> preprocessor.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="make-predictions" class="level3">
 <h3 class="anchored" data-anchor-id="make-predictions">Make predictions</h3>
+<div id="cell-29" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the XGBoost classifier</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>xgb_classifier <span class="op">=</span> XGBClassifier(random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="hyperparameter-search" class="level4">
 <h4 class="anchored" data-anchor-id="hyperparameter-search">Hyperparameter Search</h4>
-<div id="cell-36" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint: google GridSearchCV()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameter grid for hyperparameter tuning</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'learning_rate'</span>: [<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>],</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'n_estimators'</span>: [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>],</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'max_depth'</span>: [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>],</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform GridSearchCV</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>grid_search <span class="op">=</span> GridSearchCV(estimator<span class="op">=</span>xgb_classifier, param_grid<span class="op">=</span>param_grid, cv<span class="op">=</span><span class="dv">3</span>, scoring<span class="op">=</span><span class="st">'f1'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>grid_search.fit(X_train_encoded, y_train)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the best model from GridSearchCV</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>best_xgb_classifier <span class="op">=</span> grid_search.best_estimator_</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions using the best model</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> best_xgb_classifier.predict(X_test_encoded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="evaluate-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-the-model">Evaluate the Model</h3>
-<p><strong>MSE (Mean Squared Error) – The average of the squared differences between the predicted and actual values.</strong><br>
-Example: If the squared errors for three predictions are 4, 9, and 1, then MSE = (4 + 9 + 1) / 3 ≈ 4.67.</p>
-<p><strong>RMSE (Root Mean Squared Error) – The square root of the MSE, providing an error measure in the same unit as the target variable.</strong><br>
-Example: With an MSE of 4.67, RMSE = √4.67 ≈ 2.16.</p>
-<p><strong>MAE (Mean Absolute Error) – The average of the absolute differences between the predicted and actual values.</strong><br>
-Example: If the absolute errors for three predictions are 2, 3, and 1, then MAE = (2 + 3 + 1) / 3 = 2.</p>
-<p><strong>R-squared (Coefficient of Determination) – The proportion of the variance in the dependent variable that is explained by the independent variables.</strong><br>
-Example: An R-squared value of 0.8 indicates that 80% of the variability in the output is explained by the model, with the remaining 20% unexplained.</p>
-<div id="cell-39" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model using regression metrics</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score, mean_absolute_error</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Mean Squared Error (MSE)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Root Mean Squared Error (RMSE)</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> np.sqrt(mse)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Mean Absolute Error (MAE)</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>mae <span class="op">=</span> mean_absolute_error(y_test, y_pred)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R-squared (R2)</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the evaluation metrics</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Mean Squared Error (MSE):'</span>, mse)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Root Mean Squared Error (RMSE):'</span>, rmse)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Mean Absolute Error (MAE):'</span>, mae)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'R-squared (R2):'</span>, r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Accuracy – The percentage of total predictions that are correct.</strong><br>
+Example: If a spam filter correctly classifies 90 out of 100 emails (whether spam or not), the accuracy is 90%.</p>
+<p><strong>F1 Score – Out of all the positive predictions, how many were actually correct.</strong><br>
+Example: If a spam filter predicts 20 emails as spam, but only 15 are actually spam, precision is 15/20 = 75%.</p>
+<p><strong>Recall Score – Out of all the actual positive cases, how many did the model correctly identify.</strong><br>
+Example: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.</p>
+<p><strong>Precision Score – A balance between precision and recall (harmonic mean).</strong><br>
+Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.</p>
+<div id="cell-34" class="cell" data-outputid="dfc80b9e-fc99-4cbb-8eef-1fb5cc22302a" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model using classification metrics</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score, mean_absolute_error</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Mean Squared Error (MSE)</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Root Mean Squared Error (RMSE)</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>rmse <span class="op">=</span> np.sqrt(mse)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate Mean Absolute Error (MAE)</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>mae <span class="op">=</span> mean_absolute_error(y_test, y_pred)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R-squared (R2)</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the evaluation metrics</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Mean Squared Error (MSE):'</span>, mse)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Root Mean Squared Error (RMSE):'</span>, rmse)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Mean Absolute Error (MAE):'</span>, mae)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'R-squared (R2):'</span>, r2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean Squared Error (MSE): 0.13693153423288357
+Root Mean Squared Error (RMSE): 0.37004261137453287
+Mean Absolute Error (MAE): 0.13693153423288357
+R-squared (R2): 0.14705086201263828</code></pre>
+</div>
 </div>
 
 
-</section>
 </section>
 </section>
 
