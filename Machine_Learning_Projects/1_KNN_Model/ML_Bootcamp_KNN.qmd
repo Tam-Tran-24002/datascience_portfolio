@@ -113,20 +113,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <body class="nav-fixed">
 
-<div id="quarto-search-results"></div>
+</div> id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      </div> class="navbar-container container-fluid">
+      </div> class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Tam Tran - Data Science Portfolio</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
+            </div> id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
+          </div> class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
@@ -142,17 +142,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          </div> class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+</div> id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div> id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
@@ -179,13 +179,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+</div> class="quarto-title">
 <h1 class="title">K-Nearest Neighbors Machine Leaning Model 💻 🧠</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+</div> class="quarto-title-meta">
 
     
   
@@ -200,9 +200,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="import-datalibraries" class="level2">
 <h2 class="anchored" data-anchor-id="import-datalibraries">Import Data/Libraries</h2>
-<div id="cell-3" class="cell" data-outputid="99085247-c014-4cca-ea53-d401b21c68c1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip3 install lets<span class="op">-</span>plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
+</div> id="cell-3" class="cell" data-outputid="99085247-c014-4cca-ea53-d401b21c68c1">
+</div> class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip3 install lets<span class="op">-</span>plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div> class="cell-output cell-output-stdout">
 <pre><code>Collecting lets-plot
   Downloading lets_plot-4.6.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (11 kB)
 Collecting pypng (from lets-plot)
@@ -219,8 +219,8 @@ Installing collected packages: pypng, palettable, lets-plot
 Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+</div> id="cell-4" class="cell">
+</div> class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># needed libraries for KNN models</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
@@ -241,17 +241,17 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>hungarian_df <span class="op">=</span> pd.read_csv(<span class="st">'https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.hungarian.data'</span>, header<span class="op">=</span><span class="va">None</span>)</span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>switzerland_df <span class="op">=</span> pd.read_csv(<span class="st">'https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/processed.switzerland.data'</span>, header<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-outputid="9e426d0c-c14e-463f-9262-bb246416abde">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to set up access to the foundational dataset</span></span>
+</div> id="cell-5" class="cell" data-outputid="9e426d0c-c14e-463f-9262-bb246416abde">
+</div> class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to set up access to the foundational dataset</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>iris_df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>iris.data, columns<span class="op">=</span>iris.feature_names)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>iris_df[<span class="st">'target'</span>] <span class="op">=</span> iris.target_names[iris.target]</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># iris_df is now the dataframe to be used for the foundational model</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>iris_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+</div> class="cell-output cell-output-display" data-execution_count="3">
 
-  <div id="df-6ff9e14d-290b-4c6a-bbb7-0e44444cbcb1" class="colab-df-container">
-    <div>
+  </div> id="df-6ff9e14d-290b-4c6a-bbb7-0e44444cbcb1" class="colab-df-container">
+    </div>
 
 
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
@@ -310,9 +310,9 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
 </table>
 
 </div>
-    <div class="colab-df-buttons">
+    </div> class="colab-df-buttons">
 
-  <div class="colab-df-container">
+  </div> class="colab-df-container">
     <button class="colab-df-convert" onclick="convertToInteractive('df-6ff9e14d-290b-4c6a-bbb7-0e44444cbcb1')" title="Convert this dataframe to an interactive table." style="display:none;">
 
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 -960 960 960">
@@ -388,7 +388,7 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
   </div>
 
 
-<div id="df-42b42b17-221c-4d09-9655-87d86d79080c">
+</div> id="df-42b42b17-221c-4d09-9655-87d86d79080c">
   <button class="colab-df-quickchart" onclick="quickchart('df-42b42b17-221c-4d09-9655-87d86d79080c')" title="Suggest charts" style="display:none;">
 
 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewbox="0 0 24 24" width="24px">
@@ -519,23 +519,23 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
 </section>
 <section id="explore-visualize-and-understand-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="explore-visualize-and-understand-the-data">Explore, Visualize and Understand the Data</h2>
-<div id="cell-7" class="cell" data-outputid="9404300e-0acc-4be9-b01f-cf5381ca91c4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+</div> id="cell-7" class="cell" data-outputid="9404300e-0acc-4be9-b01f-cf5381ca91c4">
+</div> class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(iris_df, hue <span class="op">=</span> <span class="st">"target"</span>, size<span class="op">=</span><span class="dv">3</span>, markers<span class="op">=</span>[<span class="st">"o"</span>, <span class="st">"s"</span>, <span class="st">"D"</span>])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+</div> class="cell-output cell-output-stderr">
 <pre><code>/usr/local/lib/python3.11/dist-packages/seaborn/axisgrid.py:2100: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
   warnings.warn(msg, UserWarning)</code></pre>
 </div>
-<div class="cell-output cell-output-display">
-<div>
+</div> class="cell-output cell-output-display">
+</div>
 <figure class="figure">
 <p><img src="ML_Bootcamp_KNN_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
+</div> class="cell-output cell-output-display">
 <pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
 </div>
 </div>
@@ -549,8 +549,8 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
 <section id="feature-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="feature-engineering"><strong>Feature Engineering</strong></h3>
 <p><strong>Definition:</strong> Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.</p>
-<div id="cell-10" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div> id="cell-10" class="cell">
+</div> class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -558,17 +558,17 @@ Successfully installed lets-plot-4.6.2 palettable-3.3.3 pypng-0.20220715.0</code
 <h2 class="anchored" data-anchor-id="machine-learning-model">Machine Learning Model</h2>
 <section id="split-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="split-the-data">Split the data</h3>
-<div id="cell-15" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span> iris_df.drop(columns<span class="op">=</span>[<span class="st">'target'</span>])</span>
+</div> id="cell-15" class="cell">
+</div> class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span> iris_df.drop(columns<span class="op">=</span>[<span class="st">'target'</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> iris_df[<span class="st">'target'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-16" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(x, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>) <span class="co">#Training 80% and testing 20%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-17" class="cell" data-outputid="77648695-f286-456c-9603-5e2e110c5ea0">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
+</div> id="cell-17" class="cell" data-outputid="77648695-f286-456c-9603-5e2e110c5ea0">
+</div> class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>y.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div> class="cell-output cell-output-display" data-execution_count="7">
+</div>
 
 
 <table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">

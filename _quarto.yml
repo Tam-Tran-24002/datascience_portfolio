@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Tam Tran - Data Science Portfolio"
-  favicon: Images/favicon.png
+  favicon: Images/tamtran.png
   back-to-top-navigation: true
   repo-url: https://github.com/Tam-Tran-24002/datascience_portfolio
   #repo-actions: [issue] #if you want to allow others to report issues on your site uncomment this line
@@ -24,55 +24,40 @@ website:
       - text: "My Resume"
         file: resume.qmd     
       - text: "Machine Learning projects"
-        file: machine_mearning.qmd  
+        file: machine_learning.qmd 
   
-  # learn more about navication here https://quarto.org/docs/websites/website-navigation.html
-  # comment out any of the sections below to turn off the sidebar
-
   sidebar: 
     - title: "Data Science Portfolio"
       style: "docked"
       background: light
       contents:
-        - text: "Machine Learning projects"
+        - text: "Machine Learning Projects"
           file: machine_learning.qmd 
         - text: "---"
-        - text: "Machine Learning projects/1_KNN_Model"
-          file: Machine Learning projects/1_KNN_Model/readme.md
-          outputknn: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
-          data: Machine Learning projects/1_KNN_Model/KNN_Data
-          readme: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt        
-          file1: Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
-          file2: Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
-          file3: Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
-          file4: Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
+        - text: "KNN Model"
+          file: Machine_Learning_Projects/1_KNN_Model/readme.qmd  
+          outputknn: Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd  
+          data: Machine_Learning_Projects/1_KNN_Model/KNN_Data
         - text: "---"
-        - text: "Machine Learning projects/2_DecisionTree_RandomForests_Model"
-          file: Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.qmd
-          outputdt: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
+        - text: "Decision Tree & Random Forests Model"
+          file: Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/readme.qmd  
+          outputdt: Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd  
         - text: "---"
-        - text: "Machine Learning projects/3_Regression_Model"
-          file: Machine Learning projects/3_Regression_Model/readme.md
-          output: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
-          data: Machine Learning projects/3_Regression_Model/Data
-          file1: Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
-          file2: Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
+        - text: "Regression Model"
+          file: Machine_Learning_Projects/3_Regression_Model/readme.qmd  
+          output: Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd  
+          data: Machine_Learning_Projects/3_Regression_Model/Data  
         - text: "---"
-        - text: Machine Learning projects/4_Classification_Model
-          file: Machine Learning projects/4_Classification_Model/readme.md
-          output: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
-          data: Machine Learning projects/4_Classification_Model/data
-          file1: Machine Learning projects/4_Classification_Model/data/readme.md
-          file2: Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv 
+        - text: "Classification Model (XGBoost)"
+          file: Machine_Learning_Projects/4_Classification_Model/readme.qmd    
+          output: Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd  
+          data: Machine_Learning_Projects/4_Classification_Model/data
+
 format:  
   html:
-    theme: #see this link to customize the theme with css (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
-      light: flatly # more themes can be found [here](https://quarto.org/docs/output-formats/html-themes.html)
-      dark: darkly
-      #light: cosmo
-      #dark: [cosmo, theme-dark.scss]
+    theme:
+      light: flatly
+      dark: darkly  
     css: styles.css
     toc: true
-
-
-
+  
