@@ -26,7 +26,7 @@ website:
       - text: "Machine Learning projects"
         file: machine_mearning.qmd  
   
-  # learn more about navication here https://quarto.org/docs/websites/website-navigation.html
+  # learn more about navigation here https://quarto.org/docs/websites/website-navigation.html
   # comment out any of the sections below to turn off the sidebar
 
   sidebar: 
@@ -35,44 +35,50 @@ website:
       background: light
       contents:
         - text: "Machine Learning projects"
-          file: machine_mearning.qmd 
+          file: machine_learning.qmd
         - text: "---"
         - text: "Machine Learning projects/1_KNN_Model"
-          file: Machine Learning projects/1_KNN_Model/readme.md
-          outputknn: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
-          data: Machine Learning projects/1_KNN_Model/KNN_Data
-          readme: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt        
-          file1: Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
-          file2: Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
-          file3: Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
-          file4: Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
+          content:
+            - file: Machine Learning projects/1_KNN_Model/readme.md
+            - outputknn: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
+            - data: Machine Learning projects/1_KNN_Model/KNN_Data
+            - readme: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt
+            - files:
+                - Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
+                - Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
+                - Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
+                - Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
         - text: "---"
         - text: "Machine Learning projects/2_DecisionTree_RandomForests_Model"
-          file: Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.qmd
-          outputdt: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
+          content:
+            - file: Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.qmd
+            - outputdt: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
         - text: "---"
         - text: "Machine Learning projects/3_Regression_Model"
-          file: Machine Learning projects/3_Regression_Model/readme.md
-          output: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
-          data: Machine Learning projects/3_Regression_Model/Data
-          file1: Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
-          file2: Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
+          content:
+            - file: Machine Learning projects/3_Regression_Model/readme.md
+            - output: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
+            - data: Machine Learning projects/3_Regression_Model/Data
+            - files:
+                - Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
+                - Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
         - text: "---"
-        - text: Machine Learning projects/4_Classification_Model
-          file: Machine Learning projects/4_Classification_Model/readme.md
-          output: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
-          data: Machine Learning projects/4_Classification_Model/data
-          file1: Machine Learning projects/4_Classification_Model/data/readme.md
-          file2: Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv 
+        - text: "Machine Learning projects/4_Classification_Model"
+          content:
+            - file: Machine Learning projects/4_Classification_Model/readme.md
+            - output: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
+            - data: Machine Learning projects/4_Classification_Model/data
+            - files:
+                - Machine Learning projects/4_Classification_Model/data/readme.md
+                - Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv
+
 format:  
   html:
-    theme: #see this link to customize the theme with css (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
+    theme: # see this link to customize the theme with CSS (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
       light: flatly # more themes can be found [here](https://quarto.org/docs/output-formats/html-themes.html)
       dark: darkly
       #light: cosmo
       #dark: [cosmo, theme-dark.scss]
     css: styles.css
     toc: true
-
-
-
+  
