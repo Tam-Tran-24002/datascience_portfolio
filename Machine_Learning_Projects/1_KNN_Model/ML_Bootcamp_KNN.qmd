@@ -68,12 +68,6 @@ Data augmentation is the process of artificially expanding the size and diversit
 **Definition:**
 Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.
 
-```{python}
-
-```
-
-
-
 ## Machine Learning Model
 
 ### Split the data
