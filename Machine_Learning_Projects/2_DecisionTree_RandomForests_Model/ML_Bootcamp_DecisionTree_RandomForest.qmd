@@ -296,8 +296,8 @@
             ],
             "text/html": [
               "\n",
-              "  <div> id=\"df-283a5f21-7b50-4336-99ae-b01e96df8536\" class=\"colab-df-container\">\n",
-              "    <div>\n",
+              "  </div> id=\"df-283a5f21-7b50-4336-99ae-b01e96df8536\" class=\"colab-df-container\">\n",
+              "    </div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
               "        vertical-align: middle;\n",
@@ -408,9 +408,9 @@
               "  </tbody>\n",
               "</table>\n",
               "</div>\n",
-              "    <div> class=\"colab-df-buttons\">\n",
+              "    </div> class=\"colab-df-buttons\">\n",
               "\n",
-              "  <div> class=\"colab-df-container\">\n",
+              "  </div> class=\"colab-df-container\">\n",
               "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-283a5f21-7b50-4336-99ae-b01e96df8536')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
@@ -488,7 +488,7 @@
               "  </div>\n",
               "\n",
               "\n",
-              "<div> id=\"df-ada61339-bb56-4948-937e-d0d217a9739b\">\n",
+              "</div> id=\"df-ada61339-bb56-4948-937e-d0d217a9739b\">\n",
               "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-ada61339-bb56-4948-937e-d0d217a9739b')\"\n",
               "            title=\"Suggest charts\"\n",
               "            style=\"display:none;\">\n",
@@ -661,7 +661,7 @@
               "       <script type=\"text/javascript\" data-lets-plot-script=\"library\" src=\"https://cdn.jsdelivr.net/gh/JetBrains/lets-plot@v4.6.2/js-package/distr/lets-plot.min.js\"></script>\n",
               "   </head>\n",
               "   <body>\n",
-              "          <div> id=\"6tOrjS\"></div>\n",
+              "          </div> id=\"6tOrjS\"></div>\n",
               "   <script type=\"text/javascript\" data-lets-plot-script=\"plot\">\n",
               "   \n",
               "   (function() {\n",
@@ -957,7 +957,7 @@
               "Name: Survived, dtype: int64"
             ],
             "text/html": [
-              "<div>\n",
+              "</div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
               "        vertical-align: middle;\n",
@@ -1071,8 +1071,8 @@
             ],
             "text/html": [
               "\n",
-              "  <div> id=\"df-7f084445-c813-44fc-a792-e3e295183397\" class=\"colab-df-container\">\n",
-              "    <div>\n",
+              "  </div> id=\"df-7f084445-c813-44fc-a792-e3e295183397\" class=\"colab-df-container\">\n",
+              "    </div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
               "        vertical-align: middle;\n",
@@ -1238,9 +1238,9 @@
               "</table>\n",
               "<p>5 rows × 1973 columns</p>\n",
               "</div>\n",
-              "    <div> class=\"colab-df-buttons\">\n",
+              "    </div> class=\"colab-df-buttons\">\n",
               "\n",
-              "  <div> class=\"colab-df-container\">\n",
+              "  </div> class=\"colab-df-container\">\n",
               "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-7f084445-c813-44fc-a792-e3e295183397')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
@@ -1318,7 +1318,7 @@
               "  </div>\n",
               "\n",
               "\n",
-              "<div> id=\"df-c28954cf-3077-4225-a52c-97b941f29d69\">\n",
+              "</div> id=\"df-c28954cf-3077-4225-a52c-97b941f29d69\">\n",
               "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-c28954cf-3077-4225-a52c-97b941f29d69')\"\n",
               "            title=\"Suggest charts\"\n",
               "            style=\"display:none;\">\n",
@@ -1897,7 +1897,7 @@
               "  /* fitted */\n",
               "  background-color: var(--sklearn-color-fitted-level-3);\n",
               "}\n",
-              "</style><div> id=\"sk-container-id-1\" class=\"sk-top-container\"><div> class=\"sk-text-repr-fallback\"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div> class=\"sk-container\" hidden><div> class=\"sk-item\"><div> class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-1\" type=\"checkbox\" checked><label for=\"sk-estimator-id-1\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"><div><div>DecisionTreeClassifier</div></div><div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html\">?<span>Documentation for DecisionTreeClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label><div> class=\"sk-toggleable__content fitted\"><pre>DecisionTreeClassifier()</pre></div> </div></div></div></div>"
+              "</style></div> id=\"sk-container-id-1\" class=\"sk-top-container\"></div> class=\"sk-text-repr-fallback\"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div></div> class=\"sk-container\" hidden></div> class=\"sk-item\"></div></div> class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-1\" type=\"checkbox\" checked><label for=\"sk-estimator-id-1\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"></div></div>DecisionTreeClassifier</div></div></div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html\">?<span>Documentation for DecisionTreeClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label></div> class=\"sk-toggleable__content fitted\"><pre>DecisionTreeClassifier()</pre></div> </div></div></div></div>"
             ]
           },
           "metadata": {},
@@ -2165,7 +2165,7 @@
               "Name: Survived, dtype: int64"
             ],
             "text/html": [
-              "<div>\n",
+              "</div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
               "        vertical-align: middle;\n",
@@ -2665,7 +2665,7 @@
               "  /* fitted */\n",
               "  background-color: var(--sklearn-color-fitted-level-3);\n",
               "}\n",
-              "</style><div> id=\"sk-container-id-2\" class=\"sk-top-container\"><div> class=\"sk-text-repr-fallback\"><pre>RandomForestClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div> class=\"sk-container\" hidden><div> class=\"sk-item\"><div> class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-2\" type=\"checkbox\" checked><label for=\"sk-estimator-id-2\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"><div><div>RandomForestClassifier</div></div><div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html\">?<span>Documentation for RandomForestClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label><div> class=\"sk-toggleable__content fitted\"><pre>RandomForestClassifier()</pre></div> </div></div></div></div>"
+              "</style></div> id=\"sk-container-id-2\" class=\"sk-top-container\"></div> class=\"sk-text-repr-fallback\"><pre>RandomForestClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div></div> class=\"sk-container\" hidden></div> class=\"sk-item\"></div> class=\"sk-estimator fitted sk-toggleable\"><input class=\"sk-toggleable__control sk-hidden--visually\" id=\"sk-estimator-id-2\" type=\"checkbox\" checked><label for=\"sk-estimator-id-2\" class=\"sk-toggleable__label fitted sk-toggleable__label-arrow\"></div></div>RandomForestClassifier</div></div></div><a class=\"sk-estimator-doc-link fitted\" rel=\"noreferrer\" target=\"_blank\" href=\"https://scikit-learn.org/1.6/modules/generated/sklearn.ensemble.RandomForestClassifier.html\">?<span>Documentation for RandomForestClassifier</span></a><span class=\"sk-estimator-doc-link fitted\">i<span>Fitted</span></span></div></label></div> class=\"sk-toggleable__content fitted\"><pre>RandomForestClassifier()</pre></div> </div></div></div></div>"
             ]
           },
           "metadata": {},
