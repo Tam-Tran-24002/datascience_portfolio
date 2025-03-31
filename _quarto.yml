@@ -22,109 +22,48 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "My Resume"
-        file: resume.qmd
-      - text: "SQL projects"
-        file: SQL.qmd
-      - text: "Machine Learning"
-        file: machine_mearning.qmd
-      - text: "Data Science Programming projects"
-        file: data_science_programming.qmd
-      - text: "Machine Learning"
-        file: ml.qmd
+        file: resume.qmd     
+      - text: "Machine Learning projects"
+        file: machine_mearning.qmd  
   
   # learn more about navication here https://quarto.org/docs/websites/website-navigation.html
   # comment out any of the sections below to turn off the sidebar
 
   sidebar: 
-    - title: "Data Science Programming"
+    - title: "Data Science Portfolio"
       style: "docked"
       background: light
       contents:
-        - text: "Data Science Programming projects"
-          file: data_science_programming.qmd
+        - text: "Machine Learning projects"
+          file: machine_mearning.qmd 
         - text: "---"
-        - text: "Project 1"
-          file: Data Science Programming projects/project1.qmd
+        - text: "Machine Learning projects/1_KNN_Model"
+          file: Machine Learning projects/1_KNN_Model/readme.md
+          file: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
+          file: Machine Learning projects/1_KNN_Model/KNN_Data
+          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
+          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
+          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
+          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
+          file: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt
         - text: "---"
-        - text: "Project 2"
-          file: Data Science Programming projects/project2.qmd
+        - text: "Machine Learning projects/2_DecisionTree_RandomForests_Model"
+          file: Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.qmd
+          file: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
         - text: "---"
-        - text: "Project 3"
-          file: Data Science Programming projects/project3.qmd
+        - text: "Machine Learning projects/3_Regression_Model"
+          file: Machine Learning projects/3_Regression_Model/readme.md
+          file: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
+          file: Machine Learning projects/3_Regression_Model/Data
+          file: Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
+          file: Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
         - text: "---"
-        - text: "Project 4"
-          file: Data Science Programming projects/project4.qmd
-        - text: "---"
-        - text: "Project 5"
-          file: Data Science Programming projects/project5.qmd
-        - text: "---"
-    - title: "SQL projects"
-      style: "docked"
-      background: light
-      contents:
-        - text: "SQL projects"
-          file: SQL.qmd
-        - text: "---"
-        - text: "Introduction"
-          file: SQL projects/Git Version Control.txt
-        - text: "---"
-        - text: "Forward Engineering"
-          file: SQL projects/operating_systems_forward_engineer.sql
-        - text: "---"
-        - text: "Rows"
-          file: SQL projects/operating_systems_rows.sql
-        - text: "---"
-        - text: "Materials"
-          file: SQL projects/Turn-in Materials
-        - text: "---"
-        - text: "SQL MWB"
-          file: SQL projects/operating_systems.mwb
-        - text: "---"
-    - title: "Story Telling"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Story Telling"
-          file: story_telling.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Story_Telling/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Story_Telling/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Story_Telling/project3.qmd
-        - text: "---"
-        - text: "Project 4"
-          file: Story_Telling/project4.qmd
-        - text: "---"
-        - text: "Project 5"
-          file: Story_Telling/project5.qmd
-        - text: "---"
-    - title: "Machine Learning"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Machine Learning"
-          file: ml.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Machine_Learning/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Machine_Learning/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Machine_Learning/project3.qmd
-        - text: "---"
-        - text: "Project 4"
-          file: Machine_Learning/project4.qmd
-        - text: "---"
-        - text: "Project 5"
-          file: Machine_Learning/project5.qmd
-        - text: "---"
-  
+        - text: Machine Learning projects/4_Classification_Model
+          file: Machine Learning projects/4_Classification_Model/readme.md
+          file: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
+          file: Machine Learning projects/4_Classification_Model/data
+          file: Machine Learning projects/4_Classification_Model/data/readme.md
+          file: Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv 
 format:  
   html:
     theme: #see this link to customize the theme with css (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
