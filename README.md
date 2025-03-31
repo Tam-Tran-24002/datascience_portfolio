@@ -3,12 +3,18 @@ minhtamtran.work@gmail.com | 208-671-3212 | https://www.linkedin.com/in/tam-tran
 https://github.com/Tam-Tran-24002
 
 # Summary
-Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.  
+Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.    
 
 # Education
 Bachelor of Science in Data Science   
 Minor in Business Analytics & Cloud Computing Certificate    
 Brigham Young University - Idaho | Expected Graduation: December 2027     
+
+# Key Skills
+• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R  
+• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data), Classification Models (Decision Trees,Random Forest, KNN, XGBoost), Regression Models  
+• Business Intelligence Tools: Tableau  
+• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook   
 
 # Professional Experience
 ## Tutor | Data Science Lab & Tutoring Center
@@ -20,7 +26,7 @@ Brigham Young University - Idaho
 ## Teaching Assistant
 Rexburg, Idaho | September 2024 - Present  
 Brigham Young University - Idaho                                                             
-• Provide academic support to 200+ students in Introduction to Database, Intro to Programming, and Data Science Programming courses through tutoring, grading, and constructive feedback  
+• Provide academic support to 250+ students in Introduction to Database, Intro to Programming, and Data Science Programming courses through tutoring, grading, and constructive feedback  
 • Collaborate with professors to refine course materials, enhancing student engagement and improving learning outcomes  
 • Facilitate lab sessions and office hours to reinforce key concepts and assist with coding assignments   
 
@@ -51,12 +57,7 @@ Ton Duc Thang University
 # Relevant Projects
 ## Machine Learning – Bootcamp                                                     
 January 2024 - Present          
-• Deployed Random Forest, Decision Trees, K-Nearest Neighbors (KNN), and XGBoost on real-world datasets, achieving 90% accuracy  
-• Optimized model performance through feature engineering, train-test split, and categorical encoding  
-• Extracted actionable insights to support data-driven decisions and enhance model interpretability     
+• Deployed Random Forest, Decision Trees, K-Nearest Neighbors (KNN), and XGBoost on real-world datasets, achieving 90% accuracy    
+• Optimized model performance through feature engineering, train-test split, and categorical encoding    
+• Extracted actionable insights to support data-driven decisions and enhance model interpretability       
 
-# Key Skills
-• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R, Pivot Tables  
-• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data),Classification Models (Decision Trees, Random Forest, KNN, XGBoost), Regression Models  
-• Business Intelligence Tools: Tableau  
-• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook  
