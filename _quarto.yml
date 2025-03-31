@@ -39,31 +39,31 @@ website:
         - text: "---"
         - text: "Machine Learning projects/1_KNN_Model"
           file: Machine Learning projects/1_KNN_Model/readme.md
-          file: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
-          file: Machine Learning projects/1_KNN_Model/KNN_Data
-          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
-          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
-          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
-          file: Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
-          file: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt
+          outputknn: Machine Learning projects/1_KNN_Model/ML_Bootcamp_KNN.ipynb
+          data: Machine Learning projects/1_KNN_Model/KNN_Data
+          readme: Machine Learning projects/1_KNN_Model/KNN_Data/README.txt        
+          file1: Machine Learning projects/1_KNN_Model/KNN_Data/processed.cleveland.data
+          file2: Machine Learning projects/1_KNN_Model/KNN_Data/processed.hungarian.data
+          file3: Machine Learning projects/1_KNN_Model/KNN_Data/processed.switzerland.data
+          file4: Machine Learning projects/1_KNN_Model/KNN_Data/processed.va.data
         - text: "---"
         - text: "Machine Learning projects/2_DecisionTree_RandomForests_Model"
           file: Machine Learning projects/2_DecisionTree_RandomForests_Model/readme.qmd
-          file: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
+          outputdt: Machine Learning projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.ipynb
         - text: "---"
         - text: "Machine Learning projects/3_Regression_Model"
           file: Machine Learning projects/3_Regression_Model/readme.md
-          file: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
-          file: Machine Learning projects/3_Regression_Model/Data
-          file: Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
-          file: Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
+          output: Machine Learning projects/3_Regression_Model/ML_Bootcamp_Regression.ipynb
+          data: Machine Learning projects/3_Regression_Model/Data
+          file1: Machine Learning projects/3_Regression_Model/Data/nyc-east-river-bicycle-counts.csv
+          file2: Machine Learning projects/3_Regression_Model/Data/clean_baseball_df.csv
         - text: "---"
         - text: Machine Learning projects/4_Classification_Model
           file: Machine Learning projects/4_Classification_Model/readme.md
-          file: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
-          file: Machine Learning projects/4_Classification_Model/data
-          file: Machine Learning projects/4_Classification_Model/data/readme.md
-          file: Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv 
+          output: Machine Learning projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.ipynb
+          data: Machine Learning projects/4_Classification_Model/data
+          file1: Machine Learning projects/4_Classification_Model/data/readme.md
+          file2: Machine Learning projects/4_Classification_Model/data/Churn_Modelling.csv 
 format:  
   html:
     theme: #see this link to customize the theme with css (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
