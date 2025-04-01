@@ -1,4 +1,4 @@
-__Tam Tran's Resume__  
+# Tam Tran's Resume  
 minhtamtran.work@gmail.com | 208-671-3212 | https://www.linkedin.com/in/tam-tran-b37a9123b/ |     
 https://github.com/Tam-Tran-24002  
 
