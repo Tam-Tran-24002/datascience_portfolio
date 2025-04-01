@@ -1,1 +1,99 @@
-/* css styles */
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Left Sidebar Styles */
+.sidebar {
+    width: 240px;
+    background-color: #2c3136; /* Slightly lighter for contrast */
+    color: #e0e0e0; /* Softer text color for readability */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding-top: 20px;
+    z-index: 1;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Sidebar Links */
+.sidebar a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar a:hover, 
+.sidebar a.active {
+    background-color: #495057;
+    color: #ffffff;
+    border-left: 4px solid #007bff; /* Highlight active links */
+    padding-left: 16px; /* Small shift for effect */
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 240px; /* Offset content for the sidebar */
+    margin-bottom: 60px; /* Keep space for bottom bar */
+}
+
+/* Bottom Bar Styles */
+.footer-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    z-index: 999;
+}
+
+/* Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 0;
+    }
+
+    .sidebar a {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-bottom: 60px;
+    }
+
+    .footer-bar {
+        position: relative;
+    }
+}
