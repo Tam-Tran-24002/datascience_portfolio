@@ -155,7 +155,7 @@ banking_df.dtypes
 ```{python}
 #| colab: {base_uri: 'https://localhost:8080/', height: 564}
 # 0 means staying and 1 means leaving.
-# Most of Germany left the bank compared to Spain and France. Does this mean geography has a huge impact on the decision to stay or leave?
+# Most customers who left the bank were from Germany compared to Spain and France. Does this indicate that geography significantly influences the decision to stay or leave?
 plt.figure(figsize=(10, 6))
 sns.countplot(x='Geography', hue='Exited', data=banking_df)
 plt.title('Geography vs Exited')
