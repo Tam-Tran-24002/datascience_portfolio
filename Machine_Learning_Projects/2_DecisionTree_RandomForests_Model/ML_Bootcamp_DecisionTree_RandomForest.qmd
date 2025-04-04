@@ -375,6 +375,34 @@ RF.fit(X_train, y_train)
 y_pred = RF.predict(X_test)
 ```
 
+```{python}
+# Get feature importance
+feature_importances = RF.feature_importances_
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Get feature importance from the RandomForest model
+feature_importances = RF.feature_importances_
+
+# Create a DataFrame for better visualization
+importance_df = pd.DataFrame({
+    'Feature': X.columns,
+    'Importance': feature_importances
+})
+
+# Sort the features by importance
+importance_df = importance_df.sort_values(by='Importance', ascending=False)
+
+# Plot the feature importances as a bar chart
+plt.figure(figsize=(10, 6))
+sns.barplot(x='Importance', y='Feature', data=importance_df, orient='v')
+plt.title("Feature Importance - Random Forest")
+plt.xlabel("Importance")
+plt.ylabel("Feature")
+plt.show()
+```
+
 ### Evaluate the Model
 
 ```{python}

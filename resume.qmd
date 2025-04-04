@@ -1,13 +1,21 @@
 ---
-title: "My resume"
+title: "About me"
 format:
   html:
     page-layout: full
     css: styles.css
 ---
-::: {.resume-section}
-[Download Here](files/Tam Tran_Resume.pdf){.download-button download="Tam Tran_Resume.pdf"}
+Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.     
 
-<iframe src="files/Tam Tran_Resume.pdf" width="80%" height="1000px" style="border: 1px solid #ddd; border-radius: 8px;"></iframe>
-:::
-  
+# Education
+_Brigham Young University - Idaho | Expected Graduation: December 2027_   
+Bachelor of Science in Data Science       
+Minor in Business Analytics & Cloud Computing Certificate  
+
+# Key skills
+• Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R  
+• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data), Classification Models (Decision Trees, Random Forest, KNN, XGBoost), Regression Models  
+• Business Intelligence Tools: Tableau  
+• Microsoft Office Suite: Word, Excel, PowerPoint, Outlook     
+
+[Download My Resume](files/Tam Tran_Resume.pdf){.download-button download="Tam Tran_Resume.pdf"}

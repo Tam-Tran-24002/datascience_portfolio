@@ -4,7 +4,80 @@ title: "Machine Learning - Bootcamp"
 
 ## My projects
 
-K-Nearest Neighbors Model  
-Decision Tree - Random Forest Model  
-Regression Model      
-Classification Model    
+### **K-Nearest Neighbors (KNN)**
+__Data Import:__  
+• Uses the Iris dataset and heart disease datasets from UCI for classification tasks.  
+__Data Preprocessing:__  
+• Includes splitting the data into training and test sets.  
+__Model Construction:__   
+• Applies the K-Nearest Neighbors algorithm with n_neighbors=3 to classify data.  
+__Evaluation:__   
+• Measures model accuracy using accuracy score on the test set.  
+__Visualization:__     
+• Utilizes pairplots for data exploration and visualizes feature relationships.  
+
+### **Decision Trees**
+__Data Import:__     
+• Imports Titanic dataset from Data Science Dojo for classification tasks.  
+__Data Preprocessing:__     
+• Processes the data using one-hot encoding for categorical features and feature extraction (e.g., grouping names into categories).  
+• Splits the data into training and test sets.  
+__Model Construction:__   
+• Applies a Decision Tree Classifier to predict passenger survival (Survived) based on various features such as passenger class, sex, age, etc.  
+• Hyperparameters such as max_depth and pruning are essential to control tree complexity.  
+__Evaluation:__  
+• Evaluates the model performance using accuracy, F1 score, recall, and precision scores. These metrics help assess the model's ability to predict survival correctly and balance false positives/negatives.  
+__Visualization:__  
+• Visualizes the survival distribution by passenger class using seaborn count plots and explores relationships with survival using the LetsPlot library.  
+
+### **Random Forests**
+__Data Import:__   
+• Imports data from a CSV file containing bicycle count data.  
+__Data Preprocessing:__   
+• Converts categorical columns ("Date", "Day", "Precipitation") into dummy variables using one-hot encoding.  
+• Splits the dataset into features (X) and target variable (y), where the target variable is the Total bicycle count.  
+• Further splits the dataset into training and testing sets for model evaluation.  
+__Model Construction:__   
+• Creates an XGBoost regression model using reg:squarederror as the objective function.  
+• Builds the model by training it with the training dataset using 100 boosting rounds, a learning rate of 0.1, and a maximum tree depth of 6.  
+__Evaluation:__  
+• Evaluates the model performance using regression metrics such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared (R2) to assess the model’s prediction accuracy.  
+__Hyperparameter Tuning:__  
+• Uses GridSearchCV to tune hyperparameters like max_depth, learning_rate, n_estimators, subsample, and colsample_bytree to optimize the model for better performance. The grid search utilizes cross-validation to find the best hyperparameter combination.  
+__Visualization:__  
+• Use feature importance scores helps identify which features have the most impact on predictions.  
+
+### **XGBoost Regression**
+__Data Import:__   
+• Uses the Titanic dataset, similar to the Decision Tree example, for classification tasks.  
+__Data Preprocessing:__   
+• Applies one-hot encoding and splits the dataset into training and test sets.  
+__Model Construction:__   
+• Builds a Random Forest Classifier consisting of multiple decision trees that aggregate results to improve predictive accuracy.  
+__Evaluation:__  
+• Measures model performance using accuracy, F1 score, recall, and precision metrics, ensuring that the model is well-calibrated and robust.  
+__Hyperparameter Tuning:__  
+• Uses hyperparameter tuning (e.g., n_estimators, max_depth) to optimize the Random Forest model for better performance.  
+__Visualization:__  
+• Use plots to explore the dataset and understand the relationships between variables.  
+
+### **XGBoost Classification**  
+__Data Import:__   
+• Loads a banking dataset to predict customer churn (whether a customer leaves the bank or not).  
+__Data Preprocessing:__   
+• Drops irrelevant columns like 'Exited' and 'Surname' from the dataset.   
+• Applies ordinal encoding to categorical features such as 'Geography' and 'Gender'.   
+• Splits the dataset into training and test sets for model evaluation.  
+__Feature Engineering:__  
+• Creates a list of categorical features and prepares them for transformation using a column transformer.   
+• Includes feature augmentation to enhance the dataset's quality and make it more suitable for model training.  
+__Model Construction:__  
+• Builds an XGBoost classification model, an ensemble of decision trees optimized for accuracy and performance using gradient boosting.   
+• Initializes the model with specific hyperparameters, followed by training using the processed data.  
+__Evaluation:__  
+• Evaluates the model’s performance using various metrics like accuracy, F1 score, precision, and recall to assess its predictive power and reliability.  
+• Prints out model performance measures such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), Mean Absolute Error (MAE), and R-squared (R2) for a comprehensive evaluation.  
+__Hyperparameter Tuning:__  
+• Uses GridSearchCV for hyperparameter tuning, searching for optimal values for parameters such as learning_rate, n_estimators, and max_depth.  
+__Visualization:__  
+• Uses Seaborn to visualize feature relationships and the impact of various features (e.g., Geography, IsActiveMember) on the "Exited" outcome.  
