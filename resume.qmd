@@ -18,4 +18,4 @@ Minor in Business Analytics & Cloud Computing Certificate
 • Business Intelligence Tools: Tableau  
 • Microsoft Office Suite: Word, Excel, PowerPoint, Outlook     
 
-[Download My Resume](files/Tam Tran_Resume.pdf){.download-button download="Tam Tran_Resume.pdf"}
+[Download My Resume](files/Tam Tran_Resume.pdf){.download-button preview="Tam Tran_Resume.pdf"}
