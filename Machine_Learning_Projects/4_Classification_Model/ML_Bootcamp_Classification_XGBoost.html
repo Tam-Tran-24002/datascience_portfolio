@@ -338,7 +338,7 @@ XGBoost (Extreme Gradient Boosting) is an advanced implementation of gradient bo
 </section>
 <section id="import-datalibraries" class="level2">
 <h2 class="anchored" data-anchor-id="import-datalibraries">Import Data/Libraries</h2>
-<div id="baa026b1" class="cell" data-execution_count="1">
+<div id="3c106eba" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install lets_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Requirement already satisfied: lets_plot in /opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages (4.6.2)
@@ -346,7 +346,7 @@ Requirement already satisfied: pypng in /opt/hostedtoolcache/Python/3.12.9/x64/l
 Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages (from lets_plot) (3.3.3)</code></pre>
 </div>
 </div>
-<div id="78a72ee3" class="cell" data-execution_count="2">
+<div id="953b1421" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># needed libraries for Classification models</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -369,7 +369,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </section>
 <section id="explore-visualize-and-understand-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="explore-visualize-and-understand-the-data">Explore, Visualize and Understand the Data</h2>
-<div id="569463f2" class="cell" data-execution_count="3">
+<div id="c29e38c6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>banking_df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -572,7 +572,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </div>
 </div>
 </div>
-<div id="6977a70a" class="cell" data-execution_count="4">
+<div id="aeaa207e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>banking_df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -714,7 +714,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </div>
 </div>
 </div>
-<div id="edf4a650" class="cell" data-execution_count="5">
+<div id="ed4484c3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>banking_df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>RowNumber            int64
@@ -734,7 +734,7 @@ Exited               int64
 dtype: object</code></pre>
 </div>
 </div>
-<div id="cfb5af2c" class="cell" data-execution_count="6">
+<div id="d68232d6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 means staying and 1 means leaving.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Most customers who left the bank were from Germany compared to Spain and France. Does this indicate that geography significantly influences the decision to stay or leave?</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
@@ -749,7 +749,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="874522ee" class="cell" data-execution_count="7">
+<div id="011a59b4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"IsActiveMember"</span>, hue <span class="op">=</span> <span class="st">"Exited"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Status"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -761,7 +761,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="0b173a7b" class="cell" data-execution_count="8">
+<div id="f1d3580a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"Geography"</span>, y <span class="op">=</span> <span class="st">"Exited"</span>, hue <span class="op">=</span> <span class="st">"Geography"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Geography"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -773,7 +773,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="eff557fb" class="cell" data-execution_count="9">
+<div id="e4301ba8" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data <span class="op">=</span> banking_df, x <span class="op">=</span> <span class="st">"Geography"</span>, y <span class="op">=</span> <span class="st">"Exited"</span>, hue <span class="op">=</span> <span class="st">"Exited"</span>, palette<span class="op">=</span> <span class="st">"Set2"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Exited by Estimated Salary"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -788,7 +788,7 @@ dtype: object</code></pre>
 </section>
 <section id="feature-enginnering-and-data-augmentation" class="level2">
 <h2 class="anchored" data-anchor-id="feature-enginnering-and-data-augmentation">Feature Enginnering and Data Augmentation</h2>
-<div id="d348ec63" class="cell" data-execution_count="10">
+<div id="21a742f8" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> banking_df.drop([<span class="st">'Exited'</span>, <span class="st">'Surname'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> banking_df[<span class="st">'Exited'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -799,7 +799,7 @@ dtype: object</code></pre>
 <section id="feature-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="feature-engineering"><strong>Feature Engineering</strong></h3>
 <p><strong>Definition:</strong> Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.</p>
-<div id="5d389d71" class="cell" data-execution_count="11">
+<div id="fd15e68c" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>categorical_features <span class="op">=</span> [<span class="st">'Geography'</span>, <span class="st">'Gender'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -808,13 +808,13 @@ dtype: object</code></pre>
 <h2 class="anchored" data-anchor-id="machine-learning-model">Machine Learning Model</h2>
 <section id="split-the-data-to-train-and-test" class="level3">
 <h3 class="anchored" data-anchor-id="split-the-data-to-train-and-test">Split the data to train and test</h3>
-<div id="a3fd9693" class="cell" data-execution_count="12">
+<div id="aff63eec" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-model">Create the model</h3>
-<div id="7edf1617" class="cell" data-execution_count="13">
+<div id="5e236f94" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an ordinal encoder</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ordinal_encoder <span class="op">=</span> OrdinalEncoder()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -829,7 +829,7 @@ dtype: object</code></pre>
 </section>
 <section id="train-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="train-the-model">Train the model</h3>
-<div id="75755d63" class="cell" data-execution_count="14">
+<div id="ffaf196a" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit and transform the training data</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>X_train_encoded <span class="op">=</span> preprocessor.fit_transform(X_train)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -839,13 +839,13 @@ dtype: object</code></pre>
 </section>
 <section id="make-predictions" class="level3">
 <h3 class="anchored" data-anchor-id="make-predictions">Make predictions</h3>
-<div id="934bac29" class="cell" data-execution_count="15">
+<div id="32a2cfc6" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the XGBoost classifier</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>xgb_classifier <span class="op">=</span> XGBClassifier(random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="hyperparameter-search" class="level4">
 <h4 class="anchored" data-anchor-id="hyperparameter-search">Hyperparameter Search</h4>
-<div id="1444b10b" class="cell" data-execution_count="16">
+<div id="b027dde1" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameter grid for hyperparameter tuning</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> {</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'learning_rate'</span>: [<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>],</span>
@@ -875,7 +875,7 @@ Example: If a spam filter predicts 20 emails as spam, but only 15 are actually s
 Example: If there were 25 spam emails in total, and the model correctly identified 15 of them, recall is 15/25 = 60%.</p>
 <p><strong>Precision Score – A balance between precision and recall (harmonic mean).</strong><br>
 Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.</p>
-<div id="4d15ed9e" class="cell" data-execution_count="17">
+<div id="7e2a5d28" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model using classification metrics</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error, r2_score, mean_absolute_error</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
