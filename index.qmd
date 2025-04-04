@@ -1,6 +1,6 @@
 ---
 title: "Tam Tran"
-subtitle: Data Science Portfolio"
+subtitle: Data Science Portfolio
 ---
 
 # Resume
