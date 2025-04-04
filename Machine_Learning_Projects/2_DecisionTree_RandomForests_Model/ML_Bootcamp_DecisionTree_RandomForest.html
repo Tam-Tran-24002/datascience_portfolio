@@ -332,7 +332,7 @@ For <strong>regression</strong>, it predicts continuous values using the average
 </section>
 <section id="import-datalibraries" class="level2">
 <h2 class="anchored" data-anchor-id="import-datalibraries">Import Data/Libraries</h2>
-<div id="2cb01db6" class="cell" data-execution_count="1">
+<div id="450e8f03" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install lets_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Requirement already satisfied: lets_plot in /opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages (4.6.2)
@@ -340,7 +340,7 @@ Requirement already satisfied: pypng in /opt/hostedtoolcache/Python/3.12.9/x64/l
 Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/x64/lib/python3.12/site-packages (from lets_plot) (3.3.3)</code></pre>
 </div>
 </div>
-<div id="e3dd4550" class="cell" data-execution_count="2">
+<div id="1e3d4072" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># needed libraries for Decision Tree models</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> tree</span>
@@ -364,7 +364,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </section>
 <section id="explore-visualize-and-understand-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="explore-visualize-and-understand-the-data">Explore, Visualize and Understand the Data</h2>
-<div id="43df1a27" class="cell" data-execution_count="3">
+<div id="2e4e9ffd" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.countplot(data<span class="op">=</span>titanic_df, x<span class="op">=</span><span class="st">"Pclass"</span>, hue<span class="op">=</span><span class="st">"Survived"</span>, palette<span class="op">=</span><span class="st">"Set2"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Survival Count by Passenger Class"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Passenger Class"</span>)</span>
@@ -379,7 +379,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </div>
 </div>
 </div>
-<div id="15c4e848" class="cell" data-execution_count="4">
+<div id="5be3ba08" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>titanic_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -485,14 +485,14 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 </div>
 </div>
 </div>
-<div id="d8d25281" class="cell" data-execution_count="5">
+<div id="e89dfbfc" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> lets_plot <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>LetsPlot.setup_html()</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ggplot(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'Pclass'</span>, fill<span class="op">=</span><span class="st">'Survived'</span>), data<span class="op">=</span>titanic_df) <span class="op">+</span> geom_bar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 
-            <div id="odn1PV"></div>
+            <div id="iJaJRr"></div>
             <script type="text/javascript" data-lets-plot-script="library">
                 if(!window.letsPlotCallQueue) {
                     window.letsPlotCallQueue = [];
@@ -516,16 +516,16 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
                         var div = document.createElement("div");
                         div.style.color = 'darkred';
                         div.textContent = 'Error loading Lets-Plot JS';
-                        document.getElementById("odn1PV").appendChild(div);
+                        document.getElementById("iJaJRr").appendChild(div);
                     };
-                    var e = document.getElementById("odn1PV");
+                    var e = document.getElementById("iJaJRr");
                     e.appendChild(script);
                 })()
             </script>
             
 </div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-   <div id="hCVf34"></div>
+   <div id="RKLgNK"></div>
    <script type="text/javascript" data-lets-plot-script="plot">
    
    (function() {
@@ -550,7 +550,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
        };
    }
    
-   const containerDiv = document.getElementById("hCVf34");
+   const containerDiv = document.getElementById("RKLgNK");
    let fig = null;
    
    function renderPlot() {
@@ -671,7 +671,7 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 <section id="feature-engineering" class="level3">
 <h3 class="anchored" data-anchor-id="feature-engineering"><strong>Feature Engineering</strong></h3>
 <p><strong>Definition:</strong> Feature engineering is the process of creating, modifying, or selecting relevant features (input variables) from raw data to improve the performance of a machine learning model. It involves transforming raw data into a format that makes it more suitable for algorithms to learn patterns.</p>
-<div id="5b4640e9" class="cell" data-execution_count="6">
+<div id="1d72fbae" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>conditions <span class="op">=</span> [</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    titanic_df[<span class="st">"Name"</span>].<span class="bu">str</span>.contains(<span class="vs">r'(?i)(Mr)|(Mrs)|(Ms)|(Miss)|(Mlle)'</span>, na<span class="op">=</span><span class="va">False</span>),  <span class="co"># Condition 1: If "Name" contains "Mr"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    titanic_df[<span class="st">"Name"</span>].<span class="bu">str</span>.contains(<span class="vs">r'(?i)(Rev)|(Dr)|(General)|(Col)|(Major)|(Capt)'</span>, na<span class="op">=</span><span class="va">False</span>), <span class="co"># Condition 2: If "Name" contains "Mrs"</span></span>
@@ -686,15 +686,15 @@ Requirement already satisfied: palettable in /opt/hostedtoolcache/Python/3.12.9/
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>titanic_df[<span class="st">"Name_group"</span>] <span class="op">=</span> np.select(conditions, outputs, default<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_2509/2687717826.py:2: UserWarning:
+<pre><code>/tmp/ipykernel_2485/2687717826.py:2: UserWarning:
 
 This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
 
-/tmp/ipykernel_2509/2687717826.py:3: UserWarning:
+/tmp/ipykernel_2485/2687717826.py:3: UserWarning:
 
 This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
 
-/tmp/ipykernel_2509/2687717826.py:4: UserWarning:
+/tmp/ipykernel_2485/2687717826.py:4: UserWarning:
 
 This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
 </code></pre>
@@ -706,21 +706,21 @@ This pattern is interpreted as a regular expression, and has match groups. To ac
 <h2 class="anchored" data-anchor-id="machine-learning-model-decision-tree">Machine Learning Model: Decision Tree</h2>
 <section id="split-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="split-the-data">Split the data</h3>
-<div id="b9c63ff3" class="cell" data-execution_count="7">
+<div id="159e7d72" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the model</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>titanic_df2 <span class="op">=</span> pd.get_dummies(titanic_df, columns<span class="op">=</span>[<span class="st">'Sex'</span>, <span class="st">'Embarked'</span>, <span class="st">'Name'</span>, <span class="st">'Fare'</span>, <span class="st">'Ticket'</span>, <span class="st">'Cabin'</span>], drop_first<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cbf54bd4" class="cell" data-execution_count="8">
+<div id="466383ed" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> titanic_df2.drop(<span class="st">'Survived'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> titanic_df2[<span class="st">'Survived'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-model">Create the model</h3>
-<div id="9e6cf4d6" class="cell" data-execution_count="9">
+<div id="c8819209" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="727509e1" class="cell" data-execution_count="10">
+<div id="10979306" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>y.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0    0
@@ -737,7 +737,7 @@ Name: Survived, dtype: int64</code></pre>
 </section>
 <section id="make-predictions" class="level3">
 <h3 class="anchored" data-anchor-id="make-predictions">Make predictions</h3>
-<div id="b12e40db" class="cell" data-execution_count="11">
+<div id="6095797b" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>titanic_df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -898,7 +898,7 @@ Name: Survived, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="6264923d" class="cell" data-execution_count="12">
+<div id="f7c72409" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicting the Test set results</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>DT <span class="op">=</span> DecisionTreeClassifier()</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>DT.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1321,7 +1321,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier()</pre></div> </div></div></div></div>
 </div>
 </div>
-<div id="9f9a9ee1" class="cell" data-execution_count="13">
+<div id="d1dd29b1" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> DT.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -1336,7 +1336,7 @@ Example: If there were 25 spam emails in total, and the model correctly identifi
 <p><strong>Precision Score – A balance between precision and recall (harmonic mean).</strong><br>
 Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (75 + 60) = 66.7%.</p>
 <p>Accuracy: 82.68 %. F1 Score: 0.82 %. Recall Score: 0.83 %. Precision Score: 0.83 %.</p>
-<div id="0498419b" class="cell" data-execution_count="14">
+<div id="5dd90ad2" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Accuracy, F1 Score, Recall score, Precision score</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> accuracy_score(y_test, y_pred)<span class="op">*</span><span class="dv">100</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>f1_score <span class="op">=</span> f1_score(y_test, y_pred, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
@@ -1348,10 +1348,10 @@ Example: If precision is 75% and recall is 60%, F1 score is (2 × 75 × 60) / (7
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Recall Score: '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(recall_score, <span class="dv">2</span>)) <span class="op">+</span> <span class="st">' %.'</span>)</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Precision Score: '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(precision_score, <span class="dv">2</span>)) <span class="op">+</span> <span class="st">' %.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 81.01 %.
-F1 Score: 0.81 %.
-Recall Score: 0.81 %.
-Precision Score: 0.81 %.</code></pre>
+<pre><code>Accuracy: 82.68 %.
+F1 Score: 0.82 %.
+Recall Score: 0.83 %.
+Precision Score: 0.83 %.</code></pre>
 </div>
 </div>
 </section>
@@ -1420,7 +1420,7 @@ https://www.ibm.com/topics/random-forest<br>
 https://www.youtube.com/watch?v=J4Wdy0Wc_xQ<br>
 https://www.youtube.com/watch?v=QHOazyP-YlM</p>
 <p><br></p>
-<div id="b5f200c3" class="cell" data-execution_count="15">
+<div id="8fe2879c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OneHotEncoder</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
@@ -1429,13 +1429,13 @@ https://www.youtube.com/watch?v=QHOazyP-YlM</p>
 </div>
 <section id="create-model" class="level3">
 <h3 class="anchored" data-anchor-id="create-model">Create Model</h3>
-<div id="09d0701f" class="cell" data-execution_count="16">
+<div id="96799e8d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="train-model" class="level3">
 <h3 class="anchored" data-anchor-id="train-model">Train Model</h3>
-<div id="c43b8a41" class="cell" data-execution_count="17">
+<div id="6ee632b0" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>y.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>0    0
@@ -1449,7 +1449,7 @@ Name: Survived, dtype: int64</code></pre>
 </section>
 <section id="make-predictions-1" class="level3">
 <h3 class="anchored" data-anchor-id="make-predictions-1">Make Predictions</h3>
-<div id="ef85e0b1" class="cell" data-execution_count="18">
+<div id="9279442f" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicting the Test set results</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>RF <span class="op">=</span> RandomForestClassifier()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>RF.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1875,10 +1875,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="hyperparameter-search" class="level3">
 <h3 class="anchored" data-anchor-id="hyperparameter-search">Hyperparameter Search</h3>
-<div id="326dca8d" class="cell" data-execution_count="19">
+<div id="8a95df65" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> RF.predict(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2565f68d" class="cell" data-execution_count="20">
+<div id="75c4a1c7" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get feature importance</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>feature_importances <span class="op">=</span> RF.feature_importances_</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1915,7 +1915,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="evaluate-the-model-1" class="level3">
 <h3 class="anchored" data-anchor-id="evaluate-the-model-1">Evaluate the Model</h3>
-<div id="1909c901" class="cell" data-execution_count="21">
+<div id="bcbbbfac" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, f1_score, recall_score, precision_score</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming y_test and y_pred are defined somewhere in your code</span></span>
@@ -1929,10 +1929,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Recall Score: '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(recall_value, <span class="dv">2</span>)) <span class="op">+</span> <span class="st">' %.'</span>)</span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Precision Score: '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">round</span>(precision_value, <span class="dv">2</span>)) <span class="op">+</span> <span class="st">' %.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 82.12 %.
-F1 Score: 81.75 %.
-Recall Score: 82.12 %.
-Precision Score: 82.46 %.</code></pre>
+<pre><code>Accuracy: 82.68 %.
+F1 Score: 82.21 %.
+Recall Score: 82.68 %.
+Precision Score: 83.38 %.</code></pre>
 </div>
 </div>
 
