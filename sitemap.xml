@@ -2,54 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/index.html</loc>
-    <lastmod>2025-08-28T04:45:02.128Z</lastmod>
+    <lastmod>2025-08-28T06:02:38.930Z</lastmod>
   </url>
   <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/1_KNN_Model/readme.html</loc>
-    <lastmod>2025-08-28T04:45:02.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.html</loc>
-    <lastmod>2025-08-28T04:45:02.113Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html</loc>
-    <lastmod>2025-08-28T04:45:02.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/readme_data.html</loc>
-    <lastmod>2025-08-28T04:45:02.119Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/readme.html</loc>
-    <lastmod>2025-08-28T04:45:02.119Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/notebooks/healthcare_machine_learning.html</loc>
-    <lastmod>2025-08-28T04:45:02.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/machine_learning.html</loc>
-    <lastmod>2025-08-28T04:45:02.128Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html</loc>
-    <lastmod>2025-08-28T04:45:02.119Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/readme.html</loc>
-    <lastmod>2025-08-28T04:45:02.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/3_Regression_Model/readme.html</loc>
-    <lastmod>2025-08-28T04:45:02.114Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.html</loc>
-    <lastmod>2025-08-28T04:45:02.110Z</lastmod>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data_Visualization_Projects/hold_report copy.html</loc>
+    <lastmod>2025-08-28T06:02:38.908Z</lastmod>
   </url>
   <url>
     <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/resume.html</loc>
-    <lastmod>2025-08-28T04:45:02.128Z</lastmod>
+    <lastmod>2025-08-28T06:02:38.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.html</loc>
+    <lastmod>2025-08-28T06:02:38.911Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/3_Regression_Model/readme.html</loc>
+    <lastmod>2025-08-28T06:02:38.915Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/readme.html</loc>
+    <lastmod>2025-08-28T06:02:38.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.html</loc>
+    <lastmod>2025-08-28T06:02:38.920Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/machine_learning.html</loc>
+    <lastmod>2025-08-28T06:02:38.930Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/notebooks/healthcare_machine_learning.html</loc>
+    <lastmod>2025-08-28T06:02:38.931Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/readme.html</loc>
+    <lastmod>2025-08-28T06:02:38.920Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/4_Classification_Model/readme_data.html</loc>
+    <lastmod>2025-08-28T06:02:38.920Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.html</loc>
+    <lastmod>2025-08-28T06:02:38.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.html</loc>
+    <lastmod>2025-08-28T06:02:38.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Machine_Learning_Projects/1_KNN_Model/readme.html</loc>
+    <lastmod>2025-08-28T06:02:38.911Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data_Visualization_Projects/hold_report.html</loc>
+    <lastmod>2025-08-28T06:02:38.908Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Tam-Tran-24002.github.io/datascience_portfolio/Data_Visualization_Projects/hold_report copy 2.html</loc>
+    <lastmod>2025-08-28T06:02:38.908Z</lastmod>
   </url>
 </urlset>
