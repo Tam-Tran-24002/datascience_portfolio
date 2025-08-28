@@ -3,9 +3,11 @@ title: "Tam Tran"
 subtitle: Data Science Portfolio
 ---
 
-# Resume
-[View My Resume](resume.qmd)  
-## Machine Learning projects
+# Resume    
+[View My Resume](resume.qmd)      
+# Data Visualization projects      
+[View My Hold Report](Data_Visualization_Projects/hold_report.qmd)        
+# Machine Learning projects    
 [View K-Nearest Neighbors Model](Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd)  
 [View Decision Tree - Random Forest Model](Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd)  
 [View Regression Model](Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd)  
