@@ -4,6 +4,7 @@ subtitle: Data Science Portfolio
 ---
 
 # Resume
+[View My Resume](resume.qmd)  
 ## Machine Learning projects
 [View K-Nearest Neighbors Model](Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd)  
 [View Decision Tree - Random Forest Model](Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd)  
