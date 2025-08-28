@@ -1,0 +1,22 @@
+---
+title: "Data Visualization projects"
+format:
+  html:
+    page-layout: full
+    css: styles.css
+---
+__Active Program Report__  
+
+_Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._  
+
+![Active Program Report](files/Active_Program.png){width=100%}    
+
+# What is it?        
+Developed an interactive Power BI dashboard to track and analyze active academic programs across colleges and departments. The report includes search and filter options for program name, code, department, program type, college, and academic year (UG19–UG25), enabling quick identification of program availability and status.  
+
+Designed a program lookup table with highlighted Yes/No indicators to clearly show whether programs were active in each academic year.  
+
+Built dynamic filters to improve usability and streamline program searches for staff.  
+
+# Impact  
+Simplified program tracking through clear Yes/No highlights, improved accessibility of program information, and enabled faster decision-making for academic planning.     

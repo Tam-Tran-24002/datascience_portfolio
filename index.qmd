@@ -8,6 +8,8 @@ subtitle: Data Science Portfolio
 
 # Data Visualization projects      
 [View My Hold Report](Data_Visualization_Projects/hold_report.qmd) 
+[View My Active Program Report](Data_Visualization_Projects/active_program.qmd) 
+[View My Accuracy Report](Data_Visualization_Projects/accuracy_report.qmd) 
 
 # Machine Learning projects      
 [View K-Nearest Neighbors Model](Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd)  

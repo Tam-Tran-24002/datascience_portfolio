@@ -1,0 +1,20 @@
+---
+title: "Data Visualization projects"
+format:
+  html:
+    page-layout: full
+    css: styles.css
+---
+__Accuracy Report__  
+
+_Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._    
+
+![Accuracy Report](files/Accuracy_Report.png)        
+
+# What is it?  
+
+Developed an interactive Power BI dashboard to track and evaluate transfer course accuracy across schools and departments. The dashboard includes filters for date range, I-Number (student lookup), and school/transfer type categories (e.g., duplicated transfer, waivers, invalid grade).  
+
+# Impact  
+
+Improved transparency and accountability in transfer credit evaluation, ensured data accuracy for student records, and provided actionable insights to support policy compliance and academic decision-making.    

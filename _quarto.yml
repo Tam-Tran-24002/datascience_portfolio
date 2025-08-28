@@ -22,7 +22,9 @@ website:
       - text: "Home"
         file: index.qmd
       - text: "My Resume"
-        file: resume.qmd     
+        file: resume.qmd
+      - text: "Data Visualization projects"
+        file: data_visualization.qmd   
       - text: "Machine Learning projects"
         file: machine_learning.qmd 
   

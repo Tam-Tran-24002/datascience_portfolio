@@ -1,0 +1,15 @@
+---
+title: "Machine Learning - Bootcamp"  
+---
+
+## My projects
+
+### Hold Report**  
+Developed an interactive Power BI dashboard to monitor and analyze student account holds with filters for hold type, date range, and student demographics (international vs. domestic students).        
+ 
+### Active Program Report**  
+Developed an interactive Power BI dashboard to track and analyze active academic programs across colleges and departments. The report includes search and filter options for program name, code, department, program type, college, and academic year (UG19–UG25), enabling quick identification of program availability and status.  
+
+### Accuracy Program Report**    
+Developed an interactive Power BI dashboard to track and evaluate transfer course accuracy across schools and departments. The dashboard includes filters for date range, I-Number (student lookup), and school/transfer type categories (e.g., duplicated transfer, waivers, invalid grade).  
+
