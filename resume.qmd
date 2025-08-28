@@ -5,17 +5,23 @@ format:
     page-layout: full
     css: styles.css
 ---
-Tam Tran is an aspiring Data Scientist currently pursuing a Bachelor of Science in Data Science with a minor in Business Analytics and a Cloud Computing certificate. With a growing interest in data analytics, machine learning, and cloud computing, Tam is passionate about solving real-world problems through data. Eager to learn and gain hands-on experience, Tam has proficiency in Python, SQL, R, Excel, Tableau, and machine learning models. Focused on enhancing skills in data visualization, data analytics, predictive modeling, and database management, Tam is actively seeking opportunities to apply and further develop expertise in a dynamic business environment.     
+Hi! I’m Tam Tran, a Data Visualization Analyst and aspiring Data Scientist currently pursuing a B.S. in Data Science with a minor in Statistics and a Cloud Computing certificate at BYU-Idaho.  
+
+I’m passionate about transforming data into meaningful insights and compelling visual stories that drive informed decisions. With hands-on experience in Python, SQL, R, Power BI, Tableau, and DAX, I enjoy working at the intersection of statistics, analytics, and communication.  
+
+My academic and professional journey has sharpened my ability to analyze complex data, think critically, and collaborate across teams. I’m also an active contributor to the data science community at BYU-Idaho, mentoring peers and leading project-based learning.  
+
+I’m excited to keep growing in data science and contribute to innovative, data-driven teams solving real-world challenges.       
 
 # Education
 _Brigham Young University - Idaho | Expected Graduation: December 2027_   
-Bachelor of Science in Data Science       
-Minor in Business Analytics & Cloud Computing Certificate  
+Bachelor of Science in Data Science         
+Minor in Statistics & Cloud Computing Certificate    
 
 # Key skills
 • Data Analysis: Python (Pandas, NumPy, Matplotlib, LetsPlot, Seaborn, Scikit-learn), SQL, R  
-• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data), Classification Models (Decision Trees, Random Forest, KNN, XGBoost), Regression Models  
-• Business Intelligence Tools: Tableau  
+• Machine Learning: Data preprocessing (train-test split, feature engineering, encoding categorical data), Classification Models (Decision Trees, Random Forest, KNN, XGBoost), Regression Models    
+• Business Intelligence Tools: PowerBI, Tableau    
 • Microsoft Office Suite: Word, Excel, PowerPoint, Outlook     
 
 [Download My Resume](files/Tam Tran_Resume.pdf){.download-button preview="Tam Tran_Resume.pdf"}
