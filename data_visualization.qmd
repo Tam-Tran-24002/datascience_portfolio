@@ -2,47 +2,47 @@
 title: "Machine Learning - Bootcamp"  
 ---
 
-## My projects
+# My projects
 
-### Hold Report      
+## Hold Report      
 _Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._    
 
 [Hold Report Dashboard](https://drive.google.com/file/d/1rcViK0XWSmlM3FMHXTju5D2GwPUlj7f1/view?usp=drive_link)       
 
-# What is it?      
+### What is it?      
 Developed an interactive Power BI dashboard to monitor and analyze student account holds with filters for hold type, date range, and student demographics (international vs. domestic students).      
 
 Built key visualizations including monthly resolved holds (using DAX for time-based calculations), top hold types, risk-tier distribution, unresolved hold comparisons, and semester-aligned reference lines.      
 
 Designed dynamic filters and clear visualizations to support decision-making by the registration team.  
 
-# Impact  
+### Impact  
 Improved transparency of student hold trends, enabled actionable insights for decision-makers, and enhanced reporting flexibility.          
  
-### Active Program Report      
+## Active Program Report      
 _Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._    
 
 [Active Program Report](https://drive.google.com/file/d/16Se52qbsEU8TJvudV1GhrrsJS0WoSbVo/view?usp=drive_link)       
 
-# What is it?            
+### What is it?            
 Developed an interactive Power BI dashboard to track and analyze active academic programs across colleges and departments. The report includes search and filter options for program name, code, department, program type, college, and academic year (UG19–UG25), enabling quick identification of program availability and status.    
 
 Designed a program lookup table with highlighted Yes/No indicators to clearly show whether programs were active in each academic year.    
 
 Built dynamic filters to improve usability and streamline program searches for staff.    
 
-# Impact  
+### Impact  
 Simplified program tracking through clear Yes/No highlights, improved accessibility of program information, and enabled faster decision-making for academic planning.       
 
-### Accuracy Program Report       
+## Accuracy Program Report       
 _Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._      
 
 [Accuracy Report](https://drive.google.com/file/d/1JdVAB2_0QvJyuBCksKxPzIxJJoq-G5FL/view?usp=drive_link)          
 
-# What is it?      
+### What is it?      
 Developed an interactive Power BI dashboard to track and evaluate transfer course accuracy across schools and departments. The dashboard includes filters for date range, I-Number (student lookup), and school/transfer type categories (e.g., duplicated transfer, waivers, invalid grade).  
 
-# Impact  
+### Impact  
 
 Improved transparency and accountability in transfer credit evaluation, ensured data accuracy for student records, and provided actionable insights to support policy compliance and academic decision-making.   
 
