@@ -9,9 +9,9 @@ __Hold Report__
 
 _Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._  
 
-![Hold Report Dashboard](files/Hold_Report.png){width=100%}{width=100%}    
+[Hold Report Dashboard](https://drive.google.com/file/d/1rcViK0XWSmlM3FMHXTju5D2GwPUlj7f1/view?usp=drive_link)       
 
-# What is it?  
+# What is it?      
 Developed an interactive Power BI dashboard to monitor and analyze student account holds with filters for hold type, date range, and student demographics (international vs. domestic students).      
 
 Built key visualizations including monthly resolved holds (using DAX for time-based calculations), top hold types, risk-tier distribution, unresolved hold comparisons, and semester-aligned reference lines.      

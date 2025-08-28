@@ -7,11 +7,11 @@ format:
 ---
 __Active Program Report__  
 
-_Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._  
+_Note: All sensitive data has been removed for privacy. This project was reviewed and approved for portfolio use._    
 
-![Active Program Report](files/Active_Program.png){width=100%}    
+[Active Program Report](https://drive.google.com/file/d/16Se52qbsEU8TJvudV1GhrrsJS0WoSbVo/view?usp=drive_link)       
 
-# What is it?        
+# What is it?            
 Developed an interactive Power BI dashboard to track and analyze active academic programs across colleges and departments. The report includes search and filter options for program name, code, department, program type, college, and academic year (UG19–UG25), enabling quick identification of program availability and status.  
 
 Designed a program lookup table with highlighted Yes/No indicators to clearly show whether programs were active in each academic year.  

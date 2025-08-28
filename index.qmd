@@ -7,14 +7,14 @@ subtitle: Data Science Portfolio
 [View My Resume](resume.qmd)     
 
 # Data Visualization projects      
-[View My Hold Report](Data_Visualization_Projects/hold_report.qmd)   
-[View My Active Program Report](Data_Visualization_Projects/active_program.qmd)   
-[View My Accuracy Report](Data_Visualization_Projects/accuracy_report.qmd)   
+[View My Hold Report](Data_Visualization_Projects/hold_report.qmd)     
+[View My Active Program Report](Data_Visualization_Projects/active_program.qmd)     
+[View My Accuracy Report](Data_Visualization_Projects/accuracy_report.qmd)       
 
-# Machine Learning projects        
-[View K-Nearest Neighbors Model](Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd)  
-[View Decision Tree - Random Forest Model](Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd)  
-[View Regression Model](Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd)  
-[View Classification Model](Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd)   
+# Machine Learning projects          
+[View K-Nearest Neighbors Model](Machine_Learning_Projects/1_KNN_Model/ML_Bootcamp_KNN.qmd)    
+[View Decision Tree - Random Forest Model](Machine_Learning_Projects/2_DecisionTree_RandomForests_Model/ML_Bootcamp_DecisionTree_RandomForest.qmd)    
+[View Regression Model](Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd)    
+[View Classification Model](Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd)     
 
   
