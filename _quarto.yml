@@ -46,7 +46,20 @@ website:
           file: Machine_Learning_Projects/3_Regression_Model/ML_Bootcamp_Regression.qmd  
         - text: "---"
         - text: "Classification Model (XGBoost)"
-          file: Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd  
+          file: Machine_Learning_Projects/4_Classification_Model/ML_Bootcamp_Classification_XGBoost.qmd
+sidebar: 
+    - title: "Data Science Portfolio"
+      style: "docked"
+      background: light
+      contents:
+        - text: "Hold Report"
+          file: Data_Visualization_Projects/hold_report.qmd
+        - text: "---"
+        - text: "Active Program Report"
+          file: Data_Visualization_Projects/active_program.qmd  
+        - text: "---"
+        - text: "Accuracy Report"
+          file: Data_Visualization_Projects/accuracy_report.qmd   
 format:  
   html:
     theme:
